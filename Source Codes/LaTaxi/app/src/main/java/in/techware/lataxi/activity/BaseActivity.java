@@ -15,8 +15,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Vibrator;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -30,25 +30,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.crashlytics.android.Crashlytics;
-
 import in.techware.lataxi.R;
 import in.techware.lataxi.app.App;
 import in.techware.lataxi.dialogs.PopupMessage;
 import in.techware.lataxi.listeners.PermissionListener;
 import in.techware.lataxi.util.FileOp;
-import io.fabric.sdk.android.Fabric;
-
-/*import com.digits.sdk.android.Digits;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterCore;*/
 
 public abstract class BaseActivity extends AppCompatActivity {
-
-    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
-
-/*    private static final String TWITTER_KEY = "PD5W66s5bqIUpzUjUQpX8aoQf";
-    private static final String TWITTER_SECRET = "bCll6yMGQzWZB5NopEEUpkps0KgbBYtEePOPuAztLsEuuLTfd8";*/
 
     protected static final int REQUEST_ENABLE_BT = 0;
     protected static final int REQUEST_PERMISSIONS = 1;
@@ -109,14 +97,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         App.checkForToken();
 
-//        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-//        Fabric.with(this,new Crashlytics());
-        Fabric.with(this, new Crashlytics()/*, new TwitterCore(authConfig), new Digits.Builder().build()*/);
-
-//        Digits.enableSandbox();
-
         mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        //	getActionBar().setHomeButtonEnabled(true);
 
         fop = new FileOp(this.getApplicationContext());
 
@@ -129,16 +110,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         }
-/*        if (android.os.Build.VERSION.SDK_INT >= 21) {
-            toolbar.setPadding(0, getStatusBarHeight(), 0, 0);
-        }*/
-
-        //	llBottomBarActionPopup=(LinearLayout)findViewById(R.id.ll_bottombar_popmenu);
-
-/*        typeface = Typeface.createFromAsset(getAssets(), "Roboto-Regular.ttf");
-        typefaceBold = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Bold.ttf");
-        typefaceItalic = Typeface.createFromAsset(getAssets(), "RobotoCondensed-Italic.ttf");
-        typefaceBoldItalic = Typeface.createFromAsset(getAssets(), "RobotoCondensed-BoldItalic.ttf");*/
 
         pushRightOut = AnimationUtils.loadAnimation(this, R.anim.push_right_out);
         disappear = AnimationUtils.loadAnimation(this, R.anim.disappear);
@@ -169,7 +140,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-//                //mVibrator.vibrate(25);
                 v.setVisibility(View.GONE);
 
             }
@@ -198,7 +168,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    // A method to find height of the status bar
     public int getStatusBarHeight() {
         int result = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -242,43 +211,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         } catch (Exception ignored) {
         }
     }
-
-/*
-    public static String getUserDateFromUnix(String time) {
-
-        if (time.equalsIgnoreCase("-62169984000") || time.equalsIgnoreCase("false") || time.equalsIgnoreCase("true"))
-            return "";
-        try {
-            Calendar calTemp = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-            calTemp.setTimeInMillis(Long.valueOf(time) * 1000);
-            calTemp.setTimeZone(Calendar.getInstance().getTimeZone());
-            time = new SimpleDateFormat("MMM dd, yyyy", Locale.US)
-                    .format(new Date(calTemp.getTimeInMillis()));
-            return time;
-        } catch (Exception e) {
-            //	e.printStackTrace();
-            return time;
-        }
-    }
-
-    public static String getUserTimeFromUnix(String date) {
-
-        if (date.equalsIgnoreCase("-62169984000") || date.equalsIgnoreCase("false") || date.equalsIgnoreCase("true"))
-            return "";
-        try {
-            Calendar calTemp = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-            calTemp.setTimeInMillis(Long.valueOf(date) * 1000);
-            calTemp.setTimeZone(Calendar.getInstance().getTimeZone());
-            date = new SimpleDateFormat("hh:mma", Locale.US)
-                    .format(new Date(calTemp.getTimeInMillis()));
-            return date;
-        } catch (Exception e) {
-            //	e.printStackTrace();
-            return date;
-        }
-    }
-*/
-
 
     protected String getDeviceID() {
         String DEVICEID = "";
@@ -329,17 +261,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                     || ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
 
-                /*String[] permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.READ_CONTACTS,
-                        Manifest.permission.GET_ACCOUNTS,
-                        Manifest.permission.CLEAR_APP_CACHE,
-                        Manifest.permission.ACCESS_NETWORK_STATE,
-                        Manifest.permission.INTERNET,
-                        Manifest.permission.READ_PHONE_STATE};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS);*/
                 return hasAllPermissions = false;
             } else {
                 return hasAllPermissions = true;
@@ -392,9 +313,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
 
-               /* String[] permissions = new String[]{
-                        Manifest.permission.READ_CONTACTS};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_READ_CONTACTS);*/
                 return hasReadContactsPermissions = false;
             } else {
                 return hasReadContactsPermissions = true;
@@ -422,10 +340,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                     Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     || ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                /*String[] permissions = new String[]{
-                        Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.ACCESS_FINE_LOCATION,};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_LOCATION);*/
                 return hasLocationPermissions = false;
             } else {
                 return hasLocationPermissions = true;
@@ -455,9 +369,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                     || ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                /*String[] permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_READ_WRITE);*/
                 return hasReadWritePermissions = false;
             } else {
                 return hasReadWritePermissions = true;
@@ -484,8 +395,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
-              /*  String[] permissions = new String[]{Manifest.permission.GET_ACCOUNTS};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_GET_ACCOUNTS);*/
                 return hasGetAccountsPermissions = false;
             } else {
                 return hasGetAccountsPermissions = true;
@@ -510,8 +419,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-//                String[] permissions = new String[]{Manifest.permission.READ_PHONE_STATE};
-//                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_READ_PHONE_STATE);
                 return hasReadPhoneStatePermissions = false;
             } else {
                 return hasReadPhoneStatePermissions = true;
@@ -535,8 +442,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-//                String[] permissions = new String[]{Manifest.permission.READ_PHONE_STATE};
-//                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_READ_PHONE_STATE);
                 return hasCallPermissions = false;
             } else {
                 return hasCallPermissions = true;
@@ -659,7 +564,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         if (!isLocationServiceEnabled) {
-            // notify user
             if (!isFinishing()) {
                 if (!isLocationServiceEnableRequestShown) {
                     isLocationServiceEnableRequestShown = true;

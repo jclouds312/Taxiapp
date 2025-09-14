@@ -1,20 +1,40 @@
 package in.techware.lataxi.services;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import in.techware.lataxi.activity.DriverRatingActivity;
+import in.techware.lataxi.app.App;
 import in.techware.lataxi.model.BasicBean;
 import in.techware.lataxi.model.SuccessBean;
 import in.techware.lataxi.net.parsers.TripEndParser;
+import in.techware.lataxi.util.AppConstants;
 
 public class LaTaxiFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "LFMService";
     private SuccessBean successBean;
+
+    @Override
+    public void onNewToken(String token) {
+        super.onNewToken(token);
+        Log.d(TAG, "Refreshed token: " + token);
+
+        // If you want to send messages to this application instance or
+        // manage this apps subscriptions on the server side, send the
+        // Instance ID token to your app server.
+        SharedPreferences preferences = getSharedPreferences(AppConstants.PREFERENCE_NAME_SESSION, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(AppConstants.PREFERENCE_KEY_SESSION_GCM_ID, token);
+        editor.apply();
+
+        // TODO: Implement your own logic to submit the token to your backend server
+    }
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {

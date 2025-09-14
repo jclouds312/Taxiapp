@@ -7,7 +7,7 @@ import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.Button;

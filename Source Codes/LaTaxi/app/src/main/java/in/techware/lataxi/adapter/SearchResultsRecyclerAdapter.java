@@ -2,7 +2,7 @@ package in.techware.lataxi.adapter;
 
 import android.app.Activity;
 import android.graphics.Typeface;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.style.CharacterStyle;
 import android.text.style.StyleSpan;
 import android.util.Log;

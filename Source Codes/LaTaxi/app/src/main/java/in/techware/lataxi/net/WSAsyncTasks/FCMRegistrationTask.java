@@ -2,11 +2,8 @@ package in.techware.lataxi.net.WSAsyncTasks;
 
 import android.os.AsyncTask;
 
-import com.google.firebase.iid.FirebaseInstanceId;
-
-/**
- * Created by SIB-QC4 on 4/4/2017.
- */
+import com.google.android.gms.tasks.Tasks;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class FCMRegistrationTask extends AsyncTask<String, Integer, String> {
     private FCMRegistrationTaskListener gcmRegistrationTaskListener;
@@ -14,8 +11,12 @@ public class FCMRegistrationTask extends AsyncTask<String, Integer, String> {
     @Override
     protected String doInBackground(String... params) {
         System.out.println(">>>>>>>>>doInBackground");
-        String regID = "";
-        regID = FirebaseInstanceId.getInstance().getToken();
+        String regID = null;
+        try {
+            regID = Tasks.await(FirebaseMessaging.getInstance().getToken());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return regID;
     }
 

@@ -1,7 +1,7 @@
 package in.techware.lataxi.model;
 
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public class CarBean extends BaseBean implements Comparable<CarBean>{
 

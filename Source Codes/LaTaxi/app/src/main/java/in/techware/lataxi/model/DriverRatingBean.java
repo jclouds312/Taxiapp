@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class DriverRatingBean extends BaseBean {
 
     private String rating;
-    private ArrayList badFeedbackList = new ArrayList();
-    private ArrayList goodFeedbackList = new ArrayList();
+    private ArrayList<String> badFeedbackList = new ArrayList<>();
+    private ArrayList<String> goodFeedbackList = new ArrayList<>();
     private String feedback;
 
     public String getRating() {
@@ -18,19 +18,19 @@ public class DriverRatingBean extends BaseBean {
         this.rating = rating;
     }
 
-    public ArrayList getBadFeedbackList() {
+    public ArrayList<String> getBadFeedbackList() {
         return badFeedbackList;
     }
 
-    public void setBadFeedbackList(ArrayList badFeedbackList) {
+    public void setBadFeedbackList(ArrayList<String> badFeedbackList) {
         this.badFeedbackList = badFeedbackList;
     }
 
-    public ArrayList getGoodFeedbackList() {
+    public ArrayList<String> getGoodFeedbackList() {
         return goodFeedbackList;
     }
 
-    public void setGoodFeedbackList(ArrayList goodFeedbackList) {
+    public void setGoodFeedbackList(ArrayList<String> goodFeedbackList) {
         this.goodFeedbackList = goodFeedbackList;
     }
 
