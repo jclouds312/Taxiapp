@@ -1,0 +1,22 @@
+# Gradle
+.gradle
+build/
+!build/generated/
+!build/kotlin/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+
+# Local configuration
+local.properties
+
+# Keystore files
+*.jks
+*.keystore
+
+# Android
+.DS_Store
+captures/
+output/
