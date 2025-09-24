@@ -1,57 +1,85 @@
-
-# To learn more about how to use Nix to configure your environment
-# see: https://firebase.google.com/docs/studio/customize-workspace
+# Para obtener más información sobre cómo usar Nix para configurar tu entorno,
+# consulta: https://firebase.google.com/docs/studio/customize-workspace
 { pkgs, ... }: {
-  # Which nixpkgs channel to use.
-  channel = "stable-24.05"; # or "unstable"
+  # Qué canal de nixpkgs usar.
+  channel = "stable-24.05"; # o "unstable"
 
-  # Use https://search.nixos.org/packages to find packages
+  # Usa https://search.nixos.org/packages para encontrar paquetes
   packages = [
-    pkgs.jdk11
+    pkgs.jdk11 # Requerido por LaTaxiDriver
+    pkgs.jdk17 # Requerido por LaTaxi
     pkgs.android-sdk
   ];
 
-  # Sets environment variables in the workspace
+  # Establece variables de entorno en el espacio de trabajo
   env = {
     JAVA_HOME = "${pkgs.jdk11}";
     ANDROID_HOME = "${pkgs.android-sdk}";
     ANDROID_SDK_ROOT = "${pkgs.android-sdk}";
   };
-  
+
   idx = {
-    # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
+    # Busca las extensiones que quieras en https://open-vsx.org/ y usa "publisher.id"
     extensions = [
-      # "vscodevim.vim"
+      "redhat.java",
+      "vscjava.vscode-java-debug"
     ];
 
-    # Enable previews and customize ports
+    # Habilita previsualizaciones y personaliza los puertos
     previews = {
       enable = true;
       previews = {
-        # web = {
-        #   # Example: run \"npm run dev\" with PORT set to IDX\'s defined port for previews,
-        #   # and show it in IDX\'s web preview panel
-        #   command = [\"npm\" \"run\" \"dev\"];
-        #   manager = \"web\";
-        #   env = {
-        #     # Environment variables to set for your server
-        #     PORT = \"$PORT\";
-        #   };\
-        # };
+        android = {
+          # Compila y ejecuta la aplicación de Android y la muestra en
+          # el panel de previsualización de Android de IDX
+          command = ["./gradlew", ":app:installDebug"];
+          manager = "android";
+        };
       };
     };
 
-    # Workspace lifecycle hooks
+    # Hooks del ciclo de vida del espacio de trabajo
     workspace = {
-      # Runs when a workspace is first created
+      # Se ejecuta cuando se crea un espacio de trabajo por primera vez
       onCreate = {
-        # Example: install JS dependencies from NPM
-        # npm-install = "npm install";
+        # Crea local.properties para Gradle
+        setup-gradle = ''
+          echo "sdk.dir=${pkgs.android-sdk}" > local.properties
+          # El README menciona dos proyectos. Si el segundo proyecto está en un
+          # subdirectorio (ej. LaTaxi/), copia local.properties allí también.
+          # cp local.properties LaTaxi/
+        '';
+
+        # Crea un google-services.json de ejemplo si no existe
+        setup-firebase = ''
+          if [ ! -f app/google-services.json ]; then
+            echo '{
+              "project_info": { "project_id": "replace-with-your-project-id" },
+              "client": [
+                {
+                  "client_info": {
+                    "mobilesdk_app_id": "replace-with-your-app-id",
+                    "android_client_info": { "package_name": "in.techware.lataxidriver" }
+                  },
+                  "api_key": [{ "current_key": "replace-with-your-api-key" }]
+                }
+              ]
+            }' > app/google-services.json
+            echo "********************************************************************************************************"
+            echo "IMPORTANTE: Reemplaza el contenido de 'app/google-services.json' con el de tu proyecto de Firebase."
+            echo "********************************************************************************************************"
+          fi
+        '';
       };
-      # Runs when the workspace is (re)started
+
+      # Se ejecuta cuando el espacio de trabajo se (re)inicia
       onStart = {
-        # The first time the workspace starts, we need to accept the Android SDK licenses
-        accept-licenses = "yes | ${pkgs.android-sdk}/bin/sdkmanager --licenses";
+        # Acepta las licencias del SDK de Android para poder compilar.
+        accept-licenses = ''
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || \
+          yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses || \
+          echo "Advertencia: No se pudieron aceptar las licencias del SDK."
+        '';
       };
     };
   };
