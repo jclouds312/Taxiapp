@@ -1,3 +1,4 @@
+# Updated to force Codemagic to fetch the latest commit
 workflows:
   android-app:
     name: Android App
