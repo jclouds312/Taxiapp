@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "912563974727",
+    "project_id": "simple-taxi-apk-argentina",
+    "storage_bucket": "simple-taxi-apk-argentina.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912563974727:android:a351d01700cb9d0957f762",
+        "android_client_info": {
+          "package_name": "in.techware.lataxidriver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKPoCnaf4o50dzYiyloyDjzDL6vW2O8MY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
