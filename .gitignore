@@ -90,4 +90,7 @@ gradle-wrapper.jar
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+# Firebase
+app/google-services.json
+
 # End of https://www.toptal.com/developers/gitignore/api/android,java,gradle
