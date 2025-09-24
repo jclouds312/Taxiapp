@@ -9,6 +9,12 @@ repositories {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java']
+            kotlin.srcDirs = ['src/main/kotlin']
+        }
+    }
     defaultConfig {
         applicationId "in.techware.lataxidriver"
         minSdkVersion 15
