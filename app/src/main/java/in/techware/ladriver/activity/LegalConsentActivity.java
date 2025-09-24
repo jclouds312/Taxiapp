@@ -2,9 +2,9 @@ package in.techware.ladriver.activity;
 
 import android.content.Intent;
 import android.os.Build;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.CheckBox;
 
