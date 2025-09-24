@@ -1,4 +1,4 @@
-# Para obtener más información sobre cómo usar Nix para configurar tu entorno,
+ñ# Para obtener más información sobre cómo usar Nix para configurar tu entorno,
 # consulta: https://firebase.google.com/docs/studio/customize-workspace
 { pkgs, ... }: {
   # Qué canal de nixpkgs usar.
