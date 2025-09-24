@@ -10,7 +10,7 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
     defaultConfig {
-        applicationId "in.techware.lataxidriver"
+        applicationId "in.techware.ladriver"
         minSdkVersion 15
         targetSdkVersion 30
         versionCode 8

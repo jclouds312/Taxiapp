@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.techware.lataxidriver">
+    package="in.techware.ladriver">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -43,12 +43,12 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent"/>
 
-        <service android:name=".services.LaTaxiDriverFirebaseMessagingService">
+        <service android:name=".services.LaDriverFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-        <service android:name=".services.LaTaxiDriverFirebaseInstanceIDService">
+        <service android:name=".services.LaDriverFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
