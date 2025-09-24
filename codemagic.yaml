@@ -4,8 +4,6 @@ workflows:
     environment:
       java: 11
     scripts:
-      - name: Decode google-services.json
-        script: echo $GOOGLE_SERVICES | base64 --decode > app/google-services.json
       - name: Decode keystore
         script: echo $KEYSTORE | base64 --decode > my_keystore.jks
       - name: Build APK

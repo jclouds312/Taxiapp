@@ -52,9 +52,6 @@ captures/
 # External native build folder created in Android Studio 2.2 and later
 .externalNativeBuild
 
-# Google Services (force-remove so it remains in the repo)
-# google-services.json
-
 ### Gradle ###
 .gradle
 build/
