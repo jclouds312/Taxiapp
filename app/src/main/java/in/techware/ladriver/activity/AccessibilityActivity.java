@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -12,14 +12,14 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.listeners.AccessibilityListener;
-import in.techware.lataxidriver.listeners.BasicListener;
-import in.techware.lataxidriver.model.AccessibilityBean;
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.listeners.AccessibilityListener;
+import in.techware.ladriver.listeners.BasicListener;
+import in.techware.ladriver.model.AccessibilityBean;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
 public class AccessibilityActivity extends BaseAppCompatNoDrawerActivity {
 

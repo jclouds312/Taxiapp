@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -7,11 +7,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.adapter.RiderFeedbackPagerAdapter;
-import in.techware.lataxidriver.fragments.CommentsFragment;
-import in.techware.lataxidriver.fragments.IssuesFragment;
-import in.techware.lataxidriver.widgets.CustomTextView;
+import in.techware.ladriver.R;
+import in.techware.ladriver.adapter.RiderFeedbackPagerAdapter;
+import in.techware.ladriver.fragments.CommentsFragment;
+import in.techware.ladriver.fragments.IssuesFragment;
+import in.techware.ladriver.widgets.CustomTextView;
 
 public class RiderFeedbackActivity extends BaseAppCompatNoDrawerActivity implements IssuesFragment.IssuesFragmentListener,
         CommentsFragment.CommentsFragmentListener {

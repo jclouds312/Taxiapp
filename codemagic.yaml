@@ -1,29 +1,14 @@
 workflows:
-    android-app:
-        name: Android App
-        environment:
-            groups:
-                - google-services
-            android_signing:
-                - keystore_reference
-            vars:
-                PACKAGE_NAME: "in.techware.lataxidriver"
-        triggering:
-            events:
-                - push
-            branch_patterns:
-                - pattern: 'main'
-                  include: true
-                  source: true
-        scripts:
-            - name: Set up local properties
-              script: |
-                echo "sdk.dir=$ANDROID_SDK_ROOT" > "$FCI_BUILD_DIR/local.properties"
-            - name: Set up google-services.json
-              script: |
-                echo $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS > $FCI_BUILD_DIR/app/google-services.json
-            - name: Build Android app
-              script: |
-                ./gradlew assembleRelease
-        artifacts:
-            - app/build/outputs/apk/release/app-release.apk
+  android-app:
+    name: Android App
+    environment:
+      java: 11
+    scripts:
+      - name: Decode google-services.json
+        script: echo $GOOGLE_SERVICES | base64 --decode > app/google-services.json
+      - name: Decode keystore
+        script: echo $KEYSTORE | base64 --decode > my_keystore.jks
+      - name: Build APK
+        script: ./gradlew assembleRelease
+    artifacts:
+      - app/build/outputs/apk/release/*.apk

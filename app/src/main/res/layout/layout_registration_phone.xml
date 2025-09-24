@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context="in.techware.lataxidriver.activity.RegistrationActivity">
+    tools:context="in.techware.ladriver.activity.RegistrationActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/label_earn_more"
@@ -31,7 +31,7 @@
                 android:textStyle="bold"
                 app:textAllCaps="true"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/label_with_la_taxi"
@@ -94,7 +94,7 @@
             android:background="@color/underline_color"/>
 
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_registration_mobile_otp_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_registration_mobile_one"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -126,7 +126,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_registration_mobile_two"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -140,7 +140,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_registration_mobile_three"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -154,7 +154,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_registration_mobile_four"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -168,7 +168,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_registration_mobile_five"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -182,7 +182,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_registration_mobile_six"
                 android:layout_width="40dp"
                 android:layout_height="40dp"

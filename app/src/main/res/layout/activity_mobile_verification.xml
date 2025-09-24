@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context="in.techware.lataxidriver.activity.MobileVerificationActivity">
+    tools:context="in.techware.ladriver.activity.MobileVerificationActivity">
 
     <LinearLayout
         style="@style/RegistrationParent"
@@ -66,7 +66,7 @@
             android:background="@color/underline_color"/>
 
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_mobile_verification_otp_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_mobile_verification_one"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -94,7 +94,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_mobile_verification_two"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -108,7 +108,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_mobile_verification_three"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -122,7 +122,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_mobile_verification_four"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -136,7 +136,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_mobile_verification_five"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -150,7 +150,7 @@
                 android:textColorHint="@color/text_hint"
                 android:textCursorDrawable="@color/colorPrimaryDark"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_mobile_verification_six"
                 android:layout_width="40dp"
                 android:layout_height="40dp"

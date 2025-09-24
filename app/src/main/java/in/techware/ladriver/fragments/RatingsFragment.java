@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.fragments;
+package in.techware.ladriver.fragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,14 +18,14 @@ import android.widget.TextView;
 import java.text.NumberFormat;
 import java.util.HashMap;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.activity.ProTipsActivity;
-import in.techware.lataxidriver.activity.RiderFeedbackActivity;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.listeners.RatingDetailsListener;
-import in.techware.lataxidriver.model.RatingDetailsBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.activity.ProTipsActivity;
+import in.techware.ladriver.activity.RiderFeedbackActivity;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.listeners.RatingDetailsListener;
+import in.techware.ladriver.model.RatingDetailsBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
 
 public class RatingsFragment extends BaseFragment {

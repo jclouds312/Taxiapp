@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.dialogs;
+package in.techware.ladriver.dialogs;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.config.TypefaceCache;
+import in.techware.ladriver.R;
+import in.techware.ladriver.config.TypefaceCache;
 
 
 /**

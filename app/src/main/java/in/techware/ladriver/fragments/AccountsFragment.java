@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.fragments;
+package in.techware.ladriver.fragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -22,19 +22,19 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.activity.AboutActivity;
-import in.techware.lataxidriver.activity.DocumentsActivity;
-import in.techware.lataxidriver.activity.EditVehicleDetailsActivity;
-import in.techware.lataxidriver.activity.HelpListActivity;
-import in.techware.lataxidriver.activity.ProfileActivity;
-import in.techware.lataxidriver.activity.SettingsActivity;
-import in.techware.lataxidriver.activity.SplashActivity;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.listeners.ProfileListener;
-import in.techware.lataxidriver.model.ProfileBean;
-import in.techware.lataxidriver.net.DataManager;
+import in.techware.ladriver.R;
+import in.techware.ladriver.activity.AboutActivity;
+import in.techware.ladriver.activity.DocumentsActivity;
+import in.techware.ladriver.activity.EditVehicleDetailsActivity;
+import in.techware.ladriver.activity.HelpListActivity;
+import in.techware.ladriver.activity.ProfileActivity;
+import in.techware.ladriver.activity.SettingsActivity;
+import in.techware.ladriver.activity.SplashActivity;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.listeners.ProfileListener;
+import in.techware.ladriver.model.ProfileBean;
+import in.techware.ladriver.net.DataManager;
 
 
 public class AccountsFragment extends BaseFragment {

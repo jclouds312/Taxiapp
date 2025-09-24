@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.services;
+package in.techware.ladriver.services;
 
 import android.content.Intent;
 import android.util.Log;
@@ -6,12 +6,12 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import in.techware.lataxidriver.activity.HomeActivity;
-import in.techware.lataxidriver.activity.RequestConfirmationActivity;
-import in.techware.lataxidriver.activity.SplashActivity;
-import in.techware.lataxidriver.activity.TripDetailsActivity;
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.net.parsers.RequestParser;
+import in.techware.ladriver.activity.HomeActivity;
+import in.techware.ladriver.activity.RequestConfirmationActivity;
+import in.techware.ladriver.activity.SplashActivity;
+import in.techware.ladriver.activity.TripDetailsActivity;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.net.parsers.RequestParser;
 
 public class LaTaxiDriverFirebaseMessagingService extends FirebaseMessagingService {
 

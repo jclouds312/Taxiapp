@@ -1,14 +1,14 @@
-package in.techware.lataxidriver.net.invokers;
+package in.techware.ladriver.net.invokers;
 
 import org.json.JSONObject;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.model.AccessibilityBean;
-import in.techware.lataxidriver.net.ServiceNames;
-import in.techware.lataxidriver.net.WebConnector;
-import in.techware.lataxidriver.net.parsers.DriverAccessibilityParser;
-import in.techware.lataxidriver.net.utils.WSConstants;
+import in.techware.ladriver.model.AccessibilityBean;
+import in.techware.ladriver.net.ServiceNames;
+import in.techware.ladriver.net.WebConnector;
+import in.techware.ladriver.net.parsers.DriverAccessibilityParser;
+import in.techware.ladriver.net.utils.WSConstants;
 
 public class DriverAccessibilityInvoker extends BaseInvoker {
 

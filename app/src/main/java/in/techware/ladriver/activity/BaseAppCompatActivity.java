@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.Manifest;
 import android.content.Context;
@@ -50,15 +50,15 @@ import org.json.JSONObject;
 import java.io.File;
 import java.util.HashMap;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.listeners.BasicListener;
-import in.techware.lataxidriver.listeners.ProfileListener;
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.model.ProfileBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.widgets.CustomTextView;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.listeners.BasicListener;
+import in.techware.ladriver.listeners.ProfileListener;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.model.ProfileBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.widgets.CustomTextView;
 
 public class BaseAppCompatActivity extends BaseActivity implements
         GoogleApiClient.ConnectionCallbacks,

@@ -1,7 +1,7 @@
-package in.techware.lataxidriver.listeners;
+package in.techware.ladriver.listeners;
 
 
-import in.techware.lataxidriver.model.ProfileBean;
+import in.techware.ladriver.model.ProfileBean;
 
 
 public interface ProfileListener {

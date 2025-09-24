@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="in.techware.lataxidriver.activity.WelcomeActivity">
+    tools:context="in.techware.ladriver.activity.WelcomeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,14 +34,14 @@
                 android:minHeight="200dp"
                 android:orientation="vertical">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/label_earn_more"
                     android:textColor="#f9f9f9"
                     android:textSize="23sp"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/label_with_la_taxi"
@@ -49,7 +49,7 @@
                     android:textSize="27sp"
                     android:textStyle="bold"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="45dp"
                     android:layout_height="5dp"
                     android:layout_marginTop="20dp"

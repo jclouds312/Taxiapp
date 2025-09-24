@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.fragments;
+package in.techware.ladriver.fragments;
 
 import android.Manifest;
 import android.app.Activity;
@@ -58,20 +58,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.activity.TripHistoryActivity;
-import in.techware.lataxidriver.adapter.HomeTripHistoryRecyclerAdapter;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.listeners.BasicListener;
-import in.techware.lataxidriver.listeners.TripListListener;
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.model.MapBean;
-import in.techware.lataxidriver.model.PlaceBean;
-import in.techware.lataxidriver.model.TripBean;
-import in.techware.lataxidriver.model.TripListBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.activity.TripHistoryActivity;
+import in.techware.ladriver.adapter.HomeTripHistoryRecyclerAdapter;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.listeners.BasicListener;
+import in.techware.ladriver.listeners.TripListListener;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.model.MapBean;
+import in.techware.ladriver.model.PlaceBean;
+import in.techware.ladriver.model.TripBean;
+import in.techware.ladriver.model.TripListBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
 /**
  * A simple {@link Fragment} subclass.

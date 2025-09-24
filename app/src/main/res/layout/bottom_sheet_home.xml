@@ -36,7 +36,7 @@
     </LinearLayout>
 
 
-    <in.techware.lataxidriver.widgets.CustomTextView
+    <in.techware.ladriver.widgets.CustomTextView
         android:id="@+id/txt_home_card_1_no_trips_taken"
         android:layout_width="match_parent"
         android:layout_height="200dp"

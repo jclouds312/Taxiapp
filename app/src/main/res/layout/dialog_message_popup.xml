@@ -23,7 +23,7 @@
 		android:orientation="vertical">
 
 
-		<in.techware.lataxidriver.widgets.CustomTextView
+		<in.techware.ladriver.widgets.CustomTextView
 			android:id="@+id/txt_dialog_message_popup"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.adapter;
+package in.techware.ladriver.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -8,13 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.model.IssueBean;
-import in.techware.lataxidriver.model.IssueListBean;
+import in.techware.ladriver.R;
+import in.techware.ladriver.model.IssueBean;
+import in.techware.ladriver.model.IssueListBean;
 
 /**
  * Created by Jemsheer K D on 19 May, 2017.
- * Package in.techware.lataxidriver.adapter
+ * Package in.techware.ladriver.adapter
  * Project LaTaxiDriver
  */
 

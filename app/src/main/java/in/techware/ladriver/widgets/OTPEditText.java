@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.widgets;
+package in.techware.ladriver.widgets;
 
 /**
  * Created by SIB-QC4 on 1/17/2017.

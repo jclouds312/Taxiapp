@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.content.Intent;
 import android.os.Build;
@@ -8,7 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.CheckBox;
 
-import in.techware.lataxidriver.R;
+import in.techware.ladriver.R;
 
 public class LegalConsentActivity extends BaseAppCompatNoDrawerActivity {
 

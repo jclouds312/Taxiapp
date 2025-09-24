@@ -1,7 +1,7 @@
-package in.techware.lataxidriver.listeners;
+package in.techware.ladriver.listeners;
 
 
-import in.techware.lataxidriver.model.AccessibilityBean;
+import in.techware.ladriver.model.AccessibilityBean;
 
 public interface AccessibilityListener {
 

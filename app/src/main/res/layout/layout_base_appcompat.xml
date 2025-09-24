@@ -95,7 +95,7 @@
                         android:layout_height="150dp"
                         android:scaleType="centerInside"/>
 
-                    <in.techware.lataxidriver.widgets.CustomTextView
+                    <in.techware.ladriver.widgets.CustomTextView
                         android:id="@+id/txt_default_message_base_appcompat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

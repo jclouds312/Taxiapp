@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.app;
+package in.techware.ladriver.app;
 
 import android.app.AlarmManager;
 import android.app.Application;
@@ -45,13 +45,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.model.AuthBean;
-import in.techware.lataxidriver.util.AppConstants;
-import in.techware.lataxidriver.util.FileOp;
-import in.techware.lataxidriver.util.RobotoTextStyleExtractor;
-import in.techware.lataxidriver.util.TypefaceManager;
+import in.techware.ladriver.R;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.model.AuthBean;
+import in.techware.ladriver.util.AppConstants;
+import in.techware.ladriver.util.FileOp;
+import in.techware.ladriver.util.RobotoTextStyleExtractor;
+import in.techware.ladriver.util.TypefaceManager;
 
 public class App extends Application {
 

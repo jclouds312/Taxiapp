@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.adapter;
+package in.techware.ladriver.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,14 +14,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.activity.HelpActivity;
-import in.techware.lataxidriver.model.HelpBean;
-import in.techware.lataxidriver.model.HelpListBean;
+import in.techware.ladriver.R;
+import in.techware.ladriver.activity.HelpActivity;
+import in.techware.ladriver.model.HelpBean;
+import in.techware.ladriver.model.HelpListBean;
 
 /**
  * Created by Jemsheer K D on 19 May, 2017.
- * Package in.techware.lataxidriver.adapter
+ * Package in.techware.ladriver.adapter
  * Project LaTaxiDriver
  */
 

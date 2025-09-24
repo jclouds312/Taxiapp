@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="in.techware.lataxidriver.activity.ProfilePhotoUploadActivity">
+    tools:context="in.techware.ladriver.activity.ProfilePhotoUploadActivity">
 
 
     <LinearLayout
@@ -35,7 +35,7 @@
                 app:srcCompat="@drawable/ic_driver_dummy"/>
 
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -46,14 +46,14 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/label_profile_photo"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="50dp"
                     android:layout_height="6dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
                     android:background="@drawable/btn_click_app_rectangle_with_semicircle_edge"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -85,7 +85,7 @@
                 android:visibility="visible"
                 app:srcCompat="@drawable/ic_camera"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"

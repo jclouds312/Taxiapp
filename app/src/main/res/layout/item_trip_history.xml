@@ -36,7 +36,7 @@
         android:paddingLeft="60dp">
 
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_item_trip_history_date"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -47,7 +47,7 @@
             android:textColor="@color/text_4"
             android:textSize="12sp"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_item_trip_history_time"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -60,7 +60,7 @@
             android:textSize="12sp"/>
 
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_item_trip_history_fare"
             android:layout_width="0dp"
             android:layout_height="match_parent"

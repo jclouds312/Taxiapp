@@ -6,7 +6,7 @@
     android:id="@+id/activity_trip_help"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.techware.lataxidriver.activity.TripHelpActivity">
+    tools:context="in.techware.ladriver.activity.TripHelpActivity">
 
     <include
         layout="@layout/fragment_map"
@@ -43,7 +43,7 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/HelpFeedbackItemParent"
                     android:gravity="center_vertical"
                     android:text="@string/label_name"
@@ -51,7 +51,7 @@
                     android:textColor="@color/text_3"
                     android:textSize="12sp"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_trip_help_customer_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/HelpFeedbackItemParent"
                     android:gravity="center_vertical"
                     android:text="@string/label_you_rated"
@@ -92,7 +92,7 @@
                     android:rating="3"
                     android:stepSize=".5"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_trip_help_rating"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -127,14 +127,14 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <in.techware.lataxidriver.widgets.CustomTextView
+                    <in.techware.ladriver.widgets.CustomTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="4"
                         android:text="@string/label_estimated_payout"
                         android:textColor="@color/text_5"/>
 
-                    <in.techware.lataxidriver.widgets.CustomTextView
+                    <in.techware.ladriver.widgets.CustomTextView
                         android:id="@+id/txt_trip_help_estimated_payout"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -161,7 +161,7 @@
                         android:layout_height="15dp"
                         app:srcCompat="@drawable/circle_green"/>
 
-                    <in.techware.lataxidriver.widgets.CustomTextView
+                    <in.techware.ladriver.widgets.CustomTextView
                         android:id="@+id/txt_trip_help_source_location"
                         style="@style/HelpFeedbackItemLabel"
                         android:gravity="center_vertical"
@@ -187,7 +187,7 @@
                         android:layout_height="15dp"
                         app:srcCompat="@drawable/circle_red_1"/>
 
-                    <in.techware.lataxidriver.widgets.CustomTextView
+                    <in.techware.ladriver.widgets.CustomTextView
                         android:id="@+id/txt_trip_help_destination_location"
                         style="@style/HelpFeedbackItemLabel"
                         android:gravity="center_vertical"

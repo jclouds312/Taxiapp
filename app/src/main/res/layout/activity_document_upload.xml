@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="in.techware.lataxidriver.activity.DocumentUploadActivity">
+    tools:context="in.techware.ladriver.activity.DocumentUploadActivity">
 
 
     <LinearLayout
@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_document_upload_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
                 android:textSize="25sp"
                 android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -45,14 +45,14 @@
                 android:textSize="18sp"/>
 
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:layout_width="45dp"
                 android:layout_height="5dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/btn_click_app_rectangle_with_semicircle_edge"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -82,7 +82,7 @@
                 android:visibility="visible"
                 app:srcCompat="@drawable/ic_camera"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"

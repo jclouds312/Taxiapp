@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.net.parsers;
+package in.techware.ladriver.net.parsers;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -7,14 +7,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.model.HelpBean;
-import in.techware.lataxidriver.model.HelpListBean;
-import in.techware.lataxidriver.model.PaginationBean;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.model.HelpBean;
+import in.techware.ladriver.model.HelpListBean;
+import in.techware.ladriver.model.PaginationBean;
 
 /**
  * Created by Jemsheer K D on 20 May, 2017.
- * Package in.techware.lataxidriver.net.parsers
+ * Package in.techware.ladriver.net.parsers
  * Project LaTaxiDriver
  */
 

@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.util;
+package in.techware.ladriver.util;
 
 public interface TextStyle {
 

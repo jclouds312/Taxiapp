@@ -11,7 +11,7 @@
     android:paddingRight="20dp"
     android:paddingTop="10dp">
 
-    <in.techware.lataxidriver.widgets.CustomTextView
+    <in.techware.ladriver.widgets.CustomTextView
         android:id="@+id/txt_home_card_online_trips_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold"/>
 
-    <in.techware.lataxidriver.widgets.CustomTextView
+    <in.techware.ladriver.widgets.CustomTextView
         android:id="@+id/txt_home_card_online_partner_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

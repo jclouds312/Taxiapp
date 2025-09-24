@@ -1,10 +1,10 @@
-package in.techware.lataxidriver.listeners;
+package in.techware.ladriver.listeners;
 
-import in.techware.lataxidriver.model.TripBean;
+import in.techware.ladriver.model.TripBean;
 
 /**
  * Created by Jemsheer K D on 09 June, 2017.
- * Package in.techware.lataxidriver.listeners
+ * Package in.techware.ladriver.listeners
  * Project LaTaxiDriver
  */
 

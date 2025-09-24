@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.fragments;
+package in.techware.ladriver.fragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,15 +20,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.adapter.IssueListRecyclerAdapter;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.listeners.IssueListListener;
-import in.techware.lataxidriver.model.IssueBean;
-import in.techware.lataxidriver.model.IssueListBean;
-import in.techware.lataxidriver.model.PaginationBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.adapter.IssueListRecyclerAdapter;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.listeners.IssueListListener;
+import in.techware.ladriver.model.IssueBean;
+import in.techware.ladriver.model.IssueListBean;
+import in.techware.ladriver.model.PaginationBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
 public class IssuesFragment extends BaseFragment {
 

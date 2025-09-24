@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.Manifest;
 import android.content.Intent;
@@ -50,18 +50,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.listeners.PolyPointListener;
-import in.techware.lataxidriver.listeners.TripDetailsListener;
-import in.techware.lataxidriver.model.MapBean;
-import in.techware.lataxidriver.model.PolyPointBean;
-import in.techware.lataxidriver.model.TripBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.listeners.PolyPointListener;
+import in.techware.ladriver.listeners.TripDetailsListener;
+import in.techware.ladriver.model.MapBean;
+import in.techware.ladriver.model.PolyPointBean;
+import in.techware.ladriver.model.TripBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
-//import in.techware.lataxidriver.model.PlaceBean;
+//import in.techware.ladriver.model.PlaceBean;
 
 public class TripDetailsActivity extends BaseAppCompatNoDrawerActivity {
 

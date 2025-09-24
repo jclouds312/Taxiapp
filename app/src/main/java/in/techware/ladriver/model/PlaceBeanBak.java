@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.model;
+package in.techware.ladriver.model;
 
 
 import android.support.annotation.NonNull;

@@ -1,15 +1,15 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 import android.os.AsyncTask;
 
 import org.json.JSONObject;
 
-import in.techware.lataxidriver.model.AuthBean;
-import in.techware.lataxidriver.net.invokers.RegistrationInvoker;
+import in.techware.ladriver.model.AuthBean;
+import in.techware.ladriver.net.invokers.RegistrationInvoker;
 
 /**
  * Created by Jemsheer K D on 24 April, 2017.
- * Package in.techware.lataxidriver.net.WSAsyncTasks
+ * Package in.techware.ladriver.net.WSAsyncTasks
  * Project LaTaxiDriver
  */
 

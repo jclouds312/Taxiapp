@@ -1,10 +1,10 @@
-package in.techware.lataxidriver.net.parsers;
+package in.techware.ladriver.net.parsers;
 
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import in.techware.lataxidriver.model.TripSummaryBean;
+import in.techware.ladriver.model.TripSummaryBean;
 
 public class TripSummaryParser {
 

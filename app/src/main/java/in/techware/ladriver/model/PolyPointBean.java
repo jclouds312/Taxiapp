@@ -1,11 +1,11 @@
-package in.techware.lataxidriver.model;
+package in.techware.ladriver.model;
 
 import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by Jemsheer K D on 09 May, 2017.
- * Package in.techware.lataxidriver.model
+ * Package in.techware.ladriver.model
  * Project LaTaxiDriver
  */
 

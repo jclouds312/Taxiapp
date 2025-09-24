@@ -1,15 +1,15 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 import android.os.AsyncTask;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.model.HelpListBean;
-import in.techware.lataxidriver.net.invokers.HelpListInvoker;
+import in.techware.ladriver.model.HelpListBean;
+import in.techware.ladriver.net.invokers.HelpListInvoker;
 
 /**
  * Created by Jemsheer K D on 20 May, 2017.
- * Package in.techware.lataxidriver.net.WSAsyncTasks
+ * Package in.techware.ladriver.net.WSAsyncTasks
  * Project LaTaxiDriver
  */
 

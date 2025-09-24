@@ -17,7 +17,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
@@ -29,7 +29,7 @@
             android:textStyle="bold"
             app:textAllCaps="true"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -39,7 +39,7 @@
             android:textColor="@color/text_5"
             android:textSize="19sp"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="45dp"
             android:layout_height="5dp"
             android:layout_gravity="center"
@@ -56,7 +56,7 @@
             android:onClick="onDriverLicenceTypeDriverCumOwnerClick"
             android:padding="15dp">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_driver_licence_type_driver_cum_owner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
@@ -92,7 +92,7 @@
             android:onClick="onDriverLicenceTypeNonDrivingPartnerClick"
             android:padding="15dp">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_driver_licence_type_non_driving_partner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                 android:textColor="@color/text_driver_Type"
                 android:textSize="18sp"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"

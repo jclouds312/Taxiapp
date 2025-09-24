@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.Manifest;
 import android.content.Context;
@@ -57,18 +57,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TimeZone;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.listeners.BasicListener;
-import in.techware.lataxidriver.listeners.PolyPointListener;
-import in.techware.lataxidriver.listeners.TripDetailsListener;
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.model.PathBean;
-import in.techware.lataxidriver.model.PolyPointBean;
-import in.techware.lataxidriver.model.TripBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.listeners.BasicListener;
+import in.techware.ladriver.listeners.PolyPointListener;
+import in.techware.ladriver.listeners.TripDetailsListener;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.model.PathBean;
+import in.techware.ladriver.model.PolyPointBean;
+import in.techware.ladriver.model.TripBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
 public class OnTripActivity extends BaseAppCompatNoDrawerActivity implements
         GoogleApiClient.ConnectionCallbacks,

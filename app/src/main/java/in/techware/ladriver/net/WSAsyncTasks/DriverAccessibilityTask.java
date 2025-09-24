@@ -1,12 +1,12 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 
 import android.os.AsyncTask;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.model.AccessibilityBean;
-import in.techware.lataxidriver.net.invokers.DriverAccessibilityInvoker;
+import in.techware.ladriver.model.AccessibilityBean;
+import in.techware.ladriver.net.invokers.DriverAccessibilityInvoker;
 
 public class DriverAccessibilityTask extends AsyncTask<String, Integer, AccessibilityBean> {
 

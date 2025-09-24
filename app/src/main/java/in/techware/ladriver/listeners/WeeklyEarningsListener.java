@@ -1,10 +1,10 @@
-package in.techware.lataxidriver.listeners;
+package in.techware.ladriver.listeners;
 
-import in.techware.lataxidriver.model.WeeklyEarningsBean;
+import in.techware.ladriver.model.WeeklyEarningsBean;
 
 /**
  * Created by Jemsheer K D on 16 May, 2017.
- * Package in.techware.lataxidriver.listeners
+ * Package in.techware.ladriver.listeners
  * Project LaTaxiDriver
  */
 

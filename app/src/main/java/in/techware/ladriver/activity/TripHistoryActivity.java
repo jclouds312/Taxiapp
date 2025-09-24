@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.adapter.TripListRecyclerAdapter;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.listeners.TripListListener;
-import in.techware.lataxidriver.model.TripBean;
-import in.techware.lataxidriver.model.TripListBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.adapter.TripListRecyclerAdapter;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.listeners.TripListListener;
+import in.techware.ladriver.model.TripBean;
+import in.techware.ladriver.model.TripListBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
 public class TripHistoryActivity extends BaseAppCompatNoDrawerActivity {
 

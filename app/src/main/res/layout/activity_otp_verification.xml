@@ -6,7 +6,7 @@
     android:id="@+id/activity_otp_verification"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.techware.lataxidriver.activity.OtpVerificationActivity">
+    tools:context="in.techware.ladriver.activity.OtpVerificationActivity">
 
 
     <LinearLayout
@@ -15,7 +15,7 @@
         <LinearLayout
             style="@style/RegistrationTitleParent">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/RegistrationTitleLabel"
                 android:paddingLeft="0dp"
                 android:text="@string/label_what_is_your_name"/>
@@ -28,31 +28,31 @@
             android:gravity="center_vertical"
             android:layout_height="80dp">
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_otp_verification_one"
                 style="@style/OTPItem"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_otp_verification_two"
                 android:layout_marginLeft="5dp"
                 style="@style/OTPItem"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_otp_verification_three"
                 android:layout_marginLeft="5dp"
                 style="@style/OTPItem"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_otp_verification_four"
                 android:layout_marginLeft="5dp"
                 style="@style/OTPItem"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_otp_verification_five"
                 android:layout_marginLeft="5dp"
                 style="@style/OTPItem"/>
 
-            <in.techware.lataxidriver.widgets.OTPEditText
+            <in.techware.ladriver.widgets.OTPEditText
                 android:id="@+id/etxt_otp_verification_six"
                 android:layout_marginLeft="5dp"
                 style="@style/OTPItem"/>
@@ -71,7 +71,7 @@
         app:srcCompat="@drawable/ic_arrow"/>
 
 
-    <in.techware.lataxidriver.widgets.CustomTextView
+    <in.techware.ladriver.widgets.CustomTextView
         android:id="@+id/txt_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
         android:layout_marginTop="40dp"
         android:padding="10dp">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -100,7 +100,7 @@
             android:text="@string/label_enter_the_4_digit_code"
             android:textSize="18sp"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_phone_code"
             android:layout_width="30dp"
             android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
             android:layout_marginTop="45dp"
             android:textSize="18sp"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

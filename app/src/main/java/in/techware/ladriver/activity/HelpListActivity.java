@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.adapter.HelpListRecyclerAdapter;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.listeners.HelpListListener;
-import in.techware.lataxidriver.model.HelpBean;
-import in.techware.lataxidriver.model.HelpListBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.adapter.HelpListRecyclerAdapter;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.listeners.HelpListListener;
+import in.techware.ladriver.model.HelpBean;
+import in.techware.ladriver.model.HelpListBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
 public class HelpListActivity extends BaseAppCompatNoDrawerActivity {
 

@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.config;
+package in.techware.ladriver.config;
 
 
 import java.util.Locale;

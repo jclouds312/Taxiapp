@@ -1,8 +1,8 @@
-package in.techware.lataxidriver.model;
+package in.techware.ladriver.model;
 
 /**
  * Created by Jemsheer K D on 29 November, 2016.
- * Package in.techware.lataxidriver.model
+ * Package in.techware.ladriver.model
  * Project LaTaxiDriver
  */
 

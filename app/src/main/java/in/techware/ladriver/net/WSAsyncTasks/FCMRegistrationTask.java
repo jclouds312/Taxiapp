@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 import android.os.AsyncTask;
 
@@ -6,7 +6,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 /**
  * Created by Jemsheer K D on 03 May, 2017.
- * Package in.techware.lataxidriver.net.WSAsyncTasks
+ * Package in.techware.ladriver.net.WSAsyncTasks
  * Project LaTaxiDriver
  */
 

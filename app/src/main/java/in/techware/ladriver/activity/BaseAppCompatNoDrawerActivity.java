@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,15 +18,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.util.AppConstants;
-import in.techware.lataxidriver.util.FileOp;
-import in.techware.lataxidriver.widgets.CustomTextView;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.util.AppConstants;
+import in.techware.ladriver.util.FileOp;
+import in.techware.ladriver.widgets.CustomTextView;
 
-import static in.techware.lataxidriver.app.App.NETWORK_NOT_AVAILABLE;
-import static in.techware.lataxidriver.app.App.SERVER_CONNECTION_AVAILABLE;
+import static in.techware.ladriver.app.App.NETWORK_NOT_AVAILABLE;
+import static in.techware.ladriver.app.App.SERVER_CONNECTION_AVAILABLE;
 
 
 public class BaseAppCompatNoDrawerActivity extends BaseActivity {

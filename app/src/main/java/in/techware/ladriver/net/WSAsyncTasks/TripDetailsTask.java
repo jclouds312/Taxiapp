@@ -1,15 +1,15 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 import android.os.AsyncTask;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.model.TripBean;
-import in.techware.lataxidriver.net.invokers.TripDetailsInvoker;
+import in.techware.ladriver.model.TripBean;
+import in.techware.ladriver.net.invokers.TripDetailsInvoker;
 
 /**
  * Created by Jemsheer K D on 03 July, 2017.
- * Package in.techware.lataxidriver.net.WSAsyncTasks
+ * Package in.techware.ladriver.net.WSAsyncTasks
  * Project LaTaxiDriver
  */
 

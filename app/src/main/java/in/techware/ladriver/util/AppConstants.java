@@ -1,12 +1,12 @@
-package in.techware.lataxidriver.util;
+package in.techware.ladriver.util;
 
 import com.google.gson.Gson;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.model.CountryBean;
-import in.techware.lataxidriver.model.CountryListBean;
-import in.techware.lataxidriver.net.ServiceNames;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.model.CountryBean;
+import in.techware.ladriver.model.CountryListBean;
+import in.techware.ladriver.net.ServiceNames;
 
 public class AppConstants {
 
@@ -87,15 +87,15 @@ public class AppConstants {
     public static final String PREFERENCE_NAME_SESSION = "session";
 
 
-    public static String ACTION_CHOOSE_REMINDER = "in.techware.lataxidriver.action.CHOOSE_REMINDER";
-    public static String ACTION_CHOOSE_MONTH = "in.techware.lataxidriver.action.CHOOSE_MONTH";
-    public static String ACTION_CHOOSE_DAY = "in.techware.lataxidriver.action.CHOOSE_DAY";
-    public static String ACTION_CHOOSE_YEAR = "in.techware.lataxidriver.action.CHOOSE_YEAR";
-    public static String ACTION_CHOOSE_COURT_TYPE = "in.techware.lataxidriver.action.CHOOSE_COURT_TYPE";
-    public static String ACTION_CHOOSE_COUNTRY = "in.techware.lataxidriver.action.CHOOSE_COUNTRY";
-    public static String ACTION_CHOOSE_STATE = "in.techware.lataxidriver.action.CHOOSE_STATE";
-    public static String ACTION_CHOOSE_DISTRICT = "in.techware.lataxidriver.action.CHOOSE_CITY";
-    public static String ACTION_CHOOSE_AGE = "in.techware.lataxidriver.action.CHOOSE_AGE";
+    public static String ACTION_CHOOSE_REMINDER = "in.techware.ladriver.action.CHOOSE_REMINDER";
+    public static String ACTION_CHOOSE_MONTH = "in.techware.ladriver.action.CHOOSE_MONTH";
+    public static String ACTION_CHOOSE_DAY = "in.techware.ladriver.action.CHOOSE_DAY";
+    public static String ACTION_CHOOSE_YEAR = "in.techware.ladriver.action.CHOOSE_YEAR";
+    public static String ACTION_CHOOSE_COURT_TYPE = "in.techware.ladriver.action.CHOOSE_COURT_TYPE";
+    public static String ACTION_CHOOSE_COUNTRY = "in.techware.ladriver.action.CHOOSE_COUNTRY";
+    public static String ACTION_CHOOSE_STATE = "in.techware.ladriver.action.CHOOSE_STATE";
+    public static String ACTION_CHOOSE_DISTRICT = "in.techware.ladriver.action.CHOOSE_CITY";
+    public static String ACTION_CHOOSE_AGE = "in.techware.ladriver.action.CHOOSE_AGE";
 
     public static final String INR = "₹";
     public static final String CURRENCY = "₹";

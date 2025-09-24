@@ -1,7 +1,7 @@
-package in.techware.lataxidriver.listeners;
+package in.techware.ladriver.listeners;
 
 
-import in.techware.lataxidriver.model.TripFeedbackBean;
+import in.techware.ladriver.model.TripFeedbackBean;
 
 public interface TripFeedbackListener {
 

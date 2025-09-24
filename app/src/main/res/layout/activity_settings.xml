@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="in.techware.lataxidriver.activity.SettingsActivity">
+    tools:context="in.techware.ladriver.activity.SettingsActivity">
 
     <LinearLayout
         style="@style/MenuItemParent"
         android:background="?selectableItemBackground"
         android:onClick="onSettingsAccessibilityClick">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             style="@style/MenuItemLabel"
             android:paddingLeft="0dp"
             android:text="@string/label_accessibility"/>
@@ -27,7 +27,7 @@
     <View
         style="@style/MenuItemDottedUnderline"/>
 
-    <in.techware.lataxidriver.widgets.CustomTextView
+    <in.techware.ladriver.widgets.CustomTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -41,7 +41,7 @@
         style="@style/MenuItemParent"
         android:background="?selectableItemBackground">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             style="@style/MenuItemLabel"
             android:paddingLeft="0dp"
             android:text="@string/label_account_status"/>
@@ -60,7 +60,7 @@
         android:background="?selectableItemBackground"
         android:onClick="onSettingsContactClick">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             style="@style/MenuItemLabel"
             android:paddingLeft="0dp"
             android:text="@string/label_contacts"
@@ -78,7 +78,7 @@
         android:layout_marginTop="10dp"
         android:background="?selectableItemBackground">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             style="@style/MenuItemLabel"
             android:paddingLeft="0dp"
             android:paddingRight="10dp"

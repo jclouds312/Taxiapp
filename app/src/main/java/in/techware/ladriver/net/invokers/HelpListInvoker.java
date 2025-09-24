@@ -1,18 +1,18 @@
-package in.techware.lataxidriver.net.invokers;
+package in.techware.ladriver.net.invokers;
 
 import org.json.JSONObject;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.model.HelpListBean;
-import in.techware.lataxidriver.net.ServiceNames;
-import in.techware.lataxidriver.net.WebConnector;
-import in.techware.lataxidriver.net.parsers.HelpListParser;
-import in.techware.lataxidriver.net.utils.WSConstants;
+import in.techware.ladriver.model.HelpListBean;
+import in.techware.ladriver.net.ServiceNames;
+import in.techware.ladriver.net.WebConnector;
+import in.techware.ladriver.net.parsers.HelpListParser;
+import in.techware.ladriver.net.utils.WSConstants;
 
 /**
  * Created by Jemsheer K D on 20 May, 2017.
- * Package in.techware.lataxidriver.net.invokers
+ * Package in.techware.ladriver.net.invokers
  * Project LaTaxiDriver
  */
 

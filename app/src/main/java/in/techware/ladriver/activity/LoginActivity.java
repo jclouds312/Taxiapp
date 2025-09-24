@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,12 +18,12 @@ import android.widget.EditText;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.listeners.LoginListener;
-import in.techware.lataxidriver.model.AuthBean;
-import in.techware.lataxidriver.net.DataManager;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.listeners.LoginListener;
+import in.techware.ladriver.model.AuthBean;
+import in.techware.ladriver.net.DataManager;
 
 public class LoginActivity extends BaseAppCompatNoDrawerActivity {
 

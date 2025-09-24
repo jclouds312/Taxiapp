@@ -6,7 +6,7 @@
     style="@style/NestedScrollBarStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.techware.lataxidriver.activity.TripSummaryActivity">
+    tools:context="in.techware.ladriver.activity.TripSummaryActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:paddingBottom="50dp">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -46,7 +46,7 @@
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
@@ -78,7 +78,7 @@
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_trip_summary_tick"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -99,7 +99,7 @@
             android:layout_marginBottom="30dp"
             android:layout_marginTop="30dp"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -107,7 +107,7 @@
             android:textAllCaps="true"
             android:textColor="@color/text_5"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_trip_summary_rider_pays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
             android:scaleType="centerInside"
             android:src="@drawable/ic_trip_details"/>-->
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -149,11 +149,11 @@
         <LinearLayout
             style="@style/TripSummaryItemParent">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/TripSummaryItemLabel"
                 android:text="@string/label_base_fare"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_trip_summary_base_fare"
                 style="@style/TripSummaryItemValue"
                 android:hint="@string/sample_fare"/>
@@ -163,11 +163,11 @@
         <LinearLayout
             style="@style/TripSummaryItemParent">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/TripSummaryItemLabel"
                 android:text="@string/label_la_taxi_fee"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_trip_summary_la_taxi_fare"
                 style="@style/TripSummaryItemValue"
                 android:hint="@string/sample_fare"/>
@@ -178,11 +178,11 @@
             style="@style/TripSummaryItemParent"
             android:visibility="gone">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/TripSummaryItemLabel"
                 android:text="@string/label_tolls"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_trip_summary_tolls_fare"
                 style="@style/TripSummaryItemValue"
                 android:hint="@string/sample_fare"/>
@@ -193,11 +193,11 @@
             style="@style/TripSummaryItemParent"
             android:visibility="visible">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/TripSummaryItemLabel"
                 android:text="@string/label_tax"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_trip_summary_tax"
                 style="@style/TripSummaryItemValue"
                 android:hint="@string/sample_fare"/>
@@ -207,11 +207,11 @@
         <LinearLayout
             style="@style/TripSummaryItemParent">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/TripSummaryItemLabel"
                 android:text="@string/label_riders_discount"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_trip_summary_riders_discount"
                 style="@style/TripSummaryItemValue"
                 android:hint="@string/sample_fare"/>

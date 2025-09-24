@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.net.parsers;
+package in.techware.ladriver.net.parsers;
 
 
 import com.google.android.gms.maps.model.LatLng;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import in.techware.lataxidriver.model.PolyPointBean;
+import in.techware.ladriver.model.PolyPointBean;
 
 
 public class PolyPointParser {

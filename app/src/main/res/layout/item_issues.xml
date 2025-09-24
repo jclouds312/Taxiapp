@@ -28,7 +28,7 @@
         android:paddingRight="10dp">
 
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_item_issues_issue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/text_4"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_item_issue_customer_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

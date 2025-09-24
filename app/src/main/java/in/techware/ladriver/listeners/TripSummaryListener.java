@@ -1,8 +1,8 @@
-package in.techware.lataxidriver.listeners;
+package in.techware.ladriver.listeners;
 
 
-import in.techware.lataxidriver.model.AuthBean;
-import in.techware.lataxidriver.model.TripSummaryBean;
+import in.techware.ladriver.model.AuthBean;
+import in.techware.ladriver.model.TripSummaryBean;
 
 public interface TripSummaryListener {
 

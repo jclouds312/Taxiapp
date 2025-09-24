@@ -1,12 +1,12 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 
 import android.os.AsyncTask;
 
 import org.json.JSONObject;
 
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.net.invokers.AccessibilityInvoker;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.net.invokers.AccessibilityInvoker;
 
 public class AccessibilityTask extends AsyncTask<String, Integer, BasicBean> {
 

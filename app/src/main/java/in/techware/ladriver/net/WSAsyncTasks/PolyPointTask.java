@@ -1,15 +1,15 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 import android.os.AsyncTask;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.model.PolyPointBean;
-import in.techware.lataxidriver.net.invokers.PolyPointInvoker;
+import in.techware.ladriver.model.PolyPointBean;
+import in.techware.ladriver.net.invokers.PolyPointInvoker;
 
 /**
  * Created by Jemsheer K D on 09 May, 2017.
- * Package in.techware.lataxidriver.net.WSAsyncTasks
+ * Package in.techware.ladriver.net.WSAsyncTasks
  * Project LaTaxiDriver
  */
 

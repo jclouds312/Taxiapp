@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="in.techware.lataxidriver.activity.RegistrationActivity">
+    tools:context="in.techware.ladriver.activity.RegistrationActivity">
 
     <ViewFlipper
         android:id="@+id/viewflipper_registration"

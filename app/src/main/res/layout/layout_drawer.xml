@@ -58,7 +58,7 @@
 
             </FrameLayout>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_drawer_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_drawer_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                 android:textColor="@color/carbon"
                 android:textSize="18sp"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 android:id="@+id/txt_drawer_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_drawer_backup_restore"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
@@ -129,7 +129,7 @@
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_drawer_about_us"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
@@ -153,7 +153,7 @@
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_drawer_help"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/customTextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -178,7 +178,7 @@
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_drawer_share_app"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|left"
@@ -202,7 +202,7 @@
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_drawer_feedback"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical|left"

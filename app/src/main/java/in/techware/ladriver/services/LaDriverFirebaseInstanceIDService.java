@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.services;
+package in.techware.ladriver.services;
 
 import android.util.Log;
 
@@ -8,15 +8,15 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.listeners.BasicListener;
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.net.DataManager;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.listeners.BasicListener;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.net.DataManager;
 
 
 /**
  * Created by Jemsheer K D on 28 April, 2017.
- * Package in.techware.lataxidriver.model
+ * Package in.techware.ladriver.model
  * Project LaTaxiDriver
  */
 

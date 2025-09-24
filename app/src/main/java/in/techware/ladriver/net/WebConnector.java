@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.net;
+package in.techware.ladriver.net;
 
 import android.util.Log;
 
@@ -26,9 +26,9 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.listeners.ProgressListener;
-import in.techware.lataxidriver.net.utils.WSConstants;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.listeners.ProgressListener;
+import in.techware.ladriver.net.utils.WSConstants;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;

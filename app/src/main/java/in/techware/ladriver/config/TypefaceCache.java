@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.config;
+package in.techware.ladriver.config;
 
 
 import android.content.Context;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 /**
  * Created by Jemsheer K D on 18 February, 2017.
- * Package in.techware.lataxidriver.conf
+ * Package in.techware.ladriver.conf
  * Project LaTaxi
  */
 

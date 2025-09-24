@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="in.techware.lataxidriver.activity.RiderFeedbackActivity">
+    tools:context="in.techware.ladriver.activity.RiderFeedbackActivity">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout_rider_feedback"

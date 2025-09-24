@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.Manifest;
 import android.app.AlarmManager;
@@ -39,12 +39,12 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.TypefaceCache;
-import in.techware.lataxidriver.dialogs.PopupMessage;
-import in.techware.lataxidriver.listeners.PermissionListener;
-import in.techware.lataxidriver.util.FileOp;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.TypefaceCache;
+import in.techware.ladriver.dialogs.PopupMessage;
+import in.techware.ladriver.listeners.PermissionListener;
+import in.techware.ladriver.util.FileOp;
 import io.fabric.sdk.android.Fabric;
 
 //import com.digits.sdk.android.Digits;

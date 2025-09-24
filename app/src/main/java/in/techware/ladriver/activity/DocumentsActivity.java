@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +12,14 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.listeners.DocumentStatusListener;
-import in.techware.lataxidriver.model.DocumentBean;
-import in.techware.lataxidriver.model.DocumentStatusBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.listeners.DocumentStatusListener;
+import in.techware.ladriver.model.DocumentBean;
+import in.techware.ladriver.model.DocumentStatusBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
 public class DocumentsActivity extends BaseAppCompatNoDrawerActivity {
 

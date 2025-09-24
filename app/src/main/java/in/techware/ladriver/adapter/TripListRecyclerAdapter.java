@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.adapter;
+package in.techware.ladriver.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -30,21 +30,21 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.activity.TripDetailsActivity;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.listeners.PolyPointListener;
-import in.techware.lataxidriver.model.PolyPointBean;
-import in.techware.lataxidriver.model.TripBean;
-import in.techware.lataxidriver.model.TripListBean;
-import in.techware.lataxidriver.net.DataManager;
+import in.techware.ladriver.R;
+import in.techware.ladriver.activity.TripDetailsActivity;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.listeners.PolyPointListener;
+import in.techware.ladriver.model.PolyPointBean;
+import in.techware.ladriver.model.TripBean;
+import in.techware.ladriver.model.TripListBean;
+import in.techware.ladriver.net.DataManager;
 
-import static in.techware.lataxidriver.app.App.DATE_FORMAT_1;
-import static in.techware.lataxidriver.app.App.TIME_FORMAT_0;
+import static in.techware.ladriver.app.App.DATE_FORMAT_1;
+import static in.techware.ladriver.app.App.TIME_FORMAT_0;
 
 /**
  * Created by Jemsheer K D on 08 May, 2017.
- * Package in.techware.lataxidriver.adapter
+ * Package in.techware.ladriver.adapter
  * Project LaTaxiDriver
  */
 

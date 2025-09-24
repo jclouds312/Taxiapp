@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import in.techware.lataxidriver.R;
+import in.techware.ladriver.R;
 
 public class AboutActivity extends BaseAppCompatNoDrawerActivity {
 

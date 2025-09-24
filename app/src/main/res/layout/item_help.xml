@@ -11,7 +11,7 @@
         style="@style/MenuItemImage"
         app:srcCompat="@drawable/ic_help"/>
 
-    <in.techware.lataxidriver.widgets.CustomTextView
+    <in.techware.ladriver.widgets.CustomTextView
         android:id="@+id/txt_item_help_title"
         style="@style/MenuItemLabel"
         android:text="@string/label_help"/>

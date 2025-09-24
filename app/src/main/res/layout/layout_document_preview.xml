@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:visibility="visible"
-    tools:context="in.techware.lataxidriver.activity.DocumentUploadActivity">
+    tools:context="in.techware.ladriver.activity.DocumentUploadActivity">
 
     <ImageView
         android:id="@+id/iv_document_upload_preview"
@@ -27,7 +27,7 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

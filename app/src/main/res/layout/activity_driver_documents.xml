@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -23,7 +23,7 @@
             android:textColor="@color/text_4"
             android:textSize="18sp"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -43,7 +43,7 @@
             style="@style/DriverDocumentItemParent"
             android:onClick="onDriverDocumentsDriverLicenseClick">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/DriverDocumentItemLabel"
                 android:text="@string/label_driver_license"/>
 
@@ -64,7 +64,7 @@
             style="@style/DriverDocumentItemParent"
             android:onClick="onDriverDocumentsPoliceClearanceCertificateClick">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/DriverDocumentItemLabel"
                 android:text="@string/label_police_clearance_certificate"/>
 
@@ -85,7 +85,7 @@
             style="@style/DriverDocumentItemParent"
             android:onClick="onDriverDocumentsFitnessCertificateClick">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/DriverDocumentItemLabel"
                 android:text="@string/label_fitness_certificate"/>
 
@@ -106,7 +106,7 @@
             style="@style/DriverDocumentItemParent"
             android:onClick="onDriverDocumentsVehicleRegistrationClick">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/DriverDocumentItemLabel"
                 android:text="@string/label_vehicle_registration"/>
 
@@ -127,7 +127,7 @@
             style="@style/DriverDocumentItemParent"
             android:onClick="onDriverDocumentsVehiclePermitClick">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/DriverDocumentItemLabel"
                 android:text="@string/label_vehicle_permit"/>
 
@@ -148,7 +148,7 @@
             style="@style/DriverDocumentItemParent"
             android:onClick="onDriverDocumentsCommercialInsuranceClick">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/DriverDocumentItemLabel"
                 android:text="@string/label_commercial_insurance"/>
 
@@ -169,7 +169,7 @@
             style="@style/DriverDocumentItemParent"
             android:onClick="onDriverDocumentsTaxReceiptClick">
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/DriverDocumentItemLabel"
                 android:text="@string/label_tax_receipt"/>
 

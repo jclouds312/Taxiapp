@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.techware.lataxidriver.activity.HelpListActivity">
+    tools:context="in.techware.ladriver.activity.HelpListActivity">
 
 
     <android.support.v7.widget.RecyclerView

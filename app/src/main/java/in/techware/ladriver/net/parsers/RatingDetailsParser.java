@@ -1,13 +1,13 @@
-package in.techware.lataxidriver.net.parsers;
+package in.techware.ladriver.net.parsers;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import in.techware.lataxidriver.model.RatingDetailsBean;
+import in.techware.ladriver.model.RatingDetailsBean;
 
 /**
  * Created by Jemsheer K D on 18 May, 2017.
- * Package in.techware.lataxidriver.net.parsers
+ * Package in.techware.ladriver.net.parsers
  * Project LaTaxiDriver
  */
 

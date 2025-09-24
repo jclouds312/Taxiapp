@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="in.techware.lataxidriver.activity.SplashActivity">
+    tools:context="in.techware.ladriver.activity.SplashActivity">
 
     <ImageView
         android:layout_width="100dp"

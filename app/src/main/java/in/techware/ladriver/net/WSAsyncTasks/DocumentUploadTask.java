@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 import android.os.AsyncTask;
 
@@ -6,8 +6,8 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.net.invokers.DocumentUploadInvoker;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.net.invokers.DocumentUploadInvoker;
 
 public class DocumentUploadTask extends AsyncTask<String, Integer, BasicBean> {
 

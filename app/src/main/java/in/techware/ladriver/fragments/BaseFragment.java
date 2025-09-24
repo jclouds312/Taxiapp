@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.fragments;
+package in.techware.ladriver.fragments;
 
 
 import android.Manifest;
@@ -28,11 +28,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.TypefaceCache;
-import in.techware.lataxidriver.dialogs.PopupMessage;
-import in.techware.lataxidriver.listeners.PermissionListener;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.TypefaceCache;
+import in.techware.ladriver.dialogs.PopupMessage;
+import in.techware.ladriver.listeners.PermissionListener;
 
 
 /**

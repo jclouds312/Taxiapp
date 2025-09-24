@@ -1,12 +1,12 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 
 import android.os.AsyncTask;
 
 import org.json.JSONObject;
 
-import in.techware.lataxidriver.model.AuthBean;
-import in.techware.lataxidriver.net.invokers.PhoneRegistrationInvoker;
+import in.techware.ladriver.model.AuthBean;
+import in.techware.ladriver.net.invokers.PhoneRegistrationInvoker;
 
 public class PhoneRegistrationTask extends AsyncTask<String, Integer, AuthBean> {
 

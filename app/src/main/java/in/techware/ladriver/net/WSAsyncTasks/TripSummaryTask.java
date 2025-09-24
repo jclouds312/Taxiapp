@@ -1,12 +1,12 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 
 import android.os.AsyncTask;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.model.TripSummaryBean;
-import in.techware.lataxidriver.net.invokers.TripSummaryInvoker;
+import in.techware.ladriver.model.TripSummaryBean;
+import in.techware.ladriver.net.invokers.TripSummaryInvoker;
 
 public class TripSummaryTask extends AsyncTask<String, Integer, TripSummaryBean> {
 

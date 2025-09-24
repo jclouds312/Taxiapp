@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.model;
+package in.techware.ladriver.model;
 
 import android.support.annotation.NonNull;
 
@@ -6,7 +6,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 /**
  * Created by Jemsheer K D on 14 June, 2017.
- * Package in.techware.lataxidriver.model
+ * Package in.techware.ladriver.model
  * Project LaTaxiDriver
  */
 

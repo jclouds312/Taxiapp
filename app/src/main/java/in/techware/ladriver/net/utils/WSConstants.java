@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.net.utils;
+package in.techware.ladriver.net.utils;
 
 public class WSConstants {
 

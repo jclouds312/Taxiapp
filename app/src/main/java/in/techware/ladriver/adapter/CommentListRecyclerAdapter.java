@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.adapter;
+package in.techware.ladriver.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.model.CommentBean;
-import in.techware.lataxidriver.model.CommentListBean;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.model.CommentBean;
+import in.techware.ladriver.model.CommentListBean;
 
 /**
  * Created by Jemsheer K D on 19 May, 2017.
- * Package in.techware.lataxidriver.adapter
+ * Package in.techware.ladriver.adapter
  * Project LaTaxiDriver
  */
 

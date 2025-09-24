@@ -1,11 +1,11 @@
-package in.techware.lataxidriver.listeners;
+package in.techware.ladriver.listeners;
 
-import in.techware.lataxidriver.model.AppStatusBean;
-import in.techware.lataxidriver.model.BasicBean;
+import in.techware.ladriver.model.AppStatusBean;
+import in.techware.ladriver.model.BasicBean;
 
 /**
  * Created by Jemsheer K D on 14 June, 2017.
- * Package in.techware.lataxidriver.listeners
+ * Package in.techware.ladriver.listeners
  * Project LaTaxiDriver
  */
 

@@ -1,9 +1,9 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import in.techware.lataxidriver.R;
+import in.techware.ladriver.R;
 
 public class EditVehicleDetailsActivity extends AppCompatActivity {
 

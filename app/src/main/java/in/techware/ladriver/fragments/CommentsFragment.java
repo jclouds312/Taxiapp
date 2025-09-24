@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.fragments;
+package in.techware.ladriver.fragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,15 +20,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.adapter.CommentListRecyclerAdapter;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.listeners.CommentListListener;
-import in.techware.lataxidriver.model.CommentBean;
-import in.techware.lataxidriver.model.CommentListBean;
-import in.techware.lataxidriver.model.PaginationBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.adapter.CommentListRecyclerAdapter;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.listeners.CommentListListener;
+import in.techware.ladriver.model.CommentBean;
+import in.techware.ladriver.model.CommentListBean;
+import in.techware.ladriver.model.PaginationBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
 public class CommentsFragment extends BaseFragment {
 

@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.widgets;
+package in.techware.ladriver.widgets;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,13 +7,13 @@ import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.config.TypefaceCache;
+import in.techware.ladriver.R;
+import in.techware.ladriver.config.TypefaceCache;
 
 
 /**
  * Created by Jemsheer K D on 30 November, 2016.
- * Package in.techware.lataxidriver.widgets
+ * Package in.techware.ladriver.widgets
  * Project LaTaxi
  */
 

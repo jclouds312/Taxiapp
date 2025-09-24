@@ -1,14 +1,14 @@
-package in.techware.lataxidriver.net.parsers;
+package in.techware.ladriver.net.parsers;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.model.HelpBean;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.model.HelpBean;
 
 /**
  * Created by Jemsheer K D on 20 May, 2017.
- * Package in.techware.lataxidriver.net.parsers
+ * Package in.techware.ladriver.net.parsers
  * Project LaTaxiDriver
  */
 

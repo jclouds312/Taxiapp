@@ -1,15 +1,15 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 import android.os.AsyncTask;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.model.CommentListBean;
-import in.techware.lataxidriver.net.invokers.CommentListInvoker;
+import in.techware.ladriver.model.CommentListBean;
+import in.techware.ladriver.net.invokers.CommentListInvoker;
 
 /**
  * Created by Jemsheer K D on 19 May, 2017.
- * Package in.techware.lataxidriver.net.WSAsyncTasks
+ * Package in.techware.ladriver.net.WSAsyncTasks
  * Project LaTaxiDriver
  */
 

@@ -12,7 +12,7 @@
     android:paddingTop="10dp">
 
 
-    <in.techware.lataxidriver.widgets.CustomTextView
+    <in.techware.ladriver.widgets.CustomTextView
         android:id="@+id/txt_home_card_offline_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_toStartOf="@+id/iv_home_card_offline_arrow"
         android:orientation="horizontal">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_home_card_offline_fare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             android:textColor="@color/text_red_2"
             android:textStyle="bold"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_home_card_offline_time"
             android:layout_width="0dp"
             android:layout_weight="1"

@@ -1,15 +1,15 @@
-package in.techware.lataxidriver.net.WSAsyncTasks;
+package in.techware.ladriver.net.WSAsyncTasks;
 
 import android.os.AsyncTask;
 
 import org.json.JSONObject;
 
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.net.invokers.HelpPageReviewInvoker;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.net.invokers.HelpPageReviewInvoker;
 
 /**
  * Created by Jemsheer K D on 15 June, 2017.
- * Package in.techware.lataxidriver.net.WSAsyncTasks
+ * Package in.techware.ladriver.net.WSAsyncTasks
  * Project LaTaxiDriver
  */
 

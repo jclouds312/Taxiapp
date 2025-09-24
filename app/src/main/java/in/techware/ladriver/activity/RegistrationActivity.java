@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -46,19 +46,19 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.listeners.BasicListener;
-import in.techware.lataxidriver.listeners.PhoneRegistrationListener;
-import in.techware.lataxidriver.listeners.RegistrationListener;
-import in.techware.lataxidriver.model.AuthBean;
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.model.CountryBean;
-import in.techware.lataxidriver.model.CountryListBean;
-import in.techware.lataxidriver.model.RegistrationBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
-import in.techware.lataxidriver.widgets.OTPEditText;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.listeners.BasicListener;
+import in.techware.ladriver.listeners.PhoneRegistrationListener;
+import in.techware.ladriver.listeners.RegistrationListener;
+import in.techware.ladriver.model.AuthBean;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.model.CountryBean;
+import in.techware.ladriver.model.CountryListBean;
+import in.techware.ladriver.model.RegistrationBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
+import in.techware.ladriver.widgets.OTPEditText;
 
 public class RegistrationActivity extends BaseAppCompatNoDrawerActivity {
 

@@ -17,7 +17,7 @@
         android:paddingTop="20dp"
         android:paddingRight="30dp">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_legal_consent"
@@ -26,7 +26,7 @@
             android:textColor="@color/colorPrimary"
             android:textSize="22sp"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/label_agreement_proceed"
@@ -43,7 +43,7 @@
             android:layout_margin="20dp"
             android:background="@drawable/bg_app_rectangle_with_semicircle_edge"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/text_3"

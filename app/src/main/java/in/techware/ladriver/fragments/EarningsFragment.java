@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.fragments;
+package in.techware.ladriver.fragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -38,14 +38,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.activity.TripHistoryActivity;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.listeners.WeeklyEarningsListener;
-import in.techware.lataxidriver.model.DailyEarningBean;
-import in.techware.lataxidriver.model.WeeklyEarningsBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.activity.TripHistoryActivity;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.listeners.WeeklyEarningsListener;
+import in.techware.ladriver.model.DailyEarningBean;
+import in.techware.ladriver.model.WeeklyEarningsBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.util.AppConstants;
 
 /**
  * A simple {@link Fragment} subclass.

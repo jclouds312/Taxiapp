@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.util;
+package in.techware.ladriver.util;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -27,7 +27,7 @@ import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import in.techware.lataxidriver.app.App;
+import in.techware.ladriver.app.App;
 
 
 public class FileOp {

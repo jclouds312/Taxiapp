@@ -5,7 +5,7 @@
     style="@style/NestedScrollBarStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.techware.lataxidriver.activity.DocumentsActivity">
+    tools:context="in.techware.ladriver.activity.DocumentsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:paddingBottom="50dp"
         android:paddingTop="20dp">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
@@ -42,11 +42,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_driver_license"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_driver_licence_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -72,11 +72,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_bank_passbook"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_bank_passbook_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -102,11 +102,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_police_clearance_certificate"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_police_clearance_certificate_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -132,11 +132,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_driver_licence_with_badge_number"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_driver_licence_with_badge_number_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -162,11 +162,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_background_check_consent_form"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_background_check_consent_form_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -192,11 +192,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_pan_card"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_pan_card_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -214,7 +214,7 @@
         </LinearLayout>
 
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -244,11 +244,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_vehicle_permit"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_vehicle_permit_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -274,11 +274,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_vehicle_registration"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_vehicle_registration_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -304,11 +304,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_commercial_insurance"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_commercial_insurance_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -334,11 +334,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_fitness_certificate"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_fitness_certificate_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -364,11 +364,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_tax_receipt"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_tax_receipt_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>
@@ -394,11 +394,11 @@
             <LinearLayout
                 style="@style/DocumentItemLabelParent">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/DocumentItemLabel"
                     android:text="@string/label_no_objection_certificate"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_documents_no_objection_certificate_status"
                     style="@style/DocumentItemStatus"
                     android:text="@string/label_missing"/>

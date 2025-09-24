@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.techware.lataxidriver.activity.RegistrationActivity">
+    tools:context="in.techware.ladriver.activity.RegistrationActivity">
 
     <LinearLayout
         style="@style/RegistrationParent">
@@ -18,7 +18,7 @@
                 style="@style/RegistrationTitleImage"
                 app:srcCompat="@drawable/ic_title_email"/>
 
-            <in.techware.lataxidriver.widgets.CustomTextView
+            <in.techware.ladriver.widgets.CustomTextView
                 style="@style/RegistrationTitleLabel"
                 android:text="@string/label_what_is_your_email_address"/>
 

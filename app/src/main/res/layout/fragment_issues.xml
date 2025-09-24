@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="in.techware.lataxidriver.fragments.IssuesFragment">
+    tools:context="in.techware.ladriver.fragments.IssuesFragment">
 
     <LinearLayout
         android:id="@+id/ll_issues_no_data"
@@ -14,7 +14,7 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -31,7 +31,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_gray_rectangle_with_semicircle_edge"/>
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

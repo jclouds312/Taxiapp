@@ -1,15 +1,15 @@
-package in.techware.lataxidriver.adapter;
+package in.techware.ladriver.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import in.techware.lataxidriver.fragments.CommentsFragment;
-import in.techware.lataxidriver.fragments.IssuesFragment;
+import in.techware.ladriver.fragments.CommentsFragment;
+import in.techware.ladriver.fragments.IssuesFragment;
 
 /**
  * Created by Jemsheer K D on 18 May, 2017.
- * Package in.techware.lataxidriver.adapter
+ * Package in.techware.ladriver.adapter
  * Project LaTaxiDriver
  */
 

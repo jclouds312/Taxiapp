@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_earning"
-    tools:context="in.techware.lataxidriver.fragments.RatingsFragment">
+    tools:context="in.techware.ladriver.fragments.RatingsFragment">
 
 
     <LinearLayout
@@ -17,7 +17,7 @@
         android:paddingTop="20dp">
 
 
-        <in.techware.lataxidriver.widgets.CustomTextView
+        <in.techware.ladriver.widgets.CustomTextView
             android:id="@+id/txt_ratings_total_ratings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_ratings_current_rating"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -97,7 +97,7 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_ratings_request_accepted_percent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -136,7 +136,7 @@
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:id="@+id/txt_ratings_trips_cancelled_percent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -181,7 +181,7 @@
                     app:srcCompat="@drawable/ic_rider_feedback"/>
 
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/MenuItemLabel"
                     android:text="@string/rider_feedback"/>
 
@@ -206,7 +206,7 @@
                     app:srcCompat="@drawable/ic_pro_tips"/>
 
 
-                <in.techware.lataxidriver.widgets.CustomTextView
+                <in.techware.ladriver.widgets.CustomTextView
                     style="@style/MenuItemLabel"
                     android:text="@string/label_pro_Tips"/>
 

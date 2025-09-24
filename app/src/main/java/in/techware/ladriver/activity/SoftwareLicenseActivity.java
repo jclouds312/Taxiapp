@@ -1,9 +1,9 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import in.techware.lataxidriver.R;
+import in.techware.ladriver.R;
 
 public class SoftwareLicenseActivity extends BaseAppCompatNoDrawerActivity {
 

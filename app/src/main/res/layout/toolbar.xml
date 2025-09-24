@@ -14,7 +14,7 @@
     app:layout_scrollFlags="scroll|enterAlways"
     app:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-   <!-- <in.techware.lataxidriver.widgets.CustomTextView
+   <!-- <in.techware.ladriver.widgets.CustomTextView
         android:id="@+id/txt_action_search"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"

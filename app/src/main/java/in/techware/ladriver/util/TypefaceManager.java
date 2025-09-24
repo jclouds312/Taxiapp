@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.util;
+package in.techware.ladriver.util;
 
 import android.content.Context;
 import android.content.res.TypedArray;

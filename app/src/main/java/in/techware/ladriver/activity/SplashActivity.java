@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.activity;
+package in.techware.ladriver.activity;
 
 import android.content.Intent;
 import android.os.Build;
@@ -14,17 +14,17 @@ import com.google.gson.Gson;
 
 import java.util.HashMap;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.config.Config;
-import in.techware.lataxidriver.dialogs.PopupMessage;
-import in.techware.lataxidriver.listeners.AppStatusListener;
-import in.techware.lataxidriver.model.AppStatusBean;
-import in.techware.lataxidriver.model.BasicBean;
-import in.techware.lataxidriver.model.TripBean;
-import in.techware.lataxidriver.net.DataManager;
-import in.techware.lataxidriver.net.parsers.RequestParser;
-import in.techware.lataxidriver.util.AppConstants;
+import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.dialogs.PopupMessage;
+import in.techware.ladriver.listeners.AppStatusListener;
+import in.techware.ladriver.model.AppStatusBean;
+import in.techware.ladriver.model.BasicBean;
+import in.techware.ladriver.model.TripBean;
+import in.techware.ladriver.net.DataManager;
+import in.techware.ladriver.net.parsers.RequestParser;
+import in.techware.ladriver.util.AppConstants;
 
 public class SplashActivity extends BaseAppCompatNoDrawerActivity {
 

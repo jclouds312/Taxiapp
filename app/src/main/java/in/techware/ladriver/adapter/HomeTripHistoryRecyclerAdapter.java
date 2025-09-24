@@ -1,4 +1,4 @@
-package in.techware.lataxidriver.adapter;
+package in.techware.ladriver.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,15 +13,15 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import in.techware.lataxidriver.R;
-import in.techware.lataxidriver.activity.TripDetailsActivity;
-import in.techware.lataxidriver.app.App;
-import in.techware.lataxidriver.model.TripBean;
-import in.techware.lataxidriver.model.TripListBean;
+import in.techware.ladriver.R;
+import in.techware.ladriver.activity.TripDetailsActivity;
+import in.techware.ladriver.app.App;
+import in.techware.ladriver.model.TripBean;
+import in.techware.ladriver.model.TripListBean;
 
 /**
  * Created by Jemsheer K D on 05 May, 2017.
- * Package in.techware.lataxidriver.adapter
+ * Package in.techware.ladriver.adapter
  * Project LaTaxiDriver
  */
 
