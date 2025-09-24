@@ -1,43 +1,49 @@
-# Proyecto LaTaxiDriver - Plan de Modernización
+# Proyecto Simple Driver
 
 ## 1. Objetivo General
 
-El objetivo es modernizar la aplicación del conductor (`LaTaxiDriver`) para que utilice prácticas y dependencias de desarrollo de Android actuales, resolver problemas de compilación y, finalmente, analizar e implementar funcionalidades de autenticación de usuarios. Este trabajo se realizará en paralelo con la aplicación del pasajero (`LaTaxi`).
+El objetivo es modernizar la aplicación del conductor, ahora llamada **Simple**, para que utilice prácticas y dependencias de desarrollo de Android actuales. Esto incluye resolver problemas de compilación, actualizar la identidad de la aplicación (nombre y logo) y configurar un flujo de despliegue continuo.
 
-## 2. Estado Inicial del Proyecto
+## 2. Configuración del Entorno
 
-La base de código original presentaba varios desafíos que impedían su compilación y mantenimiento:
+Para compilar y ejecutar esta aplicación, necesitarás:
 
-- **Dependencias de Gradle Obsoletas:** Utilizaba configuraciones deprecadas como `compile` y `testCompile`.
-- **Versiones de SDK Antiguas:** Apuntaba a versiones de SDK de Android antiguas.
-- **Dependencias Desactualizadas:** Las bibliotecas de Firebase, Play Services y otras eran de versiones muy antiguas.
-- **Configuración de Entorno Incompleta:** El proyecto no se podía compilar debido a la falta de configuración de las rutas del SDK de Android y de Java (JAVA_HOME).
+*   **Java Development Kit (JDK):** Este proyecto requiere **JDK 11**. El entorno de IDX ya está configurado para usarlo.
+*   **Android Studio:** Se recomienda la última versión estable si trabajas fuera de IDX.
+*   **Firebase:** Debes configurar un proyecto de Firebase y obtener tu propio archivo de configuración `google-services.json`.
+    1.  Ve a la [consola de Firebase](https://console.firebase.google.com/).
+    2.  Crea un nuevo proyecto o usa uno existente.
+    3.  Añade una aplicación de Android con el nombre de paquete: `in.techware.lataxidriver`.
+    4.  Descarga el archivo `google-services.json` y colócalo en el directorio `app/`.
 
-## 3. Acciones Realizadas
+## 3. Pasos para Actualizar el Logo
 
-1.  **Restauración del Entorno Paralelo:** Se restauró el proyecto `LaTaxi` (pasajero) desde la rama `origin/passenger` para permitir el trabajo en ambos proyectos.
-2.  **Actualización de `build.gradle`:** Se modificó el archivo `app/build.gradle` para reemplazar las configuraciones de dependencias obsoletas por sus contrapartes modernas:
-    - `compile` -> `implementation`
-    - `androidTestCompile` -> `androidTestImplementation`
-    - `testCompile` -> `testImplementation`
-3.  **Creación de `local.properties`:** Se crearon archivos `local.properties` tanto en `LaTaxiDriver` como en `LaTaxi` con una ruta de marcador de posición para el SDK de Android (`sdk.dir=/opt/android-sdk`).
+Este paso es **manual** y debes realizarlo tú:
 
-## 4. Bloqueadores Actuales
+1.  Prepara tu nuevo logo en diferentes tamaños para las distintas densidades de pantalla de Android.
+2.  Reemplaza los archivos `ic_launcher.png` (logo normal) y `ic_launcher_round.png` (logo redondeado) en las siguientes carpetas con tus nuevas imágenes:
+    *   `app/src/main/res/mipmap-hdpi/`
+    *   `app/src/main/res/mipmap-mdpi/`
+    *   `app/src/main/res/mipmap-xhdpi/`
+    *   `app/src/main/res/mipmap-xxhdpi/`
+    *   `app/src/main/res/mipmap-xxxhdpi/`
 
-La compilación de **ambos proyectos** (`LaTaxiDriver` y `LaTaxi`) está actualmente bloqueada por problemas de configuración del entorno:
+## 4. Compilación
 
-1.  **Ruta del SDK de Android Desconocida:** La ruta `sdk.dir` en `local.properties` es un marcador de posición. Se necesita la ruta real del SDK de Android instalado en este entorno.
-2.  **Variable `JAVA_HOME` no Definida:** El sistema no puede encontrar una instalación de Java (JDK), lo cual es indispensable para ejecutar Gradle.
+Para compilar la aplicación y generar un APK de depuración, ejecuta el siguiente comando en la terminal. El entorno ya está configurado para que funcione directamente:
 
-## 5. Próximos Pasos
+```bash
+./gradlew assembleDebug
+```
 
-Para continuar, es **imprescindible** que se proporcionen las siguientes rutas del entorno de desarrollo:
+El APK generado se encontrará en `app/build/outputs/apk/debug/`.
 
-- **La ruta de instalación del SDK de Android.**
-- **La ruta de instalación de Java (JDK).**
+## 5. Despliegue con Codemagic
 
-Una vez que estas rutas sean configuradas, los siguientes pasos serán:
-1.  Intentar compilar ambos proyectos de nuevo.
-2.  Resolver cualquier otro problema de compilación que surja.
-3.  Analizar la funcionalidad de autenticación de usuarios (`LoginActivity`).
-4.  Implementar o verificar las funciones de creación de usuarios y recuperación de contraseñas.
+Este repositorio contiene un archivo `codemagic.yaml` que define el flujo de trabajo para el despliegue continuo.
+
+1.  **Conecta tu repositorio a Codemagic.io.**
+2.  **Configura las variables de entorno en Codemagic:**
+    *   Añade tu archivo `google-services.json` como una variable de entorno segura.
+    *   Configura tu **keystore de Android** en Codemagic para firmar las versiones de lanzamiento. El archivo `codemagic.yaml` ya está preparado para usar estas variables.
+3.  **Inicia una nueva compilación en Codemagic.** El flujo de trabajo definido se encargará de compilar, firmar y generar el artefacto de tu aplicación (APK o AAB).

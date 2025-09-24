@@ -1,6 +1,6 @@
-﻿<resources>
+<resources>
 
-    <string name="app_name">La Taxi Driver</string>
+    <string name="app_name">Simple Driver</string>
 
     <string name="api_key">GOOGLE_API_KEY</string>
     <string name="browser_api_key">GOOGLE_SERVER_OR_BROWSER_API_KEY</string>
@@ -111,13 +111,13 @@
     <string name="label_change_password">Change Password</string>
     <string name="label_collect_cash">Collect Cash</string>
     <string name="label_commercial_insurance">Commercial Insurance</string>
-    <string name="label_consent_agreement">I understand that the information provide by me may be used by laTaxi, or its affiliates, authbridge research services private limited or its affiliates (being a third party agency appointed by laTaxi), or any third party appointed by laTaxi from time to time, to verify and validate the information I have provided as necessary background Checks. I understand that the third party agency appointed by laTaxi may obtain Information it deems appropriate from various sources including, but not limited to, current and past employers, Criminal conviction records, educational records, professional and personal references and other verifying sources / authorities.</string>
+    <string name="label_consent_agreement">I understand that the information provide by me may be used by Simple, or its affiliates, authbridge research services private limited or its affiliates (being a third party agency appointed by Simple), or any third party appointed by Simple from time to time, to verify and validate the information I have provided as necessary background Checks. I understand that the third party agency appointed by Simple may obtain Information it deems appropriate from various sources including, but not limited to, current and past employers, Criminal conviction records, educational records, professional and personal references and other verifying sources / authorities.</string>
     <string name="label_contacts">Contacts</string>
-    <string name="label_continue_to_earn_more_money">Continue to earn more money \nin your spare time</string>
+    <string name="label_continue_to_earn_more_money">Continue to earn more money \in your spare time</string>
     <string name="label_create_your_account_password">Create your account Password</string>
     <string name="label_current_rating">Current Rating</string>
     <string name="label_daily_earnings">Daily Earnings</string>
-    <string name="label_did_you_know">Did you know that \nthousands of \nDrivers are using LaTaxi</string>
+    <string name="label_did_you_know">Did you know that \nthousands of \nDrivers are using Simple</string>
     <string name="label_distance">Distance</string>
     <string name="label_documents">Documents</string>
     <string name="label_driver">Driver</string>
@@ -144,14 +144,14 @@
     <string name="label_i_agree_to_terms_and_conditions">I Agree to the Terms and Conditions</string>
     <string name="label_i_agree_to_the">I Agree to the </string>
     <string name="label_i_agree_to_the_terms_and_conditions">I Agree to the Terms and Conditions</string>
-    <string name="label_i_am_deaf_or_hard_of_hearing">I"'"m deaf or hard of hearing</string>
+    <string name="label_i_am_deaf_or_hard_of_hearing">I\'m deaf or hard of hearing</string>
     <string name="label_if_a_rider_reports_a_problem">If a rider reports a problem, the reason will appear here.</string>
     <string name="label_keep_driving_and_see">Keep driving and see what people say!</string>
-    <string name="label_la_taxi">La Taxi</string>
-    <string name="label_la_taxi_fee">LaTaxi Fee</string>
+    <string name="label_la_taxi">Simple</string>
+    <string name="label_la_taxi_fee">Simple Fee</string>
     <string name="label_legal_consent">Legal Consent</string>
     <string name="label_logout">Logout</string>
-    <string name="label_make_sure_your_document_is_readable">Make sure your Document \nis readable</string>
+    <string name="label_make_sure_your_document_is_readable">Make sure your Document \is readable</string>
     <string name="label_map_licences">Map Licences</string>
     <string name="label_missing">Missing</string>
     <string name="label_mon">Mon</string>
@@ -211,7 +211,7 @@
     <string name="label_terms_and_conditions">By proceeding you are agree to the Terms \nand conditions and privacy policy</string>
     <string name="label_thu">Thu</string>
     <string name="label_to">TO</string>
-    <string name="label_to_drive_with_lataxi">To drive with LaTaxi your Vehicle must be 2008 or newer and be a mid size or full size sedan that comfortably seats 4 – 8 Passengers.</string>
+    <string name="label_to_drive_with_lataxi">To drive with Simple your Vehicle must be 2008 or newer and be a mid size or full size sedan that comfortably seats 4 – 8 Passengers.</string>
     <string name="label_today">Today</string>
     <string name="label_tolls">Tolls</string>
     <string name="label_total_payout">Total Payout</string>
@@ -236,7 +236,7 @@
     <string name="label_what_is_your_email_address">What\'s your email Address?</string>
     <string name="label_what_is_your_name">Whats\'s your name?</string>
     <string name="label_where_are_you_from">Where are you from?</string>
-    <string name="label_with_la_taxi">With La Taxi</string>
+    <string name="label_with_la_taxi">With Simple</string>
     <string name="label_you_rated">You Rated</string>
     <string name="label_your_todays_total_rides">Your Today\'s Total Rides</string>
     <string name="requests_accepted">Requests Accepted</string>
@@ -244,7 +244,7 @@
     <string name="sample_00">00</string>
     <string name="sample_address">Three Road Jn. \nKakkanad P O, Kochi 682030</string>
     <string name="sample_at_time">at 09:00 am</string>
-    <string name="sample_car_type">La Go</string>
+    <string name="sample_car_type">Simple Go</string>
     <string name="sample_comment">Comment</string>
     <string name="sample_date">10 November 2017, Friday</string>
     <string name="sample_date_and_time">28/ 02/ 2017, 05:50 am</string>
@@ -280,7 +280,7 @@
     <string name="title_edit_note">Edit Note : </string>
     <string name="title_on_trip">On Trip</string>
     <string name="title_pay_statements">Pay Statements</string>
-    <string name="title_reminder">LaTaxi Reminder :</string>
+    <string name="title_reminder">Simple Reminder :</string>
     <string name="title_select">Select : </string>
     <string name="title_state">State :</string>
     <string name="title_terms_and_condition">Terms and Conditions</string>
@@ -288,7 +288,7 @@
 
     <string name="message_accessibility_settings_updated">Accessibility Settings Updated</string>
     <string name="message_address_is_required">Address is required</string>
-    <string name="message_app_crash">LaTaxi Driver Has Crashed Due To An Error. \nApplication Will Restart Now.  \nSorry For Any Inconvinience Caused</string>
+    <string name="message_app_crash">Simple Driver Has Crashed Due To An Error. \nApplication Will Restart Now.  \nSorry For Any Inconvinience Caused</string>
     <string name="message_arrival_confirmed">Your arrival at the required location is confirmed!</string>
     <string name="message_at"> at </string>
     <string name="message_bluetooth_not_enabled">Bluetooth Not Enabled</string>
@@ -320,8 +320,8 @@
     <string name="message_no_available_city">There are no available cities for the selected state</string>
     <string name="message_no_available_court">There are no available Courts for the selected details</string>
     <string name="message_no_available_state">There are no available states for the selected country</string>
-    <string name="message_no_backup_found_for_your_user">No Backups found for your user at /sdcard/LaTaxi/Backup</string>
-    <string name="message_no_backups_found">No Backups found at /sdcard/LaTaxi/Backup</string>
+    <string name="message_no_backup_found_for_your_user">No Backups found for your user at /sdcard/Simple/Backup</string>
+    <string name="message_no_backups_found">No Backups found at /sdcard/Simple/Backup</string>
     <string name="message_no_network_available">No Network Available!!! Please Try Again Later!!!</string>
     <string name="message_on"> on </string>
     <string name="message_otp_send_to_your_phone_number">OTP has been sent to your phone number</string>
