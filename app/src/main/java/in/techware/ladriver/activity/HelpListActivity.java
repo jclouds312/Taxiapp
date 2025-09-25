@@ -1,43 +1,49 @@
 package in.techware.ladriver.activity;
 
+import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import com.google.android.material.snackbar.Snackbar;
+import android.text.Html;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
-import java.util.List;
 
 import in.techware.ladriver.R;
-import in.techware.ladriver.adapter.HelpListRecyclerAdapter;
 import in.techware.ladriver.app.App;
-import in.techware.ladriver.listeners.HelpListListener;
+import in.techware.ladriver.listeners.BasicListener;
+import in.techware.ladriver.listeners.HelpListener;
+import in.techware.ladriver.model.BasicBean;
 import in.techware.ladriver.model.HelpBean;
-import in.techware.ladriver.model.HelpListBean;
 import in.techware.ladriver.net.DataManager;
 import in.techware.ladriver.util.AppConstants;
 
-public class HelpListActivity extends BaseAppCompatNoDrawerActivity {
+public class HelpActivity extends BaseAppCompatNoDrawerActivity {
 
-    private static final String TAG = "HelpLA";
     private View.OnClickListener snackBarRefreshOnClickListener;
-    private RecyclerView rvHelpList;
-    private LinearLayoutManager linearLayoutManager;
-    private HelpListBean helpListBean;
-    private HelpListRecyclerAdapter adapter;
+    private HelpBean helpBean;
+    private HelpBean tempHelpBean;
+    private TextView txtTitle;
+    private TextView txtContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help_list);
+        setContentView(R.layout.activity_help);
 
+        if (getIntent().hasExtra("bean"))
+            tempHelpBean = (HelpBean) getIntent().getSerializableExtra("bean");
+        else {
+            Toast.makeText(getApplicationContext(), R.string.message_something_went_wrong, Toast.LENGTH_LONG).show();
+            finish();
+        }
         initViews();
+
 
         getSupportActionBar().setTitle(R.string.label_help);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -50,7 +56,7 @@ public class HelpListActivity extends BaseAppCompatNoDrawerActivity {
     protected void onResume() {
         super.onResume();
 
-        if (helpListBean == null) {
+        if (helpBean == null) {
             setProgressScreenVisibility(true, true);
             getData(false);
         } else {
@@ -62,7 +68,7 @@ public class HelpListActivity extends BaseAppCompatNoDrawerActivity {
     private void getData(boolean isSwipeRefreshing) {
         swipeView.setRefreshing(isSwipeRefreshing);
         if (App.isNetworkAvailable()) {
-            fetchHelpList(false, 0);
+            fetchHelp();
         } else {
             Snackbar.make(coordinatorLayout, AppConstants.NO_NETWORK_AVAILABLE, Snackbar.LENGTH_INDEFINITE)
                     .setAction(R.string.btn_retry, snackBarRefreshOnClickListener).show();
@@ -81,80 +87,27 @@ public class HelpListActivity extends BaseAppCompatNoDrawerActivity {
         };
 
 
-        rvHelpList = (RecyclerView) findViewById(R.id.rv_help_list);
-
-        linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        rvHelpList.setLayoutManager(linearLayoutManager);
-        rvHelpList.addItemDecoration(
-                new DividerItemDecoration(App.getInstance().getApplicationContext(), LinearLayoutManager.VERTICAL));
+        txtTitle = (TextView) findViewById(R.id.txt_help_title);
+        txtContent = (TextView) findViewById(R.id.txt_help_content);
 
 
-        rvHelpList.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            int ydy = 0;
-
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    try {
-                        Log.i(TAG, "Scroll Up : " + ViewCompat.canScrollVertically(recyclerView, -1));
-                        if (!ViewCompat.canScrollVertically(recyclerView, -1)) {
-                            Log.i(TAG, "SwipteViewEnabled : true");
-                            swipeView.setEnabled(true);
-                        } else {
-                            Log.i(TAG, "SwipteViewEnabled : false");
-                            swipeView.setEnabled(false);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-
-               /* int offset = dy - ydy;
-                ydy = dy;
-                boolean shouldRefresh = (linearLayoutManager.findFirstCompletelyVisibleItemPosition() == 0)
-                        && (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_DRAGGING) && offset > 30;
-                if (shouldRefresh) {
-                    //swipeRefreshLayout.setRefreshing(true);
-                    //Refresh to load data here.
-                    swipeView.setEnabled(true);
-                    return;
-                } else {
-                    swipeView.setEnabled(false);
-                }
-                boolean shouldPullUpRefresh = linearLayoutManager.findLastCompletelyVisibleItemPosition() == linearLayoutManager.getChildCount() - 1
-                        && recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_DRAGGING && offset < -30;
-                if (shouldPullUpRefresh) {
-                    //swipeRefreshLayout.setRefreshing(true);
-                    //refresh to load data here.
-                    return;
-                }
-                swipeView.setEnabled(false);*/
-            }
-        });
     }
 
-    private void fetchHelpList(final boolean isLoadMore, int currentPage) {
+    private void fetchHelp() {
 
         HashMap<String, String> urlParams = new HashMap<>();
+        urlParams.put("id", tempHelpBean.getId());
 
 /*        if (isLoadMore) {
             urlParams.put("page", String.valueOf(currentPage + 1));
         }*/
 
-        DataManager.fetchHelpList(urlParams, new HelpListListener() {
+        DataManager.fetchHelp(urlParams, new HelpListener() {
             @Override
-            public void onLoadCompleted(HelpListBean helpListBeanWS) {
+            public void onLoadCompleted(HelpBean helpBeanWS) {
 
-                setHelpListBean(helpListBeanWS, isLoadMore);
-                populateHelpList();
+                helpBean = helpBeanWS;
+                populateHelp();
 
             }
 
@@ -165,65 +118,95 @@ public class HelpListActivity extends BaseAppCompatNoDrawerActivity {
                 swipeView.setRefreshing(false);
                 setProgressScreenVisibility(true, false);
                 if (App.getInstance().isDemo()) {
-                    helpListBean = new HelpListBean();
-                    helpListBean.setHelpList(new ArrayList<HelpBean>());
-                    populateHelpList();
+                    helpBean = new HelpBean();
+                    helpBean.setId(tempHelpBean.getId());
+                    helpBean.setHelpful(true);
+                    helpBean.setTitle(tempHelpBean.getTitle());
+                    helpBean.setContent(getString(R.string.sample_lorem_ipsum_large));
+                    helpBean.setIcon(tempHelpBean.getIcon());
+                    populateHelp();
                 }
             }
         });
 
     }
 
-    private void populateHelpList() {
+    private void populateHelp() {
 
-        if (adapter == null) {
-            adapter = new HelpListRecyclerAdapter(this, helpListBean);
-            adapter.setHelpListRecyclerAdapterListener(new HelpListRecyclerAdapter.HelpListRecyclerAdapterListener() {
-                @Override
-                public void onRequestNextPage(boolean isLoadMore, int currentPageNumber) {
-                    fetchHelpList(isLoadMore, currentPageNumber + 1);
-                }
 
-                @Override
-                public void onRefresh() {
-                    fetchHelpList(false, 0);
-                }
-
-                @Override
-                public void onSwipeRefreshingChange(boolean isSwipeRefreshing) {
-                    swipeView.setRefreshing(isSwipeRefreshing);
-                }
-
-                @Override
-                public void onSnackBarShow(String message) {
-                    Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_LONG)
-                            .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
-                }
-            });
-            rvHelpList.setAdapter(adapter);
+        txtTitle.setText(helpBean.getTitle());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            txtContent.setText(Html.fromHtml(helpBean.getContent(), Html.FROM_HTML_OPTION_USE_CSS_COLORS));
         } else {
-            adapter.setLoadMore(false);
-            adapter.setHelpListBean(helpListBean);
-            adapter.notifyDataSetChanged();
+            txtContent.setText(Html.fromHtml(helpBean.getContent()));
         }
 
         swipeView.setRefreshing(false);
         setProgressScreenVisibility(false, false);
     }
 
-    private void setHelpListBean(HelpListBean helpListBeanWS, boolean isLoadMore) {
+    public void onHelpHelpfulClick(View view) {
+        view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+        //mVibrator.vibrate(25);
 
-        if (isLoadMore && helpListBean != null && helpListBean.getHelpList() != null) {
-
-            List<HelpBean> listExisting = helpListBean.getHelpList();
-            List<HelpBean> listFromWS = helpListBeanWS.getHelpList();
-
-            listExisting.addAll(listFromWS);
-            helpListBean = helpListBeanWS;
-            helpListBean.setHelpList(listExisting);
+        if (App.isNetworkAvailable()) {
+            performHelpPageReview(true);
         } else {
-            helpListBean = helpListBeanWS;
+            Snackbar.make(coordinatorLayout, AppConstants.NO_NETWORK_AVAILABLE, Snackbar.LENGTH_LONG)
+                    .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
         }
 
+
+    }
+
+    public void onHelpNotHelpfulClick(View view) {
+        view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+        //mVibrator.vibrate(25);
+
+        if (App.isNetworkAvailable()) {
+            performHelpPageReview(false);
+        } else {
+            Snackbar.make(coordinatorLayout, AppConstants.NO_NETWORK_AVAILABLE, Snackbar.LENGTH_LONG)
+                    .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
+        }
+    }
+
+    private void performHelpPageReview(boolean isHelpful) {
+
+        swipeView.setRefreshing(true);
+
+        JSONObject postData = getHelpPageReviewJSObj(isHelpful);
+
+        DataManager.performHelpPageReview(postData, new BasicListener() {
+            @Override
+            public void onLoadCompleted(BasicBean basicBean) {
+                swipeView.setRefreshing(false);
+                Snackbar.make(coordinatorLayout, R.string.message_your_feedback_recorded, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
+
+            }
+
+            @Override
+            public void onLoadFailed(String error) {
+                swipeView.setRefreshing(false);
+                Snackbar.make(coordinatorLayout, error, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.btn_retry, snackBarRefreshOnClickListener).show();
+            }
+        });
+
+    }
+
+    private JSONObject getHelpPageReviewJSObj(boolean isHelpful) {
+
+        JSONObject postData = new JSONObject();
+
+        try {
+            postData.put("id", helpBean.getId());
+            postData.put("is_helpful", isHelpful);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return postData;
     }
 }

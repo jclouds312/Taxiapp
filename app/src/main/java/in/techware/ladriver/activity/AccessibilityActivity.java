@@ -1,7 +1,7 @@
 package in.techware.ladriver.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.CheckBox;

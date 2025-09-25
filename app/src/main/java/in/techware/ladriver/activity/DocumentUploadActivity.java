@@ -158,25 +158,19 @@ public class DocumentUploadActivity extends BaseAppCompatNoDrawerActivity {
                         .centerCrop())
                 .into(ivDocumentPreview);
 
-//        ibClearDisplayPic.setVisibility(View.VISIBLE);
-
     }
 
     public void onDocumentUploadTakePhotoClick(View view) {
 
         view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-        //mVibrator.vibrate(25);
 
         if (!checkForReadWritePermissions()) {
             getReadWritePermissions();
         } else {
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            // Ensure that there's a camera activity to handle the intent
             if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                // Create the File where the photo should go
                 File photoFile = null;
                 try {
-//                    imagePath = image.getAbsolutePath();
                     photoFile = App.createImageFile(App.getFileName(type)).getAbsoluteFile();
                     imagePath = photoFile.getAbsolutePath();
                 } catch (IOException ex) {
@@ -201,14 +195,12 @@ public class DocumentUploadActivity extends BaseAppCompatNoDrawerActivity {
 
     public void onDocumentUploadRetakeClick(View view) {
         view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-        //mVibrator.vibrate(25);
 
         onDocumentUploadTakePhotoClick(view);
     }
 
     public void onDocumentUploadSaveClick(View view) {
         view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-        //mVibrator.vibrate(25);
 
         performDocumentUploadSave();
     }
@@ -226,8 +218,6 @@ public class DocumentUploadActivity extends BaseAppCompatNoDrawerActivity {
             public void onLoadCompleted(BasicBean basicBean) {
                 swipeView.setRefreshing(false);
 
-//                App.saveToken(getApplicationContext(), driverDetailsBean);
-
                 Intent intent = new Intent();
                 intent.putExtra("type", type);
                 setResult(RESULT_OK, intent);
@@ -240,8 +230,7 @@ public class DocumentUploadActivity extends BaseAppCompatNoDrawerActivity {
                 Snackbar.make(coordinatorLayout, error, Snackbar.LENGTH_LONG)
                         .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
 
-                 /* To Be Removed....*/
-                if (App.getInstance().isDemo()) {
+                 if (App.getInstance().isDemo()) {
                     Intent intent = new Intent();
                     intent.putExtra("type", type);
                     setResult(RESULT_OK, intent);

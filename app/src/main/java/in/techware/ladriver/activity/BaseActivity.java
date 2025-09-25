@@ -15,9 +15,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Vibrator;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -47,13 +47,9 @@ import in.techware.ladriver.listeners.PermissionListener;
 import in.techware.ladriver.util.FileOp;
 import io.fabric.sdk.android.Fabric;
 
-//import com.digits.sdk.android.Digits;
-//import com.twitter.sdk.android.core.TwitterAuthConfig;
-//import com.twitter.sdk.android.core.TwitterCore;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
     private static final String TWITTER_KEY = "tuEpvrhOVzYu6veSjOJecaRvr";
     private static final String TWITTER_SECRET = "1x9JfDhohDBGi2W4PZLcAVdhYBXy35H9OqQbtAea9AmQ6MiaEu";
 
@@ -124,13 +120,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         App.checkForToken();
 
-        /*Remove this to remove Crashlytics and Fabric*/
-//        Fabric.with(this, new Crashlytics());
-//        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(this, new Crashlytics()/*, new TwitterCore(authConfig), new Digits.Builder().build()*/);
+        Fabric.with(this, new Crashlytics());
 
         mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        //	getActionBar().setHomeButtonEnabled(true);
 
         fop = new FileOp(this.getApplicationContext());
 
@@ -143,11 +135,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         }
-/*        if (android.os.Build.VERSION.SDK_INT >= 21) {
-            toolbar.setPadding(0, getStatusBarHeight(), 0, 0);
-        }*/
-
-        //	llBottomBarActionPopup=(LinearLayout)findViewById(R.id.ll_bottombar_popmenu);
 
         TypedValue typedValue = new TypedValue();
         getTheme().resolveAttribute(R.attr.selectableItemBackground, typedValue, true);
@@ -192,7 +179,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-//                mVibrator.vibrate(25);
                 v.setVisibility(View.GONE);
 
             }
@@ -214,63 +200,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         System.exit(2);
     }
 
-/*    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if (Config.getInstance().getAuthToken() != null && !Config.getInstance().getAuthToken().equalsIgnoreCase("")
-                && Config.getInstance().getMatrimonyID() != null && !Config.getInstance().getMatrimonyID().equalsIgnoreCase("")) {
-            mDatabase.child("users").child(Config.getInstance().getMatrimonyID()).child("is_online").setValue(true);
-
-            if (Config.getInstance().getPhotoRequestGrantedProfiles() == null)
-                Config.getInstance().setPhotoRequestGrantedProfiles(new ArrayList<String>());
-
-            initFirebase();
-        }
-    }*/
-
-/*    @Override
-    protected void onStop() {
-        super.onStop();
-        if (Config.getInstance().getAuthToken() != null && !Config.getInstance().getAuthToken().equalsIgnoreCase("")
-                && Config.getInstance().getMatrimonyID() != null && !Config.getInstance().getMatrimonyID().equalsIgnoreCase("")) {
-            mDatabase.child("users").child(Config.getInstance().getMatrimonyID()).child("is_online").setValue(false);
-
-            if (photoRequestListener != null)
-                photoRequestGrantedRef.removeEventListener(photoRequestListener);
-        }
-    }*/
-/*
-    private void initFirebase() {
-
-        photoRequestGrantedRef = mDatabase.child("users").child(Config.getInstance().getMatrimonyID()).child("photo_request_granted");
-        photoRequestGrantedRef.keepSynced(true);
-
-        photoRequestListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.e("Count ", "" + dataSnapshot.getChildrenCount());
-                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-                    if (Config.getInstance().getPhotoRequestGrantedProfiles() == null)
-                        Config.getInstance().setPhotoRequestGrantedProfiles(new ArrayList<String>());
-
-                    if (!Config.getInstance().getPhotoRequestGrantedProfiles().contains(childSnapshot.getKey()))
-                        Config.getInstance().getPhotoRequestGrantedProfiles().add(childSnapshot.getKey());
-
-                    Log.i(TAG, "onDataChange: "+childSnapshot.getKey());
-
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-
-        photoRequestGrantedRef.addValueEventListener(photoRequestListener);
-
-    }*/
 
     public void performCall(String phone) {
         String url = "tel:" + phone;
@@ -289,7 +218,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    // A method to find height of the status bar
     public int getStatusBarHeight() {
         int result = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -333,7 +261,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                     .format(new Date(calTemp.getTimeInMillis()));
             return GMTTime;
         } catch (Exception e) {
-            //	e.printStackTrace();
             return GMTTime;
         }
     }
@@ -345,6 +272,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         try {
             TelephonyManager mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                return "";
+            }
             IMEI = mngr.getDeviceId();
 
             System.out.println("IMEI : " + IMEI);
@@ -388,17 +318,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                     || ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
 
-                /*String[] permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.READ_CONTACTS,
-                        Manifest.permission.GET_ACCOUNTS,
-                        Manifest.permission.CLEAR_APP_CACHE,
-                        Manifest.permission.ACCESS_NETWORK_STATE,
-                        Manifest.permission.INTERNET,
-                        Manifest.permission.READ_PHONE_STATE};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS);*/
                 return hasAllPermissions = false;
             } else {
                 return hasAllPermissions = true;
@@ -451,9 +370,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
 
-               /* String[] permissions = new String[]{
-                        Manifest.permission.READ_CONTACTS};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_READ_CONTACTS);*/
                 return hasReadContactsPermissions = false;
             } else {
                 return hasReadContactsPermissions = true;
@@ -481,10 +397,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                     Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     || ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                /*String[] permissions = new String[]{
-                        Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.ACCESS_FINE_LOCATION,};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_LOCATION);*/
                 return hasLocationPermissions = false;
             } else {
                 return hasLocationPermissions = true;
@@ -514,9 +426,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                     || ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                /*String[] permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_READ_WRITE);*/
                 return hasReadWritePermissions = false;
             } else {
                 return hasReadWritePermissions = true;
@@ -543,8 +452,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
-              /*  String[] permissions = new String[]{Manifest.permission.GET_ACCOUNTS};
-                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_GET_ACCOUNTS);*/
                 return hasGetAccountsPermissions = false;
             } else {
                 return hasGetAccountsPermissions = true;
@@ -569,8 +476,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-//                String[] permissions = new String[]{Manifest.permission.READ_PHONE_STATE};
-//                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_READ_PHONE_STATE);
                 return hasReadPhoneStatePermissions = false;
             } else {
                 return hasReadPhoneStatePermissions = true;
@@ -594,8 +499,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-//                String[] permissions = new String[]{Manifest.permission.READ_PHONE_STATE};
-//                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_READ_PHONE_STATE);
                 return hasCallPermissions = false;
             } else {
                 return hasCallPermissions = true;
@@ -619,8 +522,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-//                String[] permissions = new String[]{Manifest.permission.READ_PHONE_STATE};
-//                ActivityCompat.requestPermissions(this, permissions, REQUEST_PERMISSIONS_READ_PHONE_STATE);
                 return hasSMSPermissions = false;
             } else {
                 return hasSMSPermissions = true;
@@ -752,7 +653,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
 
         if (!isLocationServiceEnabled) {
-            // notify user
             if (!isFinishing()) {
                 if (!isLocationServiceEnableRequestShown) {
                     Log.i(TAG, "checkLocationSettingsStatus: Popup Init :");
