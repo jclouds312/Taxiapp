@@ -6,10 +6,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.content.FileProvider;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import androidx.core.content.FileProvider;
 import android.view.HapticFeedbackConstants;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,12 +44,6 @@ import in.techware.ladriver.model.ProfileBean;
 import in.techware.ladriver.net.DataManager;
 import in.techware.ladriver.util.AppConstants;
 
-/*import com.digits.sdk.android.AuthCallback;
-import com.digits.sdk.android.AuthConfig;
-import com.digits.sdk.android.Digits;
-import com.digits.sdk.android.DigitsException;
-import com.digits.sdk.android.DigitsSession;*/
-
 public class ProfileActivity extends BaseAppCompatNoDrawerActivity {
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -74,7 +68,6 @@ public class ProfileActivity extends BaseAppCompatNoDrawerActivity {
     private ImageView ivProfilePhoto;
     private String imagePath;
     private String documentPath;
-//    private AuthConfig authConfig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,7 +175,6 @@ public class ProfileActivity extends BaseAppCompatNoDrawerActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             documentPath = imagePath;
-            //    setBannerPic(tempImagePath);
             setProfilePhotoImage(imagePath);
             isEditing = true;
             menuProfileEdit.setVisible(false);
@@ -211,7 +203,6 @@ public class ProfileActivity extends BaseAppCompatNoDrawerActivity {
             @Override
             public void onClick(View v) {
                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-//                mVibrator.vibrate(25);
                 setProgressScreenVisibility(true, true);
                 getData(false);
             }
@@ -241,31 +232,6 @@ public class ProfileActivity extends BaseAppCompatNoDrawerActivity {
         etxtName.setTypeface(typeface);
         etxtEmail.setTypeface(typeface);
 
-/*
-        AuthConfig.Builder builder = new AuthConfig.Builder();
-
-        builder.withAuthCallBack(new AuthCallback() {
-            @Override
-            public void success(DigitsSession session, String phone) {
-
-                Toast.makeText(getApplicationContext(), R.string.message_phone_verified_successfully,
-                        Toast.LENGTH_LONG).show();
-                txtPhone.setText(phone);
-                if (editProfileBean == null)
-                    editProfileBean = new ProfileBean();
-                editProfileBean.setPhone(phone);
-            }
-
-            @Override
-            public void failure(DigitsException exception) {
-                *//*Snackbar.make(coordinatorLayout, "Phone Verification Failed..... Try Again!", Snackbar.LENGTH_LONG)
-                        .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();*//*
-                Log.i("Digits", "Sign in with Digits failure", exception);
-            }
-        });
-
-        authConfig = builder.build();*/
-
     }
 
     private void setProfilePhotoImage(String imagePath) {
@@ -279,8 +245,6 @@ public class ProfileActivity extends BaseAppCompatNoDrawerActivity {
                         .centerCrop()
                         .circleCrop())
                 .into(ivProfilePhoto);
-
-//        ibClearDisplayPic.setVisibility(View.VISIBLE);
 
     }
 
@@ -299,10 +263,6 @@ public class ProfileActivity extends BaseAppCompatNoDrawerActivity {
 
         HashMap<String, String> urlParams = new HashMap<>();
         urlParams.put("auth_token", Config.getInstance().getAuthToken());
-
-/*        if (isLoadMore) {
-            urlParams.put("page", String.valueOf(currentPage + 1));
-        }*/
 
         DataManager.fetchProfile(urlParams, new ProfileListener() {
             @Override
@@ -443,18 +403,14 @@ public class ProfileActivity extends BaseAppCompatNoDrawerActivity {
 
     public void onProfileTakePhotoClick(View view) {
         view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-        //mVibrator.vibrate(25);
 
         if (!checkForReadWritePermissions()) {
             getReadWritePermissions();
         } else {
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            // Ensure that there's a camera activity to handle the intent
             if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                // Create the File where the photo should go
                 File photoFile = null;
                 try {
-//                    imagePath = image.getAbsolutePath();
                     photoFile = App.createImageFile(0).getAbsoluteFile();
                     imagePath = photoFile.getAbsolutePath();
                 } catch (IOException ex) {
@@ -478,11 +434,8 @@ public class ProfileActivity extends BaseAppCompatNoDrawerActivity {
 
     public void onProfileMobileClick(View view) {
         view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-        //mVibrator.vibrate(25);
 
         FirebaseAuth.getInstance().signOut();
-//        Digits.logout();
-//        Digits.authenticate(authConfig);
 
         startActivityForResult(new Intent(this, MobileVerificationActivity.class)
                 , REQ_MOBILE_VERIFICATION);
@@ -533,7 +486,6 @@ public class ProfileActivity extends BaseAppCompatNoDrawerActivity {
             editProfileBean = new ProfileBean();
 
         try {
-//            postData.put("auth_token", Config.getInstance().getAuthToken());
             postData.put("name", editProfileBean.getName() != null && !editProfileBean.getName().equalsIgnoreCase("")
                     ? editProfileBean.getName() : profileBean.getName());
             if (editProfileBean.getEmail() != null && !editProfileBean.getEmail().equalsIgnoreCase("")

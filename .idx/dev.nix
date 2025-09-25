@@ -21,7 +21,93 @@
   idx = {
     # Busca las extensiones que quieras en https://open-vsx.org/ y usa "publisher.id"
     extensions = [
-      "redhat.java",
+      "redhat.java"Build APK
+      1m 26s
+      
+      
+      
+      Show command
+      Showing the last 50 lines. Click this button to load the full log
+      /Users/builder/clone/app/src/main/java/in/techware/ladriver/activity/ProfileActivity.java:61: error: cannot find symbol
+          private TextInputLayout tilCity;
+                      ^
+                        symbol:   class TextInputLayout
+                          location: class ProfileActivity
+                          /Users/builder/clone/app/src/main/java/in/techware/ladriver/activity/ProfileActivity.java:62: error: cannot find symbol
+                              private TextInputLayout tilState;
+                                          ^
+                                            symbol:   class TextInputLayout
+                                              location: class ProfileActivity
+                                              /Users/builder/clone/app/src/main/java/in/techware/ladriver/activity/ProfileActivity.java:63: error: cannot find symbol
+                                                  private TextInputLayout tilPostalCode;
+                                                              ^
+                                                                symbol:   class TextInputLayout
+                                                                  location: class ProfileActivity
+                                                                  /Users/builder/clone/app/src/main/java/in/techware/ladriver/activity/ProfileActivity.java:64: error: cannot find symbol
+                                                                      private TextInputEditText etxtAddress1;
+                                                                                  ^
+                                                                                    symbol:   class TextInputEditText
+                                                                                      location: class ProfileActivity
+                                                                                      /Users/builder/clone/app/src/main/java/in/techware/ladriver/activity/ProfileActivity.java:65: error: cannot find symbol
+                                                                                          private TextInputEditText etxtCity;
+                                                                                                      ^
+                                                                                                        symbol:   class TextInputEditText
+                                                                                                          location: class ProfileActivity
+                                                                                                          Note: Some input files use or override a deprecated API.
+                                                                                                          Note: Recompile with -Xlint:deprecation for details.
+                                                                                                          Note: Some input files use unchecked or unsafe operations.
+                                                                                                          Note: Recompile with -Xlint:unchecked for details.
+                                                                                                          Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+                                                                                                          100 errors
+                                                                                                          
+                                                                                                          FAILURE: Build failed with an exception.
+                                                                                                          
+                                                                                                          * What went wrong:
+                                                                                                          Execution failed for task ':app:compileReleaseJavaWithJavac'.
+                                                                                                          > Compilation failed; see the compiler error output for details.
+                                                                                                          
+                                                                                                          * Try:
+                                                                                                          Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+                                                                                                          
+                                                                                                          * Get more help at https://help.gradle.org
+                                                                                                          
+                                                                                                          BUILD FAILED in 1m 25s
+                                                                                                          27 actionable tasks: 27 executed
+                                                                                                          
+                                                                                                          
+                                                                                                          Build failed :|
+                                                                                                          Step 3 script `Build APK` exited with status code 1
+                                                                                                          
+                                                                                                          Applications
+                                                                                                          Builds
+                                                                                                          OTA Updates
+                                                                                                          NEW
+                                                                                                          App Preview
+                                                                                                          Teams
+                                                                                                          Billing
+                                                                                                          
+                                                                                                          
+                                                                                                          Taxiapp
+                                                                                                          Taxiapp
+                                                                                                          github.com/jclouds312/Taxiapp
+                                                                                                          
+                                                                                                          
+                                                                                                          Start new build
+                                                                                                          Build overview
+                                                                                                          Click on the build steps for details.
+                                                                                                          Preparing build machine
+                                                                                                          28s
+                                                                                                          Fetching app sources
+                                                                                                          2s
+                                                                                                          Decode keystore
+                                                                                                          < 1s
+                                                                                                          Publishing
+                                                                                                          < 1s
+                                                                                                          Cleaning up
+                                                                                                          < 1s
+                                                                                                          Step 3 script `Build APK` exited with status code 1
+                                                                                                          
+                                                                                                          ,
       "vscjava.vscode-java-debug"
     ];
 
