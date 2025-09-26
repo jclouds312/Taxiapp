@@ -7,11 +7,11 @@ public class ServiceNames {
     private static final String PRODUCTION_API = "http://techlabz.in";
   
     /* Set API VERSION here*/
-    public static final String API_VERSION = "/lataxi/Webservices_driver";
+    public static final String API_VERSION = "/ladriver/Webservices_driver";
 
 
     /*Set UPLOAD PATH. DO NOT CHANGE THIS UNLESS YOU KNOW WHAT YOU ARE DOING.*/
-    public static final String PATH_UPLOADS = "/lataxi/";
+    public static final String PATH_UPLOADS = "/ladriver/";
 
 
     /*Set API URL here*/
