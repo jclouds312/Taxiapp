@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import com.google.android.material.snackbar.Snackbar;
 import androidx.core.content.FileProvider;
 import android.util.Log;
 import android.view.HapticFeedbackConstants;
@@ -18,6 +17,7 @@ import android.widget.ViewFlipper;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.signature.ObjectKey;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import in.techware.ladriver.R;
+in.techware.ladriver.R;
 import in.techware.ladriver.app.App;
 import in.techware.ladriver.config.Config;
 import in.techware.ladriver.listeners.BasicListener;

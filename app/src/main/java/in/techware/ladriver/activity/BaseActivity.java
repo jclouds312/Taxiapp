@@ -31,7 +31,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.crashlytics.android.Crashlytics;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -39,14 +39,12 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import in.techware.ladriver.R;
+in.techware.ladriver.R;
 import in.techware.ladriver.app.App;
 import in.techware.ladriver.config.TypefaceCache;
 import in.techware.ladriver.dialogs.PopupMessage;
 import in.techware.ladriver.listeners.PermissionListener;
 import in.techware.ladriver.util.FileOp;
-import io.fabric.sdk.android.Fabric;
-
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -120,7 +118,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         App.checkForToken();
 
-        Fabric.with(this, new Crashlytics());
+        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true);
 
         mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 

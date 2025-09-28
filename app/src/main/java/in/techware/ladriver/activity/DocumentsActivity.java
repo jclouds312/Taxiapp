@@ -2,7 +2,6 @@ package in.techware.ladriver.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import com.google.android.material.snackbar.Snackbar;
 import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.view.HapticFeedbackConstants;
@@ -10,9 +9,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.HashMap;
 
-import in.techware.ladriver.R;
 import in.techware.ladriver.app.App;
 import in.techware.ladriver.config.Config;
 import in.techware.ladriver.listeners.DocumentStatusListener;
@@ -20,6 +20,7 @@ import in.techware.ladriver.model.DocumentBean;
 import in.techware.ladriver.model.DocumentStatusBean;
 import in.techware.ladriver.net.DataManager;
 import in.techware.ladriver.util.AppConstants;
+import in.techware.ladriver.R;
 
 public class DocumentsActivity extends BaseAppCompatNoDrawerActivity {
 

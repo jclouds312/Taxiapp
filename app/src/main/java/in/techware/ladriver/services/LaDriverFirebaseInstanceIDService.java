@@ -20,7 +20,7 @@ import in.techware.ladriver.net.DataManager;
  * Project LaTaxiDriver
  */
 
-public class LaTaxiDriverFirebaseInstanceIDService extends FirebaseInstanceIdService {
+public class LaDriverFirebaseInstanceIDService extends FirebaseInstanceIdService {
     private static final String TAG = "LTFIService";
 
     @Override

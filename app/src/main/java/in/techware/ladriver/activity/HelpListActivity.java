@@ -23,7 +23,7 @@ import in.techware.ladriver.model.HelpBean;
 import in.techware.ladriver.net.DataManager;
 import in.techware.ladriver.util.AppConstants;
 
-public class HelpActivity extends BaseAppCompatNoDrawerActivity {
+public class HelpListActivity extends BaseAppCompatNoDrawerActivity {
 
     private View.OnClickListener snackBarRefreshOnClickListener;
     private HelpBean helpBean;
@@ -149,7 +149,7 @@ public class HelpActivity extends BaseAppCompatNoDrawerActivity {
         view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
         //mVibrator.vibrate(25);
 
-        if (App.isNetworkAvailable()) {
+        if (.isNetworkAvailable()) {
             performHelpPageReview(true);
         } else {
             Snackbar.make(coordinatorLayout, AppConstants.NO_NETWORK_AVAILABLE, Snackbar.LENGTH_LONG)

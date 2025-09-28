@@ -13,7 +13,7 @@ import in.techware.ladriver.activity.TripDetailsActivity;
 import in.techware.ladriver.model.BasicBean;
 import in.techware.ladriver.net.parsers.RequestParser;
 
-public class LaTaxiDriverFirebaseMessagingService extends FirebaseMessagingService {
+public class LaDriverFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "LFMService";
 
