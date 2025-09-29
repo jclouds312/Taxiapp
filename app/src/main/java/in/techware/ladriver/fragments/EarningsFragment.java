@@ -27,7 +27,7 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
@@ -238,9 +238,9 @@ public class EarningsFragment extends BaseFragment {
         mChart.setDrawGridBackground(false);
         // mChart.setDrawYLabels(false);
 
-        IAxisValueFormatter xAxisFormatter = new IAxisValueFormatter() {
+        ValueFormatter xAxisFormatter = new ValueFormatter() {
             @Override
-            public String getFormattedValue(float value, AxisBase axisBase) {
+            public String getAxisLabel(float value, AxisBase axis) {
 
                 Log.i(TAG, "getFormattedValue: Value : " + value);
                 if (value == -1 || value == 7)
@@ -259,9 +259,9 @@ public class EarningsFragment extends BaseFragment {
         xAxis.setLabelCount(7);
         xAxis.setValueFormatter(xAxisFormatter);
 
-        IAxisValueFormatter custom = new IAxisValueFormatter() {
+        ValueFormatter custom = new ValueFormatter() {
             @Override
-            public String getFormattedValue(float value, AxisBase axisBase) {
+            public String getAxisLabel(float value, AxisBase axis) {
 
                 int temp = (int) value;
                 return String.valueOf(temp);

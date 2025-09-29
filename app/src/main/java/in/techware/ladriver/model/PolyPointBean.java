@@ -55,6 +55,10 @@ public class PolyPointBean extends BaseBean {
         return routes;
     }
 
+    public List<List<HashMap<String, String>>> getPoints() {
+        return getRoutes();
+    }
+
     public void setRoutes(List<List<HashMap<String, String>>> routes) {
         this.routes = routes;
     }

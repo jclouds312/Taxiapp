@@ -68,6 +68,10 @@ public class PlaceBean extends BaseBean implements Comparable<PlaceBean> {
         }
     }
 
+    public double getDLatitude() {
+        return getdLatitude();
+    }
+
     public double getdLongitude() {
         try {
             return Double.parseDouble(longitude);
@@ -75,6 +79,10 @@ public class PlaceBean extends BaseBean implements Comparable<PlaceBean> {
             e.printStackTrace();
             return 0.0;
         }
+    }
+
+    public double getDLongitude() {
+        return getdLongitude();
     }
 
     @Override

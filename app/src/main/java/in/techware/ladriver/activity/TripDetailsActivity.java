@@ -259,7 +259,7 @@ public class TripDetailsActivity extends BaseAppCompatNoDrawerActivity {
         txtDuration = (TextView) findViewById(R.id.txt_trip_details_duration);
         txtDistance = (TextView) findViewById(R.id.txt_trip_details_distance);
         txtFare = (TextView) findViewById(R.id.txt_trip_details_fare);
-        txtLaTaxiFee = (TextView) findViewById(R.id.txt_trip_details_ladriver_fee);
+        txtLaTaxiFee = (TextView) findViewById(R.id.txt_trip_details_lataxi_fee);
         txtTaxReturn = (TextView) findViewById(R.id.txt_trip_details_tax_return);
         txtEstimatedPayout = (TextView) findViewById(R.id.txt_trip_details_estimated_payout);
         txtSourceLocation = (TextView) findViewById(R.id.txt_trip_details_source_location);

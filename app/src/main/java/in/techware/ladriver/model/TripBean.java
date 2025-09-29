@@ -4,13 +4,17 @@ import androidx.annotation.NonNull;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
+
 /**
  * Created by Jemsheer K D on 05 May, 2017.
  * Package in.techware.ladriver.model
  * Project LaTaxiDriver
  */
 
-public class TripBean extends BaseBean implements Comparable {
+public class TripBean extends BaseBean implements Comparable, Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String id;
     private String tripStatus;

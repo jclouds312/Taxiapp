@@ -273,4 +273,154 @@ public class TripHelpActivity extends BaseAppCompatNoDrawerActivity {
             case "2":
                 tripFeedbackType = AppConstants.FEEDBACK3;
                 llFeedBackThree.setBackgroundResource(R.color.bg_feedback);
-                ivFeedback3Select.setVisibility(V
+                ivFeedback3Select.setVisibility(View.VISIBLE);
+                break;
+            case "3":
+                tripFeedbackType = AppConstants.FEEDBACK4;
+                llFeedBackFour.setBackgroundResource(R.color.bg_feedback);
+                ivFeedback4Select.setVisibility(View.VISIBLE);
+                break;
+            case "4":
+                tripFeedbackType = AppConstants.FEEDBACK5;
+                llFeedBackFive.setBackgroundResource(R.color.bg_feedback);
+                ivFeedback5Select.setVisibility(View.VISIBLE);
+                break;
+            case "5":
+                tripFeedbackType = AppConstants.FEEDBACK6;
+                llFeedBackSix.setBackgroundResource(R.color.bg_feedback);
+                ivFeedback6Select.setVisibility(View.VISIBLE);
+                break;
+        }
+    }
+
+    private void changeFeedbackToDefault() {
+
+        llFeedBackOne.setBackgroundResource(R.color.transparent);
+        llFeedBackTwo.setBackgroundResource(R.color.transparent);
+        llFeedBackThree.setBackgroundResource(R.color.transparent);
+        llFeedBackFour.setBackgroundResource(R.color.transparent);
+        llFeedBackFive.setBackgroundResource(R.color.transparent);
+        llFeedBackSix.setBackgroundResource(R.color.transparent);
+
+        ivFeedback1Select.setVisibility(View.GONE);
+        ivFeedback2Select.setVisibility(View.GONE);
+        ivFeedback3Select.setVisibility(View.GONE);
+        ivFeedback4Select.setVisibility(View.GONE);
+        ivFeedback5Select.setVisibility(View.GONE);
+        ivFeedback6Select.setVisibility(View.GONE);
+    }
+
+    public void onTripHelpSubmitClick(View view) {
+
+        if (tripFeedbackType != null)
+            performTripFeedback();
+        else {
+            Toast.makeText(getApplicationContext(), R.string.toast_please_select_a_reason, Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    private void performTripFeedback() {
+
+        swipeView.setRefreshing(true);
+        JSONObject postData = getTripFeedbackJSObj();
+
+        DataManager.performTripFeedback(postData, new TripFeedbackListener() {
+
+            @Override
+            public void onLoadCompleted(TripFeedbackBean tripFeedbackBean) {
+
+                swipeView.setRefreshing(false);
+                Toast.makeText(getApplicationContext(), R.string.toast_your_feedback_is_submitted, Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+            @Override
+            public void onLoadFailed(String error) {
+                swipeView.setRefreshing(false);
+                Snackbar.make(coordinatorLayout, error, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
+            }
+        });
+    }
+
+    private JSONObject getTripFeedbackJSObj() {
+        JSONObject postData = new JSONObject();
+
+        try {
+            postData.put("trip_id", tripBean.getId());
+            postData.put("feedback", tripFeedbackType);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return postData;
+    }
+
+
+    private void fetchPolyPoints() {
+
+        //        swipeView.setRefreshing(true);
+
+        HashMap<String, String> urlParams = new HashMap<>();
+
+        urlParams.put("origin", tripBean.getSourceLatitude() + "," + tripBean.getSourceLongitude());
+        urlParams.put("destination", tripBean.getDestinationLatitude() + "," + tripBean.getDestinationLongitude());
+        urlParams.put("mode", "driving");
+        urlParams.put("key", getString(R.string.browser_api_key));
+
+        DataManager.fetchPolyPoints(urlParams, new PolyPointListener() {
+
+            @Override
+            public void onLoadCompleted(PolyPointBean polyPointBeanWS) {
+                //                swipeView.setRefreshing(false);
+                polyPointBean = polyPointBeanWS;
+                Log.i(TAG, "onLoadCompleted: POLYPOINTBEAN" + polyPointBean);
+
+                populatePath();
+            }
+
+            @Override
+            public void onLoadFailed(String error) {
+                //                swipeView.setRefreshing(false);
+                Snackbar.make(coordinatorLayout, error, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
+            }
+        });
+    }
+
+    private void populatePath() {
+
+        List<List<HashMap<String, String>>> routes = polyPointBean.getPoints();
+
+        ArrayList<LatLng> points = null;
+        PolylineOptions polyLineOptions = null;
+
+        // traversing through routes
+        for (int i = 0; i < routes.size(); i++) {
+            points = new ArrayList<LatLng>();
+            polyLineOptions = new PolylineOptions();
+            List<HashMap<String, String>> path = routes.get(i);
+
+            for (int j = 0; j < path.size(); j++) {
+                HashMap<String, String> point = path.get(j);
+
+                double lat = Double.parseDouble(point.get("lat"));
+                double lng = Double.parseDouble(point.get("lng"));
+                LatLng position = new LatLng(lat, lng);
+
+                points.add(position);
+            }
+
+            polyLineOptions.addAll(points);
+            polyLineOptions.width(8);
+            polyLineOptions.color(ContextCompat.getColor(getApplicationContext(), R.color.map_path));
+
+        }
+        if(polyLineOptions != null) {
+            polyLine = mMap.addPolyline(polyLineOptions);
+        }
+    }
+}

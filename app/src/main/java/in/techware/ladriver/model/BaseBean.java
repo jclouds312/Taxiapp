@@ -7,7 +7,7 @@ public class BaseBean {
 
     @SerializedName("status")
     @Expose
-    private boolean status;
+    private String status;
     @SerializedName("error")
     @Expose
     private String error;
@@ -15,19 +15,19 @@ public class BaseBean {
     @Expose
     private String webMessage;
 
-    public boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public void setStatus(String status) {
-        this.status = status.equalsIgnoreCase("success");
+    public String getError() {
+        return error;
     }
 
-    public String getError() {
+    public String getErrorMsg() {
         return error;
     }
 

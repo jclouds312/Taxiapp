@@ -1,12 +1,16 @@
 package in.techware.ladriver.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Jemsheer K D on 19 May, 2017.
  * Package in.techware.ladriver.model
  * Project LaTaxiDriver
  */
 
-public class HelpBean extends BaseBean {
+public class HelpBean extends BaseBean implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String id;
     private String icon;
