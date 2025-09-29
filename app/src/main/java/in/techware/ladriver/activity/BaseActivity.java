@@ -39,7 +39,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-in.techware.ladriver.R;
+import in.techware.ladriver.R;
 import in.techware.ladriver.app.App;
 import in.techware.ladriver.config.TypefaceCache;
 import in.techware.ladriver.dialogs.PopupMessage;

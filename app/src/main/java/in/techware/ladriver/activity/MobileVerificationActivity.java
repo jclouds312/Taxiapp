@@ -4,111 +4,79 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.google.android.material.snackbar.Snackbar;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
+import androidx.appcompat.widget.Toolbar;
 import android.view.HapticFeedbackConstants;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseException;
-import com.google.firebase.FirebaseTooManyRequestsException;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthProvider;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import in.techware.ladriver.R;
-import in.techware.ladriver.listeners.BasicListener;
-import in.techware.ladriver.model.BasicBean;
-import in.techware.ladriver.model.CountryBean;
-import in.techware.ladriver.model.CountryListBean;
+import in.techware.ladriver.dialogs.PopupMessage;
+import in.techware.ladriver.listeners.LoginListener;
+import in.techware.ladriver.listeners.PhoneRegistrationListener;
+import in.techware.ladriver.model.AuthBean;
+import in.techware.ladriver.model.RegistrationBean;
 import in.techware.ladriver.net.DataManager;
 import in.techware.ladriver.util.AppConstants;
 import in.techware.ladriver.widgets.OTPEditText;
 
-public class MobileVerificationActivity extends BaseAppCompatNoDrawerActivity {
+public class MobileVerificationActivity extends BaseAppCompatActivity {
 
-    private static final String TAG = "MVerifyA";
+    private RegistrationBean registrationBean;
+    private Toolbar toolbar;
     private OTPEditText etxtOne;
     private OTPEditText etxtTwo;
     private OTPEditText etxtThree;
     private OTPEditText etxtFour;
     private OTPEditText etxtFive;
     private OTPEditText etxtSix;
-    private boolean isVerificationEnabled;
-    private String otpCode = "";
-    private Spinner spinnerCountryCodes;
-    private ArrayAdapter<String> adapterCountryCodes;
-    private ImageView ivFlag;
-    private EditText etxtPhone;
-    private CountryListBean countryListBean;
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
-    private String mVerificationId;
-    private PhoneAuthProvider.ForceResendingToken mResendToken;
-    private String phone = "";
-    private LinearLayout llVerification;
-    private TextView txtVerificationLabel;
-    private FirebaseAuth mAuth;
+    private String phone, email, password, name;
+    private boolean isLogin;
+    private TextView txtResend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mobile_verification);
 
+        registrationBean = (RegistrationBean) getIntent().getSerializableExtra("bean");
+        isLogin = getIntent().getBooleanExtra("is_login", false);
 
         initViews();
 
-
-        getSupportActionBar().setTitle(R.string.title_mobile_verification);
-        getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (isLogin) {
+            etxtSix.setFocusable(true);
+            etxtSix.requestFocus();
+            phone = registrationBean.getPhone();
+            password = registrationBean.getPassword();
+        } else {
+
+            phone = registrationBean.getPhone();
+            email = registrationBean.getEmail();
+            name = registrationBean.getName();
+            password = registrationBean.getPassword();
+        }
 
     }
 
     private void initViews() {
 
-        llVerification = (LinearLayout) findViewById(R.id.ll_mobile_verification_otp);
-        txtVerificationLabel = (TextView) findViewById(R.id.txt_mobile_verification_otp_label);
+        coordinatorLayout.removeView(toolbar);
 
-        spinnerCountryCodes = (Spinner) findViewById(R.id.spinner_mobile_verification_country_code);
-        countryListBean = AppConstants.getCountryBean();
-        Collections.sort(countryListBean.getCountries());
-        List<String> countryDialCodes = new ArrayList<>();
-        for (CountryBean bean : countryListBean.getCountries()) {
-            countryDialCodes.add(bean.getDialCode());
-        }
-
-//        adapterCountryCodes = ArrayAdapter.createFromResource(this, R.array.country_codes, android.R.layout.simple_spinner_item);
-        adapterCountryCodes = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, countryDialCodes);
-        adapterCountryCodes.setDropDownViewResource(R.layout.item_spinner);
-        spinnerCountryCodes.setAdapter(adapterCountryCodes);
-
-        ivFlag = (ImageView) findViewById(R.id.iv_mobile_verification_country_flag);
-
-        etxtPhone = (EditText) findViewById(R.id.etxt_mobile_verification_phone);
-
+        toolbar = (Toolbar) findViewById(R.id.toolbar_mobile_verification);
+        setSupportActionBar(toolbar);
 
         etxtOne = (OTPEditText) findViewById(R.id.etxt_mobile_verification_one);
         etxtTwo = (OTPEditText) findViewById(R.id.etxt_mobile_verification_two);
@@ -117,533 +85,47 @@ public class MobileVerificationActivity extends BaseAppCompatNoDrawerActivity {
         etxtFive = (OTPEditText) findViewById(R.id.etxt_mobile_verification_five);
         etxtSix = (OTPEditText) findViewById(R.id.etxt_mobile_verification_six);
 
-
-        etxtPhone.setTypeface(typeface);
-        etxtOne.setTypeface(typeface);
-        etxtTwo.setTypeface(typeface);
-        etxtThree.setTypeface(typeface);
-        etxtFour.setTypeface(typeface);
-        etxtFive.setTypeface(typeface);
-        etxtSix.setTypeface(typeface);
-
-        setVerificationLayoutVisibility(false);
-        mAuth = FirebaseAuth.getInstance();
-
-        Glide.with(getApplicationContext())
-                .load("file:///android_asset/" + "flags/"
-                        + countryListBean.getCountries().get(0).getCountryCode().toLowerCase() + ".gif")
-                .apply(new RequestOptions()
-                        .centerCrop()
-                        .circleCrop())
-                .into(ivFlag);
-
-
-        spinnerCountryCodes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Glide.with(getApplicationContext())
-                        .load("file:///android_asset/" + "flags/"
-                                + countryListBean.getCountries().get(position).getCountryCode().toLowerCase() + ".gif")
-                        .apply(new RequestOptions()
-                                .centerCrop()
-                                .circleCrop())
-                        .into(ivFlag);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Glide.with(getApplicationContext())
-                        .load("file:///android_asset/" + "flags/"
-                                + countryListBean.getCountries().get(0).getCountryCode().toLowerCase() + ".gif")
-                        .apply(new RequestOptions()
-                                .centerCrop()
-                                .circleCrop())
-                        .into(ivFlag);
-            }
-        });
-
-
-        etxtOne.addTextChangedListener(new TextWatcher() {
-
-            public void onTextChanged(CharSequence s, int start, int before,
-                                      int count) {
-                Integer textlength1 = etxtOne.getText().length();
-
-                if (textlength1 >= 1) {
-                    etxtOne.setBackgroundResource(R.drawable.circle_white_with_app_edge);
-                    etxtTwo.requestFocus();
-                } else {
-                    etxtOne.setBackgroundResource(R.drawable.circle_white_with_gray_edge);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count,
-                                          int after) {
-            }
-        });
-
-        etxtTwo.addTextChangedListener(new TextWatcher() {
-
-            public void onTextChanged(CharSequence s, int start, int before,
-                                      int count) {
-                Integer textlength2 = etxtTwo.getText().length();
-
-                if (textlength2 >= 1) {
-                    etxtTwo.setBackgroundResource(R.drawable.circle_white_with_app_edge);
-                    etxtThree.requestFocus();
-                } else {
-                    etxtTwo.setBackgroundResource(R.drawable.circle_white_with_gray_edge);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count,
-                                          int after) {
-
-            }
-        });
-
-        etxtThree.addTextChangedListener(new TextWatcher() {
-
-            public void onTextChanged(CharSequence s, int start, int before,
-                                      int count) {
-                Integer textlength3 = etxtThree.getText().length();
-
-                if (textlength3 >= 1) {
-                    etxtThree.setBackgroundResource(R.drawable.circle_white_with_app_edge);
-                    etxtFour.requestFocus();
-                } else {
-                    etxtThree.setBackgroundResource(R.drawable.circle_white_with_gray_edge);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count,
-                                          int after) {
-
-            }
-        });
-
-        etxtFour.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Integer textlength4 = etxtFour.getText().toString().length();
-
-                if (textlength4 == 1) {
-                    etxtFour.setBackgroundResource(R.drawable.circle_white_with_app_edge);
-                    etxtFive.requestFocus();
-                } else {
-                    etxtFour.setBackgroundResource(R.drawable.circle_white_with_gray_edge);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-        });
-        etxtFive.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Integer textlength4 = etxtFive.getText().toString().length();
-
-                if (textlength4 == 1) {
-                    etxtFive.setBackgroundResource(R.drawable.circle_white_with_app_edge);
-                    etxtSix.requestFocus();
-                } else {
-                    etxtFive.setBackgroundResource(R.drawable.circle_white_with_gray_edge);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-        });
-        etxtSix.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Integer textlength4 = etxtSix.getText().toString().length();
-
-                if (textlength4 == 1) {
-                    etxtSix.setBackgroundResource(R.drawable.circle_white_with_app_edge);
-                } else {
-                    etxtSix.setBackgroundResource(R.drawable.circle_white_with_gray_edge);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-        });
-
-        etxtSix.setOnDeleteKeyClick(new OTPEditText.OnDeleteKeyClick() {
-            @Override
-            public void onDeleteKeyClick(boolean isPressed) {
-
-                int i = etxtSix.getText().toString().length();
-                if (i == 0) {
-                    etxtFive.setText("");
-                    etxtFive.requestFocus();
-                }
-            }
-        });
-        etxtFive.setOnDeleteKeyClick(new OTPEditText.OnDeleteKeyClick() {
-            @Override
-            public void onDeleteKeyClick(boolean isPressed) {
-
-                int i = etxtFive.getText().toString().length();
-                if (i == 0) {
-                    etxtFour.setText("");
-                    etxtFour.requestFocus();
-                }
-            }
-        });
-        etxtFour.setOnDeleteKeyClick(new OTPEditText.OnDeleteKeyClick() {
-            @Override
-            public void onDeleteKeyClick(boolean isPressed) {
-
-                int i = etxtFour.getText().toString().length();
-                if (i == 0) {
-                    etxtThree.setText("");
-                    etxtThree.requestFocus();
-                }
-            }
-        });
-
-        etxtThree.setOnDeleteKeyClick(new OTPEditText.OnDeleteKeyClick() {
-            @Override
-            public void onDeleteKeyClick(boolean isPressed) {
-
-                int i = etxtThree.getText().toString().length();
-                if (i == 0) {
-                    etxtTwo.setText("");
-                    etxtTwo.requestFocus();
-                }
-            }
-        });
-
-        etxtTwo.setOnDeleteKeyClick(new OTPEditText.OnDeleteKeyClick() {
-            @Override
-            public void onDeleteKeyClick(boolean isPressed) {
-
-                int i = etxtTwo.getText().toString().length();
-                if (i == 0) {
-                    etxtOne.setText("");
-                    etxtOne.requestFocus();
-                }
-            }
-        });
-
-        etxtSix.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-
-                    if (etxtOne.getText().toString().length() == 0) {
-                        etxtOne.requestFocus();
-                    } else if (etxtTwo.getText().toString().length() == 0) {
-                        etxtTwo.requestFocus();
-                    } else if (etxtThree.getText().toString().length() == 0) {
-                        etxtThree.requestFocus();
-                    } else if (etxtFour.getText().toString().length() == 0) {
-                        etxtFour.requestFocus();
-                    } else if (etxtFour.getText().toString().length() == 0) {
-                        etxtFive.requestFocus();
-                    }
-                }
-            }
-        });
-
-        etxtFive.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-
-                    if (etxtOne.getText().toString().length() == 0) {
-                        etxtOne.requestFocus();
-                    } else if (etxtTwo.getText().toString().length() == 0) {
-                        etxtTwo.requestFocus();
-                    } else if (etxtThree.getText().toString().length() == 0) {
-                        etxtThree.requestFocus();
-                    } else if (etxtFour.getText().toString().length() == 0) {
-                        etxtFour.requestFocus();
-                    }
-                }
-            }
-        });
-
-        etxtFour.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-
-                    if (etxtOne.getText().toString().length() == 0) {
-                        etxtOne.requestFocus();
-                    } else if (etxtTwo.getText().toString().length() == 0) {
-                        etxtTwo.requestFocus();
-                    } else if (etxtThree.getText().toString().length() == 0) {
-                        etxtThree.requestFocus();
-                    }
-                }
-            }
-        });
-
-        etxtThree.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-
-                    if (etxtOne.getText().toString().length() == 0) {
-                        etxtOne.requestFocus();
-                    } else if (etxtTwo.getText().toString().length() == 0) {
-                        etxtTwo.requestFocus();
-                    }
-
-                }
-            }
-        });
-
-        etxtTwo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-
-                    if (etxtOne.getText().toString().length() == 0) {
-                        etxtOne.requestFocus();
-                    }
-                }
-            }
-        });
-
-        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-            @Override
-            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-
-                Log.d(TAG, "onVerificationCompleted:" + phoneAuthCredential);
-
-                signInWithPhoneAuthCredential(phoneAuthCredential);
-
-            }
-
-            @Override
-            public void onVerificationFailed(FirebaseException e) {
-
-                // This callback is invoked in an invalid request for verification is made,
-                // for instance if the the phone number format is not valid.
-                Log.w(TAG, "onVerificationFailed", e);
-
-                if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                    Log.i(TAG, "onVerificationFailed: " + e);
-                } else if (e instanceof FirebaseTooManyRequestsException) {
-                    Log.i(TAG, "onVerificationFailed: " + e);
-                }
-
-                Snackbar.make(coordinatorLayout, R.string.message_phone_verification_failed, Snackbar.LENGTH_LONG)
-                        .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
-
-            }
-
-            @Override
-            public void onCodeSent(String verificationId,
-                                   PhoneAuthProvider.ForceResendingToken token) {
-                // The SMS verification code has been sent to the provided phone number, we
-                // now need to ask the user to enter the code and then construct a credential
-                // by combining the code with a verification ID.
-                Log.d(TAG, "onCodeSent:" + verificationId);
-
-                // Save verification ID and resending token so we can use them later
-                mVerificationId = verificationId;
-                mResendToken = token;
-
-                Snackbar.make(coordinatorLayout, getString(R.string.message_verification_code_sent_to) + " " + phone, Snackbar.LENGTH_LONG)
-                        .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
-
-                setVerificationLayoutVisibility(true);
-                swipeView.setRefreshing(false);
-
-            }
-        };
+        txtResend = (TextView) findViewById(R.id.txt_mobile_verification_resend);
 
     }
 
-    private void setVerificationLayoutVisibility(boolean isVisible) {
+    public void onMobileVerificationResendCodeClick(View view) {
+        view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
 
-        if (isVisible) {
-            llVerification.setVisibility(View.VISIBLE);
-            txtVerificationLabel.setVisibility(View.VISIBLE);
-            etxtOne.requestFocus();
-            isVerificationEnabled = true;
+        if (isLogin) {
+            performLogin();
         } else {
-            llVerification.setVisibility(View.GONE);
-            txtVerificationLabel.setVisibility(View.GONE);
-            etxtOne.setText("");
-            etxtTwo.setText("");
-            etxtThree.setText("");
-            etxtFour.setText("");
-            etxtFive.setText("");
-            etxtSix.setText("");
-            isVerificationEnabled = false;
+            performPhoneRegistration();
         }
-
 
     }
 
     public void onMobileVerificationSubmitClick(View view) {
         view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-        //mVibrator.vibrate(25);
+        //        mVibrator.vibrate(25);
 
-
-        if (isVerificationEnabled) {
-            otpCode = "" + etxtOne.getText().toString() + etxtTwo.getText().toString()
-                    + etxtThree.getText().toString() + etxtFour.getText().toString()
-                    + etxtFive.getText().toString() + etxtSix.getText().toString();
-
-            if (!otpCode.equalsIgnoreCase("")) {
-                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, otpCode);
-                signInWithPhoneAuthCredential(credential);
-            } else {
-                Snackbar.make(coordinatorLayout, getString(R.string.message_invalid_verification_code), Snackbar.LENGTH_LONG)
-                        .setAction(getString(R.string.btn_dismiss), snackBarDismissOnClickListener).show();
-            }
-
+        if (collectOTP().length() == 6) {
+            performOTPSubmit();
         } else {
-            if (collectMobileNumber()) {
-//            performPhoneRegistration();
-                performMobileAvailabilityCheck(phone);
-
-            }
+            Snackbar.make(coordinatorLayout, R.string.message_otp_length_error, Snackbar.LENGTH_LONG)
+                    .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
         }
 
     }
 
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+    private void performOTPSubmit() {
+
         swipeView.setRefreshing(true);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            swipeView.setRefreshing(false);
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCredential:success");
+        JSONObject postData = getOTPSubmitJSObj();
 
-                            FirebaseUser user = task.getResult().getUser();
-
-                            Log.i(TAG, "onComplete: USER : " + user);
-
-                            Intent intent = new Intent();
-                            intent.putExtra("phone", phone);
-                            setResult(RESULT_OK, intent);
-                            finish();
-
-
-                        } else {
-                            swipeView.setRefreshing(false);
-                            // Sign in failed, display a message and update the UI
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                // The verification code entered was invalid
-
-                                Snackbar.make(coordinatorLayout, R.string.message_invalid_verification_code, Snackbar.LENGTH_LONG)
-                                        .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
-                            }
-                        }
-                    }
-                });
-    }
-
-
-    private boolean collectMobileNumber() {
-
-        Log.i(TAG, "collectMobileNumber: Spinner Value : " + spinnerCountryCodes.getSelectedItem().toString());
-
-        if (spinnerCountryCodes.getSelectedItem().toString().equalsIgnoreCase("")) {
-            Snackbar.make(coordinatorLayout, getString(R.string.message_please_select_a_country_dial_code), Snackbar.LENGTH_LONG)
-                    .setAction(getString(R.string.btn_dismiss), snackBarDismissOnClickListener).show();
-            return false;
-        }
-        if (etxtPhone.getText().toString().equalsIgnoreCase("")) {
-            Snackbar.make(coordinatorLayout, getString(R.string.message_phone_number_is_required), Snackbar.LENGTH_LONG)
-                    .setAction(getString(R.string.btn_dismiss), snackBarDismissOnClickListener).show();
-            return false;
-        }
-
-
-        phone = spinnerCountryCodes.getSelectedItem().toString() + etxtPhone.getText().toString();
-
-        return true;
-    }
-
-    private void initiatePhoneVerification() {
-
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phone,        // Phone number to verify
-                2,                 // Timeout duration
-                TimeUnit.MINUTES,   // Unit of timeout
-                this,               // Activity (for callback binding)
-                mCallbacks);
-
-
-        Snackbar.make(coordinatorLayout, R.string.message_sending_verification_code, Snackbar.LENGTH_LONG)
-                .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
-        swipeView.setRefreshing(true);
-
-    }
-
-    public void performMobileAvailabilityCheck(final String phone) {
-
-//        setProgressScreenVisibility(true, true);
-        swipeView.setRefreshing(true);
-
-        JSONObject postData = getPhoneNumberAvailabilityJSObj(phone);
-
-        DataManager.performMobileAvailabilityCheck(postData, new BasicListener() {
+        DataManager.performOTPSubmit(postData, new LoginListener() {
 
             @Override
-            public void onLoadCompleted(BasicBean basicBean) {
+            public void onLoadCompleted(AuthBean authBean) {
                 swipeView.setRefreshing(false);
-//                setProgressScreenVisibility(false, false);
-
-                if (basicBean.isPhoneAvailable()) {
-                    initiatePhoneVerification();
-                } else {
-                    Snackbar.make(coordinatorLayout, phone + " " + getString(R.string.message_is_already_registered), Snackbar.LENGTH_LONG)
-                            .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
-                }
+                App.saveToken(authBean);
+                startActivity(new Intent(MobileVerificationActivity.this, HomeActivity.class));
+                finish();
             }
 
             @Override
@@ -651,19 +133,135 @@ public class MobileVerificationActivity extends BaseAppCompatNoDrawerActivity {
                 swipeView.setRefreshing(false);
                 Snackbar.make(coordinatorLayout, error, Snackbar.LENGTH_LONG)
                         .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
-//                setProgressScreenVisibility(false, false);
+
             }
         });
     }
 
-    private JSONObject getPhoneNumberAvailabilityJSObj(String phone) {
-
+    private JSONObject getOTPSubmitJSObj() {
         JSONObject postData = new JSONObject();
         try {
             postData.put("phone", phone);
+            postData.put("otp", collectOTP());
+            postData.put("is_login", isLogin);
+
+            if (isLogin) {
+                postData.put("password", password);
+            } else {
+                postData.put("name", name);
+                postData.put("email", email);
+                postData.put("password", password);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         return postData;
     }
+
+
+    private String collectOTP() {
+
+        String otp = "";
+        otp = etxtOne.getText().toString() + etxtTwo.getText().toString() + etxtThree.getText().toString()
+                + etxtFour.getText().toString() + etxtFive.getText().toString() + etxtSix.getText().toString();
+
+        return otp;
+    }
+
+    private void performPhoneRegistration() {
+        swipeView.setRefreshing(true);
+        JSONObject postData = getPhoneRegistrationJSObj();
+
+        DataManager.performPhoneRegistration(postData, new PhoneRegistrationListener() {
+
+            @Override
+            public void onLoadCompleted(RegistrationBean registrationBean) {
+                swipeView.setRefreshing(false);
+                PopupMessage popupMessage = new PopupMessage(MobileVerificationActivity.this);
+                popupMessage.show(getString(R.string.message_otp_sent_to_your_phone), getString(R.string.btn_ok));
+
+            }
+
+            @Override
+            public void onLoadFailed(String error) {
+                swipeView.setRefreshing(false);
+                Snackbar.make(coordinatorLayout, error, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
+
+            }
+        });
+    }
+
+    private JSONObject getPhoneRegistrationJSObj() {
+        JSONObject postData = new JSONObject();
+        try {
+
+            postData.put("phone", phone);
+            postData.put("email", email);
+            postData.put("name", name);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return postData;
+    }
+
+    private void performLogin() {
+
+        swipeView.setRefreshing(true);
+        JSONObject postData = getLoginJSObj();
+
+        DataManager.performLogin(postData, new PhoneRegistrationListener() {
+            @Override
+            public void onLoadCompleted(RegistrationBean registrationBean) {
+                swipeView.setRefreshing(false);
+
+                PopupMessage popupMessage = new PopupMessage(MobileVerificationActivity.this);
+                popupMessage.show(getString(R.string.message_otp_sent_to_your_phone), getString(R.string.btn_ok));
+
+            }
+
+            @Override
+            public void onLoadFailed(String error) {
+                swipeView.setRefreshing(false);
+                Snackbar.make(coordinatorLayout, error, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
+            }
+        });
+    }
+
+    private JSONObject getLoginJSObj() {
+        JSONObject postData = new JSONObject();
+
+        try {
+            postData.put("phone", phone);
+            postData.put("password", password);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return postData;
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finish();
+        }
+
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            if (collectOTP().length() == 6) {
+                performOTPSubmit();
+            } else {
+                Snackbar.make(coordinatorLayout, R.string.message_otp_length_error, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.btn_dismiss, snackBarDismissOnClickListener).show();
+            }
+        }
+        return false;
+    }
+
 }

@@ -149,7 +149,7 @@ public class HelpListActivity extends BaseAppCompatNoDrawerActivity {
         view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
         //mVibrator.vibrate(25);
 
-        if (.isNetworkAvailable()) {
+        if (App.isNetworkAvailable()) {
             performHelpPageReview(true);
         } else {
             Snackbar.make(coordinatorLayout, AppConstants.NO_NETWORK_AVAILABLE, Snackbar.LENGTH_LONG)

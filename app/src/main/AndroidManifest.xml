@@ -20,9 +20,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!-- Remove this to remove Fabric -->
         <meta-data
-            android:name="io.fabric.ApiKey"
+            android:name="com.google.firebase.crashlytics.mapping_file_id"
             android:value="FABRIC_API_KEY"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -43,19 +42,15 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent"/>
 
-        <service android:name=".services.LaDriverFirebaseMessagingService">
+        <service android:name=".services.LaDriverFirebaseMessagingService"
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-        <service android:name=".services.LaDriverFirebaseInstanceIDService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-            </intent-filter>
-        </service>
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -121,7 +116,7 @@
         </activity>
         <activity
             android:name=".activity.DriverDocumentsActivity"
-            android:screenOrientation="portrait">
+            android.screenOrientation="portrait">
         </activity>
         <activity
             android:name=".activity.ProfilePhotoUploadActivity"

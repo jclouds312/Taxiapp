@@ -1,14 +1,13 @@
 package in.techware.ladriver.adapter;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import in.techware.ladriver.fragments.AccountsFragment;
 import in.techware.ladriver.fragments.EarningsFragment;
 import in.techware.ladriver.fragments.HomeFragment;
 import in.techware.ladriver.fragments.RatingsFragment;
-
 
 public class HomePagerAdapter extends FragmentPagerAdapter {
 
@@ -18,7 +17,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     private AccountsFragment accountsFragment;
 
     public HomePagerAdapter(FragmentManager fm) {
-        super(fm);
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
     }
 
     @Override

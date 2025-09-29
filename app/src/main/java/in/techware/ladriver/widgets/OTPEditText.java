@@ -15,7 +15,7 @@ import android.widget.EditText;
 
 import java.util.Random;
 
-public class OTPEditText extends android.support.v7.widget.AppCompatEditText {
+public class OTPEditText extends androidx.appcompat.widget.AppCompatEditText {
 
     private Random r = new Random();
 

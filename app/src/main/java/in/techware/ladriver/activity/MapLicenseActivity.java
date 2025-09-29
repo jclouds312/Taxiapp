@@ -1,6 +1,6 @@
 package in.techware.ladriver.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import in.techware.ladriver.R;

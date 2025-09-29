@@ -31,7 +31,7 @@ import in.techware.ladriver.fragments.RatingsFragment;
 import in.techware.ladriver.listeners.BasicListener;
 import in.techware.ladriver.model.BasicBean;
 import in.techware.ladriver.net.DataManager;
-import in.techware.ladriver.net.WSAsyncTasks.FCMRegistrationTask;
+import in.techware.ladriver.net.WSAsyncTasks.FCMRegistrationHandler;
 import in.techware.ladriver.util.AppConstants;
 import in.techware.ladriver.util.FileOp;
 import in.techware.ladriver.widgets.CustomTextView;
@@ -271,8 +271,8 @@ public class HomeActivity extends BaseAppCompatActivity implements HomeFragment.
 
     private void initFCM() {
 
-        FCMRegistrationTask fcmRegistrationTask = new FCMRegistrationTask();
-        fcmRegistrationTask.setFCMRegistrationTaskListener(new FCMRegistrationTask.FCMRegistrationTaskListener() {
+        FCMRegistrationHandler fcmRegistrationHandler = new FCMRegistrationHandler();
+        fcmRegistrationHandler.setFCMRegistrationTaskListener(new FCMRegistrationHandler.FCMRegistrationTaskListener() {
             @Override
             public void dataDownloadedSuccessfully(String fcmToken) {
 
@@ -300,7 +300,7 @@ public class HomeActivity extends BaseAppCompatActivity implements HomeFragment.
 
             }
         });
-        fcmRegistrationTask.execute();
+        fcmRegistrationHandler.performFCMRegistration();
 
     }
 

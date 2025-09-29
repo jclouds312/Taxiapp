@@ -1,7 +1,7 @@
 package in.techware.ladriver.model;
 
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.maps.model.LatLng;
 

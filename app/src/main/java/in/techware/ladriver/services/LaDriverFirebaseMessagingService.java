@@ -1,107 +1,57 @@
 package in.techware.ladriver.services;
 
-import android.content.Intent;
 import android.util.Log;
 
-import com.google.firebase.messaging.FirebaseMessagingService;
-import com.google.firebase.messaging.RemoteMessage;
+import androidx.annotation.NonNull;
 
-import in.techware.ladriver.activity.HomeActivity;
-import in.techware.ladriver.activity.RequestConfirmationActivity;
-import in.techware.ladriver.activity.SplashActivity;
-import in.techware.ladriver.activity.TripDetailsActivity;
+import com.google.firebase.messaging.FirebaseMessagingService;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import in.techware.ladriver.config.Config;
+import in.techware.ladriver.listeners.BasicListener;
 import in.techware.ladriver.model.BasicBean;
-import in.techware.ladriver.net.parsers.RequestParser;
+import in.techware.ladriver.net.DataManager;
 
 public class LaDriverFirebaseMessagingService extends FirebaseMessagingService {
-
-    private static final String TAG = "LFMService";
+    private static final String TAG = "LTFMService";
 
     @Override
-    public void onMessageReceived(RemoteMessage remoteMessage) {
-        // ...
+    public void onNewToken(@NonNull String refreshedToken) {
+        super.onNewToken(refreshedToken);
+        Log.d(TAG, "Refreshed token: " + refreshedToken);
 
-        // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
-        Log.i(TAG, "From: " + remoteMessage.getFrom());
+        // If you want to send messages to this application instance or
+        // manage this apps subscriptions on the server side, send the
+        // Instance ID token to your app server.
 
-        // Check if message contains a data payload.
-        if (remoteMessage.getData().size() > 0) {
-            Log.i(TAG, "Message data payload: " + remoteMessage.getData());
-            Log.i(TAG, "Response: " + remoteMessage.getData().get("response"));
+        if (Config.getInstance().getAuthToken() != null && !Config.getInstance().getAuthToken().equalsIgnoreCase("")) {
+            JSONObject postData = getUpdateFCMTokenJSObj(refreshedToken);
 
+            DataManager.performUpdateFCMToken(postData, new BasicListener() {
+                @Override
+                public void onLoadCompleted(BasicBean basicBean) {
 
-            String body = remoteMessage.getData().get("response");
-            RequestParser requestParser = new RequestParser();
-            BasicBean basicBean = requestParser.parseBasicResponse(body);
-
-            if (basicBean == null)
-                stopSelf();
-            else {
-                if (basicBean.getStatus().equalsIgnoreCase("Success")) {
-//                    initiateDriverRatingService(basicBean.getId());
-                    if (basicBean.getRequestID() != null && !basicBean.getRequestID().equalsIgnoreCase("")) {
-                        initiateDriverRatingService(basicBean.getRequestID());
-                    } else if (basicBean.getTripID() != null && !basicBean.getTripID().equalsIgnoreCase("")){
-                        startActivity(new Intent(this, TripDetailsActivity.class)
-                                .putExtra("trip_id", basicBean.getTripID())
-                                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
-                    }else{
-                        stopSelf();
-                    }
-                } else if (basicBean.getStatus().equalsIgnoreCase("Error")) {
-                    stopSelf();
-                } else {
-                    stopSelf();
                 }
-            }
 
-            if (/* Check if data needs to be processed by long running job */ true) {
-                // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
-//                scheduleJob();
-            } else {
-                // Handle message within 10 seconds
-//                handleNow();
-            }
+                @Override
+                public void onLoadFailed(String error) {
 
-        }
-
-        // Check if message contains a notification payload.
-        if (remoteMessage.getNotification() != null) {
-            Log.i(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
-            String body = remoteMessage.getNotification().getBody();
-
-            RequestParser requestParser = new RequestParser();
-            BasicBean basicBean = requestParser.parseBasicResponse(body);
-
-            if (basicBean == null)
-                stopSelf();
-            else {
-                if (basicBean.getStatus().equalsIgnoreCase("Success")) {
-//                    initiateDriverRatingService(basicBean.getId());
-                    initiateDriverRatingService(basicBean.getRequestID());
-                } else if (basicBean.getStatus().equalsIgnoreCase("Error")) {
-                    stopSelf();
-                } else {
-                    stopSelf();
                 }
-            }
-
-
+            });
         }
-
-        // Also if you intend on generating your own notifications as a result of a received FCM
-        // message, here is where that should be initiated. See sendNotification method below.
     }
 
+    private JSONObject getUpdateFCMTokenJSObj(String fcmToken) {
+        JSONObject postData = new JSONObject();
 
-    public void initiateDriverRatingService(String requestID) {
+        try {
+            postData.put("fcm_token", fcmToken);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-        Log.i(TAG, "initiateDriverRatingService: >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SERVICE STARTED>>>>>>>>>>>>>>>>>>>>>");
-
-        Intent intent = new Intent(this, RequestConfirmationActivity.class);
-        intent.putExtra("request_id", requestID);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-
+        return postData;
     }
 }

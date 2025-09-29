@@ -11,6 +11,9 @@ public class BaseBean {
     @SerializedName("error")
     @Expose
     private String error;
+    @SerializedName("message")
+    @Expose
+    private String webMessage;
 
     public boolean getStatus() {
         return status;
@@ -18,6 +21,10 @@ public class BaseBean {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status.equalsIgnoreCase("success");
     }
 
     public String getError() {
@@ -28,4 +35,15 @@ public class BaseBean {
         this.error = error;
     }
 
+    public void setErrorMsg(String error) {
+        this.error = error;
+    }
+
+    public String getWebMessage() {
+        return webMessage;
+    }
+
+    public void setWebMessage(String webMessage) {
+        this.webMessage = webMessage;
+    }
 }
