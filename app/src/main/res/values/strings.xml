@@ -397,4 +397,9 @@
 
     </string-array>
 
+    <string name="toast_please_select_a_reason">Please select a reason</string>
+    <string name="toast_your_feedback_is_submitted">Your feedback is submitted</string>
+    <string name="message_otp_length_error">OTP length error</string>
+    <string name="message_otp_sent_to_your_phone">OTP sent to your phone</string>
+
 </resources>

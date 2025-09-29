@@ -2,7 +2,6 @@ package in.techware.ladriver.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.widget.Toolbar;
 import android.view.HapticFeedbackConstants;
@@ -14,13 +13,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import in.techware.ladriver.R;
+import in.techware.ladriver.app.App;
 import in.techware.ladriver.dialogs.PopupMessage;
+import in.techware.ladriver.listeners.BasicListener;
 import in.techware.ladriver.listeners.LoginListener;
 import in.techware.ladriver.listeners.PhoneRegistrationListener;
 import in.techware.ladriver.model.AuthBean;
+import in.techware.ladriver.model.BasicBean;
 import in.techware.ladriver.model.RegistrationBean;
 import in.techware.ladriver.net.DataManager;
-import in.techware.ladriver.util.AppConstants;
 import in.techware.ladriver.widgets.OTPEditText;
 
 public class MobileVerificationActivity extends BaseAppCompatActivity {
@@ -75,7 +76,7 @@ public class MobileVerificationActivity extends BaseAppCompatActivity {
 
         coordinatorLayout.removeView(toolbar);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar_mobile_verification);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         etxtOne = (OTPEditText) findViewById(R.id.etxt_mobile_verification_one);
@@ -85,7 +86,7 @@ public class MobileVerificationActivity extends BaseAppCompatActivity {
         etxtFive = (OTPEditText) findViewById(R.id.etxt_mobile_verification_five);
         etxtSix = (OTPEditText) findViewById(R.id.etxt_mobile_verification_six);
 
-        txtResend = (TextView) findViewById(R.id.txt_mobile_verification_resend);
+//        txtResend = (TextView) findViewById(R.id.txt_resend);
 
     }
 
@@ -118,12 +119,12 @@ public class MobileVerificationActivity extends BaseAppCompatActivity {
         swipeView.setRefreshing(true);
         JSONObject postData = getOTPSubmitJSObj();
 
-        DataManager.performOTPSubmit(postData, new LoginListener() {
+        DataManager.performOTPSubmit(postData, new BasicListener() {
 
             @Override
-            public void onLoadCompleted(AuthBean authBean) {
+            public void onLoadCompleted(BasicBean basicBean) {
                 swipeView.setRefreshing(false);
-                App.saveToken(authBean);
+//                App.saveToken(authBean);
                 startActivity(new Intent(MobileVerificationActivity.this, HomeActivity.class));
                 finish();
             }
@@ -176,10 +177,10 @@ public class MobileVerificationActivity extends BaseAppCompatActivity {
         DataManager.performPhoneRegistration(postData, new PhoneRegistrationListener() {
 
             @Override
-            public void onLoadCompleted(RegistrationBean registrationBean) {
+            public void onLoadCompleted(AuthBean authBean) {
                 swipeView.setRefreshing(false);
                 PopupMessage popupMessage = new PopupMessage(MobileVerificationActivity.this);
-                popupMessage.show(getString(R.string.message_otp_sent_to_your_phone), getString(R.string.btn_ok));
+                popupMessage.show(getString(R.string.message_otp_sent_to_your_phone), 0);
 
             }
 
@@ -213,13 +214,13 @@ public class MobileVerificationActivity extends BaseAppCompatActivity {
         swipeView.setRefreshing(true);
         JSONObject postData = getLoginJSObj();
 
-        DataManager.performLogin(postData, new PhoneRegistrationListener() {
+        DataManager.performLogin(postData, new LoginListener() {
             @Override
-            public void onLoadCompleted(RegistrationBean registrationBean) {
+            public void onLoadCompleted(AuthBean authBean) {
                 swipeView.setRefreshing(false);
 
                 PopupMessage popupMessage = new PopupMessage(MobileVerificationActivity.this);
-                popupMessage.show(getString(R.string.message_otp_sent_to_your_phone), getString(R.string.btn_ok));
+                popupMessage.show(getString(R.string.message_otp_sent_to_your_phone), 0);
 
             }
 
