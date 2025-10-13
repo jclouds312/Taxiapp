@@ -4,10 +4,10 @@ workflows:
     max_build_duration: 60
     instance_type: mac_mini_m1
     environment:
-      android_signing:
-        - keystore_reference
-      groups:
-        - google_play
+      # android_signing:
+      #   - keystore_reference  # Uncomment and configure in CodeMagic UI
+      # groups:
+      #   - google_play  # Uncomment when you have Play Store credentials
       vars:
         PACKAGE_NAME: "in.techware.lataxidriver"
         # Add your Google Maps API key here or as a secure variable
@@ -107,7 +107,7 @@ workflows:
           artifact_type: apk
 
   android-debug-workflow:
-    name: Android Simple Driver - Debug Build
+    name: Android Simple Driver - Debug Build (No Signing Required)
     max_build_duration: 30
     instance_type: mac_mini_m1
     environment:
