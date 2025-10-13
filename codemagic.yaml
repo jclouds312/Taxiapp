@@ -33,7 +33,6 @@ workflows:
           fi
           cd . && ./gradlew bundleRelease -PversionCode=$UPDATED_BUILD_NUMBER -PversionName=1.0.$UPDATED_BUILD_NUMBER
     artifacts:
-      - app/build/outputs/**/*.apk
       - app/build/outputs/**/*.aab
       - app/build/outputs/**/mapping.txt
     publishing:
