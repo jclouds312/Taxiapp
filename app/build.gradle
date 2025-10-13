@@ -16,8 +16,9 @@ android {
         applicationId "in.techware.lataxidriver"
         minSdkVersion 19
         targetSdkVersion 33
-        versionCode 8
-        versionName "1.0.7"
+        // Read from project properties if provided (for CodeMagic), otherwise use defaults
+        versionCode project.hasProperty('versionCode') ? project.property('versionCode').toInteger() : 8
+        versionName project.hasProperty('versionName') ? project.property('versionName') : "1.0.7"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true

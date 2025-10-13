@@ -37,11 +37,12 @@ GCLOUD_SERVICE_ACCOUNT_CREDENTIALS = <JSON de cuenta de servicio>
 ## 📱 Workflows Disponibles
 
 ### 1. **android-workflow** (Release - Producción)
-- Genera APK y AAB firmados
-- Incrementa versionCode automáticamente
+- Genera **AAB (Android App Bundle)** firmado para Google Play
+- Incrementa versionCode automáticamente desde Google Play
 - Publica en Google Play (track: internal)
-- Genera ProGuard mapping
+- Genera ProGuard mapping para crash reports
 - **Duración**: ~60 min máx
+- **Nota**: Usa AAB porque es el formato requerido por Google Play
 
 ### 2. **android-debug-workflow** (Debug - Testing)
 - Genera APK de debug rápido
@@ -69,10 +70,10 @@ Después de cada build exitoso, encontrarás:
 
 ```
 app/build/outputs/
-├── apk/release/
-│   └── app-release.apk          # APK firmado
 ├── bundle/release/
-│   └── app-release.aab          # Bundle para Google Play
+│   └── app-release.aab          # Bundle para Google Play (workflow release)
+├── apk/debug/
+│   └── app-debug.apk            # APK de debug (workflow debug)
 └── mapping/release/
     └── mapping.txt              # ProGuard mapping (crash reports)
 ```
