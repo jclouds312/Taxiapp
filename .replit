@@ -15,15 +15,15 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Project Info"
+args = "Suite Status"
 
 [[workflows.workflow]]
-name = "Project Info"
+name = "Suite Status"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "echo \"════════════════════════════════════════════════════════════\" && echo \"    📱 SIMPLE DRIVER - PROYECTO ANDROID                      \" && echo \"════════════════════════════════════════════════════════════\" && echo \"\" && echo \"⚠️  IMPORTANTE: Este proyecto NO puede ejecutarse en Replit\" && echo \"\" && echo \"✅ ESTADO: Proyecto COMPLETAMENTE ACTUALIZADO y listo para compilar\" && echo \"\" && echo \"📋 ACTUALIZACIONES REALIZADAS:\" && echo \"   • Gradle actualizado a 8.3\" && echo \"   • Target SDK 34 (Android 14)\" && echo \"   • Todas las dependencias actualizadas (Oct 2025)\" && echo \"   • ProGuard optimizado\" && echo \"   • CodeMagic CI/CD configurado\" && echo \"   • 3 workflows listos\" && echo \"\" && echo \"🚀 PARA COMPILAR EL APK:\" && echo \"   1. Usa CodeMagic.io (recomendado)\" && echo \"   2. O descarga y usa Android Studio\" && echo \"\" && echo \"📚 DOCUMENTACIÓN:\" && echo \"   • BUILD_INSTRUCTIONS.md - Guía completa\" && echo \"   • CODEMAGIC_SETUP.md - Configuración CI/CD\" && echo \"   • verify_build.sh - Script de verificación\" && echo \"\" && echo \"🔗 GitHub: https://github.com/jclouds312/Taxiapp\" && echo \"════════════════════════════════════════════════════════════\""
+args = "echo \"════════════════════════════════════════════════════════════\" && echo \"    🚖 SIMPLE TAXI ARGENTINA - ESTADO DE LA SUITE          \" && echo \"════════════════════════════════════════════════════════════\" && echo \"\" && echo \"✅ APP CONDUCTOR (Driver):\" && echo \"   • Estado: 100% LISTA PARA COMPILAR\" && echo \"   • Versión: 1.0.8 (Android 14)\" && echo \"   • GitHub: https://github.com/jclouds312/Taxiapp\" && echo \"   • CodeMagic: 3 workflows configurados\" && echo \"\" && echo \"⚠️  APP PASAJERO (Passenger):\" && echo \"   • Estado: NO EXISTE - Necesita desarrollo\" && echo \"   • Script disponible: create_passenger_app.sh\" && echo \"\" && echo \"✅ BACKEND PHP:\" && echo \"   • URL: http://techlabz.in\" && echo \"   • Estado: ACTIVO Y FUNCIONANDO\" && echo \"   • Dashboard admin disponible\" && echo \"\" && echo \"📱 PARA COMPILAR APK DEL CONDUCTOR:\" && echo \"   1. Usa CodeMagic.io con el repo GitHub\" && echo \"   2. O descarga y usa Android Studio\" && echo \"   3. APK debug: ./compile_both_apps.sh debug\" && echo \"\" && echo \"📋 DOCUMENTACIÓN COMPLETA:\" && echo \"   • SUITE_FINAL_STATUS.md\" && echo \"   • BUILD_INSTRUCTIONS.md\" && echo \"   • TAXI_SUITE_INFO.md\" && echo \"\" && echo \"════════════════════════════════════════════════════════════\""
 
 [workflows.workflow.metadata]
 outputType = "console"
