@@ -17,6 +17,10 @@ author = "agent"
 task = "workflow.run"
 args = "Android Info"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Git Push v2"
+
 [[workflows.workflow]]
 name = "Android Info"
 author = "agent"
@@ -24,6 +28,17 @@ author = "agent"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "bash scripts/android_info.sh"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow]]
+name = "Git Push v2"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "bash auto_push.sh"
 
 [workflows.workflow.metadata]
 outputType = "console"
