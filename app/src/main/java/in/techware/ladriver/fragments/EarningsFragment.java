@@ -188,6 +188,8 @@ public class EarningsFragment extends BaseFragment {
                 view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                 //mVibrator.vibrate(25);
 
+                Intent payStatementsIntent = new Intent(getActivity(), PayStatementsActivity.class);
+                startActivity(payStatementsIntent);
             }
         });
 
