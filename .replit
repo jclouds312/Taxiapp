@@ -15,30 +15,15 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Android Info"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Git Push v2"
+args = "Project Info"
 
 [[workflows.workflow]]
-name = "Android Info"
+name = "Project Info"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "bash scripts/android_info.sh"
-
-[workflows.workflow.metadata]
-outputType = "console"
-
-[[workflows.workflow]]
-name = "Git Push v2"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "bash auto_push.sh"
+args = "echo \"════════════════════════════════════════════════════════════\" && echo \"    📱 SIMPLE DRIVER - PROYECTO ANDROID                      \" && echo \"════════════════════════════════════════════════════════════\" && echo \"\" && echo \"⚠️  IMPORTANTE: Este proyecto NO puede ejecutarse en Replit\" && echo \"\" && echo \"✅ ESTADO: Proyecto COMPLETAMENTE ACTUALIZADO y listo para compilar\" && echo \"\" && echo \"📋 ACTUALIZACIONES REALIZADAS:\" && echo \"   • Gradle actualizado a 8.3\" && echo \"   • Target SDK 34 (Android 14)\" && echo \"   • Todas las dependencias actualizadas (Oct 2025)\" && echo \"   • ProGuard optimizado\" && echo \"   • CodeMagic CI/CD configurado\" && echo \"   • 3 workflows listos\" && echo \"\" && echo \"🚀 PARA COMPILAR EL APK:\" && echo \"   1. Usa CodeMagic.io (recomendado)\" && echo \"   2. O descarga y usa Android Studio\" && echo \"\" && echo \"📚 DOCUMENTACIÓN:\" && echo \"   • BUILD_INSTRUCTIONS.md - Guía completa\" && echo \"   • CODEMAGIC_SETUP.md - Configuración CI/CD\" && echo \"   • verify_build.sh - Script de verificación\" && echo \"\" && echo \"🔗 GitHub: https://github.com/jclouds312/Taxiapp\" && echo \"════════════════════════════════════════════════════════════\""
 
 [workflows.workflow.metadata]
 outputType = "console"
