@@ -123,27 +123,27 @@ implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
 ## 🚀 Cómo Compilar el APK
 
-### Opción 1: CodeMagic (Recomendado - CI/CD Automático)
+### Opción 1: CodeMagic (Recomendado - CI/CD Automático) ⭐
 
-El proyecto ya está configurado con `codemagic.yaml`:
+El proyecto está **completamente configurado** con `codemagic.yaml` actualizado:
 
-1. **Conectar Repositorio**:
-   - Ve a [Codemagic.io](https://codemagic.io)
-   - Conecta este repositorio
+**📋 Workflows disponibles:**
+- **android-workflow**: Build de release con firma y publicación a Google Play
+- **android-debug-workflow**: Build rápido de debug para testing
 
-2. **Configurar Variables de Entorno**:
-   ```
-   GOOGLE_SERVICES: <contenido de google-services.json en Base64>
-   KEYSTORE: <archivo keystore en Base64>
-   KEYSTORE_PASSWORD: <contraseña del keystore>
-   KEY_ALIAS: <alias de la clave>
-   KEY_PASSWORD: <contraseña de la clave>
-   ```
+**🔧 Setup rápido:**
+1. Ve a [Codemagic.io](https://codemagic.io) y conecta este repositorio
+2. Configura las variables de entorno (ver `CODEMAGIC_SETUP.md` para detalles)
+3. Haz push a tu rama → Build automático
 
-3. **Compilar**:
-   - Haz push a tu rama
-   - CodeMagic compilará automáticamente
-   - APK disponible en artifacts
+**📚 Documentación completa**: Ver archivo `CODEMAGIC_SETUP.md`
+
+**✅ Características:**
+- Versionado automático desde Google Play
+- Genera APK y AAB firmados
+- ProGuard mapping para crash reports
+- Publicación automática a Google Play (internal track)
+- Notificaciones por email
 
 ### Opción 2: Android Studio (Local)
 
@@ -247,15 +247,60 @@ La aplicación requiere:
 - No afectan la compilación en Android Studio o CodeMagic
 - Ignorar errores de imports de Android en Replit
 
+## 🌿 Gestión de Ramas
+
+### Ramas Disponibles
+
+**Repositorio**: `https://github.com/jclouds312/Taxiapp`
+
+1. **v1** (rama principal)
+   - Código completo con todas las funcionalidades
+   - Pay Statements implementado
+   - Control de Volumen implementado
+   - Firebase configurado
+   - CodeMagic configurado
+   
+2. **replit-agent** (rama de trabajo)
+   - Mismo contenido que v1
+   - Historial de commits diferente
+   - Sincronizada con v1
+
+### Estado de las Ramas
+- ✅ Ambas ramas tienen el **mismo código**
+- ✅ Todas las dependencias actualizadas
+- ✅ Firebase configurado correctamente
+- ✅ CodeMagic listo en ambas
+
+### Flujo de Trabajo
+```bash
+# Ver ramas
+git branch -a
+
+# Cambiar de rama
+git checkout v1
+git checkout replit-agent
+
+# Subir cambios a GitHub
+git push origin v1
+git push origin replit-agent
+```
+
 ## 📞 Soporte
 
 Para compilar este proyecto, usa:
-- **CodeMagic**: Compilación automática en la nube
+- **CodeMagic**: Compilación automática en la nube (ver `CODEMAGIC_SETUP.md`)
 - **Android Studio**: Desarrollo local
 - **Firebase Console**: Distribución a testers
+
+## 📚 Archivos de Documentación
+
+- **`replit.md`**: Documentación principal del proyecto
+- **`CODEMAGIC_SETUP.md`**: Guía completa de CodeMagic
+- **`README.md`**: Información general
+- **`codemagic.yaml`**: Configuración CI/CD
 
 ---
 
 **Última actualización**: Octubre 2025  
 **Mantenedor**: Simple Taxi Argentina  
-**Estado**: ✅ Listo para compilación externa
+**Estado**: ✅ Listo para compilación externa y deployment con CodeMagic
