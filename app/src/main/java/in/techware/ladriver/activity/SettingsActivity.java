@@ -1,7 +1,9 @@
 package in.techware.ladriver.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.HapticFeedbackConstants;
@@ -34,6 +36,7 @@ public class SettingsActivity extends BaseAppCompatNoDrawerActivity {
     private boolean isOnline;
     private SeekBar seekbarVolume;
     private SharedPreferences mSharedPrefs;
+    private AudioManager audioManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +48,17 @@ public class SettingsActivity extends BaseAppCompatNoDrawerActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
 
-
-
-
         initViews();
 
-
-
         if (mSharedPrefs != null) {
-            int mProgress = mSharedPrefs.getInt("mMySeekBarProgress", 0);
+            int mProgress = mSharedPrefs.getInt("mMySeekBarProgress", 50);
             seekbarVolume.setProgress(mProgress);
+            
+            if (audioManager != null) {
+                int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_NOTIFICATION);
+                int currentVolume = (int) ((mProgress / 100.0f) * maxVolume);
+                audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, currentVolume, 0);
+            }
         }
     }
 
@@ -70,7 +74,7 @@ public class SettingsActivity extends BaseAppCompatNoDrawerActivity {
     protected void onResume() {
         super.onResume();
         if (mSharedPrefs != null) {
-            int mProgress = mSharedPrefs.getInt("mMySeekBarProgress", 0);
+            int mProgress = mSharedPrefs.getInt("mMySeekBarProgress", 50);
             seekbarVolume.setProgress(mProgress);
         }
     }
@@ -78,8 +82,31 @@ public class SettingsActivity extends BaseAppCompatNoDrawerActivity {
     private void initViews() {
 
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         seekbarVolume = (SeekBar) findViewById(R.id.seekbar_settings_volume);
+        
+        seekbarVolume.setMax(100);
+        seekbarVolume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (audioManager != null && fromUser) {
+                    int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_NOTIFICATION);
+                    int newVolume = (int) ((progress / 100.0f) * maxVolume);
+                    audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, newVolume, 0);
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                SharedPreferences.Editor mEditor = mSharedPrefs.edit();
+                mEditor.putInt("mMySeekBarProgress", seekBar.getProgress()).apply();
+            }
+        });
 
         switchOnline = (SwitchCompat) findViewById(R.id.settings_online_offline_switch);
 
@@ -93,7 +120,6 @@ public class SettingsActivity extends BaseAppCompatNoDrawerActivity {
             @Override
             public void onClick(View v) {
                 v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-                //mVibrator.vibrate(25);
 
                 setDriverTitle();
                 if (App.isNetworkAvailable()) {
