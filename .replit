@@ -17,6 +17,10 @@ author = "agent"
 task = "workflow.run"
 args = "Suite Status"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Suite Git Push"
+
 [[workflows.workflow]]
 name = "Suite Status"
 author = "agent"
@@ -24,6 +28,17 @@ author = "agent"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "echo \"════════════════════════════════════════════════════════════\" && echo \"    🚖 SIMPLE TAXI ARGENTINA - ESTADO DE LA SUITE          \" && echo \"════════════════════════════════════════════════════════════\" && echo \"\" && echo \"✅ APP CONDUCTOR (Driver):\" && echo \"   • Estado: 100% LISTA PARA COMPILAR\" && echo \"   • Versión: 1.0.8 (Android 14)\" && echo \"   • GitHub: https://github.com/jclouds312/Taxiapp\" && echo \"   • CodeMagic: 3 workflows configurados\" && echo \"\" && echo \"⚠️  APP PASAJERO (Passenger):\" && echo \"   • Estado: NO EXISTE - Necesita desarrollo\" && echo \"   • Script disponible: create_passenger_app.sh\" && echo \"\" && echo \"✅ BACKEND PHP:\" && echo \"   • URL: http://techlabz.in\" && echo \"   • Estado: ACTIVO Y FUNCIONANDO\" && echo \"   • Dashboard admin disponible\" && echo \"\" && echo \"📱 PARA COMPILAR APK DEL CONDUCTOR:\" && echo \"   1. Usa CodeMagic.io con el repo GitHub\" && echo \"   2. O descarga y usa Android Studio\" && echo \"   3. APK debug: ./compile_both_apps.sh debug\" && echo \"\" && echo \"📋 DOCUMENTACIÓN COMPLETA:\" && echo \"   • SUITE_FINAL_STATUS.md\" && echo \"   • BUILD_INSTRUCTIONS.md\" && echo \"   • TAXI_SUITE_INFO.md\" && echo \"\" && echo \"════════════════════════════════════════════════════════════\""
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow]]
+name = "Suite Git Push"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "bash complete_suite_push.sh"
 
 [workflows.workflow.metadata]
 outputType = "console"
