@@ -97,28 +97,33 @@ La aplicación se conecta a un backend externo:
 - ✅ Firebase Crashlytics
 - ✅ Google Services Plugin
 
-## 📦 Dependencias Principales
+## 📦 Dependencias Principales (Actualizadas Oct 2025)
 
 ```gradle
-// AndroidX
+// AndroidX - Última versión estable
 implementation 'androidx.appcompat:appcompat:1.6.1'
-implementation 'com.google.android.material:material:1.8.0'
+implementation 'com.google.android.material:material:1.10.0'
+implementation 'androidx.recyclerview:recyclerview:1.3.2'
+implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-// Firebase
-implementation 'com.google.firebase:firebase-auth:21.2.0'
-implementation 'com.google.firebase:firebase-messaging:23.1.2'
-implementation 'com.google.firebase:firebase-crashlytics:18.3.7'
+// Firebase BOM - Gestión automática de versiones
+implementation platform('com.google.firebase:firebase-bom:32.6.0')
+implementation 'com.google.firebase:firebase-auth'
+implementation 'com.google.firebase:firebase-messaging'
+implementation 'com.google.firebase:firebase-crashlytics'
+implementation 'com.google.firebase:firebase-analytics'
 
 // Google Play Services
-implementation 'com.google.android.gms:play-services-maps:18.1.0'
+implementation 'com.google.android.gms:play-services-maps:18.2.0'
 implementation 'com.google.android.gms:play-services-location:21.0.1'
 
 // Networking & Images
-implementation 'com.squareup.okhttp3:okhttp:4.10.0'
-implementation 'com.github.bumptech.glide:glide:4.15.1'
+implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+implementation 'com.github.bumptech.glide:glide:4.16.0'
 
-// Charts
+// Charts & UI
 implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+implementation 'com.tbuonomo:dotsindicator:5.0'
 ```
 
 ## 🚀 Cómo Compilar el APK
@@ -218,11 +223,15 @@ La aplicación requiere:
 
 ## 📝 Notas de Desarrollo
 
-### Versión Actual
-- **Version Code**: 8
-- **Version Name**: 1.0.7
-- **Target SDK**: 33 (Android 13)
-- **Min SDK**: 19 (Android 4.4)
+### Versión Actual (Actualizada Oct 2025)
+- **Version Code**: 9 (versionado automático en CodeMagic)
+- **Version Name**: 1.0.8
+- **Target SDK**: 34 (Android 14)
+- **Min SDK**: 21 (Android 5.0)
+- **Compile SDK**: 34
+- **Build Tools**: 34.0.0
+- **Gradle**: 8.3
+- **Java**: 11/17 compatible
 
 ### Idioma
 - Español (strings.xml)
