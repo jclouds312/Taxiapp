@@ -1,0 +1,33 @@
+═══════════════════════════════════════════════════════════════
+  COPIA Y PEGA ESTE COMANDO EN EL SHELL DE REPLIT
+═══════════════════════════════════════════════════════════════
+
+git config user.name "jclouds312" && git config user.email "jclouds312@users.noreply.github.com" && git checkout -b apk-pasajeros && git add . && git commit -m "Reestructuración para CodeMagic - Android en raíz" && git push https://jclouds312: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@github.com/jclouds312/Taxiapp.git apk-pasajeros
+
+═══════════════════════════════════════════════════════════════
+  PASOS:
+═══════════════════════════════════════════════════════════════
+
+1. Abre el SHELL de Replit (pestaña abajo o al lado)
+2. Copia todo el comando de arriba (una sola línea)
+3. Pégalo en el Shell
+4. Presiona ENTER
+5. Espera a que termine (verás: "✓ Branch 'apk-pasajeros' set up...")
+
+═══════════════════════════════════════════════════════════════
+  VERIFICAR:
+═══════════════════════════════════════════════════════════════
+
+Después del push, verifica en:
+https://github.com/jclouds312/Taxiapp/branches
+
+Deberías ver la rama "apk-pasajeros" listada.
+
+═══════════════════════════════════════════════════════════════
+  CODEMAGIC:
+═══════════════════════════════════════════════════════════════
+
+Una vez subida, CodeMagic compilará automáticamente el APK.
+Recibirás un email cuando termine.
+
+═══════════════════════════════════════════════════════════════
