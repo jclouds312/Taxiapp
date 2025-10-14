@@ -79,3 +79,6 @@ replit.nix
 .cache/
 .upm/
 .breakpoints
+
+# Old project structure (to be removed)
+Source Codes/
