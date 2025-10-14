@@ -21,6 +21,10 @@ args = "Suite Status"
 task = "workflow.run"
 args = "Suite Git Push"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Dashboard Admin"
+
 [[workflows.workflow]]
 name = "Suite Status"
 author = "agent"
@@ -42,3 +46,23 @@ args = "bash complete_suite_push.sh"
 
 [workflows.workflow.metadata]
 outputType = "console"
+
+[[workflows.workflow]]
+name = "Dashboard Admin"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd taxi-admin-dashboard && npm run dev"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 42589
+externalPort = 3000
