@@ -4,3 +4,26 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Project Info"
+
+[[workflows.workflow]]
+name = "Project Info"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "echo \"=== LATAXI ANDROID APP ===\" && echo \"\" && echo \"Este es un proyecto Android que se compila en CodeMagic\" && echo \"\" && echo \"Estado del proyecto:\" && echo \"- Configuración: ✓ CodeMagic configurado\" && echo \"- Build system: Gradle 7.2.2\" && echo \"- Archivos: $(find 'Source Codes/LaTaxi' -type f -name '*.java' | wc -l) archivos Java\" && echo \"\" && echo \"Para compilar:\" && echo \"1. Sube cambios a GitHub\" && echo \"2. CodeMagic detectará y compilará automáticamente\" && echo \"\" && echo \"Repositorio: https://github.com/jclouds312/Taxiapp.git\" && sleep infinity"
+
+[workflows.workflow.metadata]
+outputType = "console"
