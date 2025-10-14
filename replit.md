@@ -301,6 +301,21 @@ Para compilar este proyecto, usa:
 
 ---
 
-**Última actualización**: Octubre 2025  
+## 🔄 Últimas Modificaciones
+
+### Octubre 14, 2025 - Configuración de CodeMagic
+- ✅ **Resuelto error de keystore**: Comentada sección `android_signing` 
+- ✅ **Resuelto error de Google Play**: Comentadas credenciales y publicación
+- ✅ **Versionado simplificado**: Usa `BUILD_NUMBER` de CodeMagic
+- ✅ **Integración GitHub**: Configurada en Replit para push automático
+- 📌 **Commits recientes**:
+  - `b742927` - Fix google_play publishing
+  - `3c94ba3` - Fix android_signing keystore
+
+**Nota**: El workflow actual genera APK/AAB sin firmar, ideal para desarrollo y testing.
+
+---
+
+**Última actualización**: Octubre 14, 2025  
 **Mantenedor**: Simple Taxi Argentina  
-**Estado**: ✅ Listo para compilación externa y deployment con CodeMagic
+**Estado**: ✅ Listo para compilación en CodeMagic (sin keystore/credenciales de producción)
