@@ -1,4 +1,4 @@
-# ProGuard rules for Simple Driver App - Optimized
+# ProGuard rules for Simple Passenger App
 
 # Preserve line numbers for debugging
 -keepattributes SourceFile,LineNumberTable
@@ -16,17 +16,13 @@
     public <init>(android.content.Context, android.util.AttributeSet, int);
 }
 
-# Keep model classes - CRITICAL for API communication
--keep class in.techware.ladriver.model.** { *; }
--keepclassmembers class in.techware.ladriver.model.** { *; }
+# Keep model classes
+-keep class in.techware.lapassenger.model.** { *; }
+-keepclassmembers class in.techware.lapassenger.model.** { *; }
 
-# Keep net package - API parsers and invokers
--keep class in.techware.ladriver.net.** { *; }
--keepclassmembers class in.techware.ladriver.net.** { *; }
-
-# Keep parsers
--keep class in.techware.ladriver.net.parsers.** { *; }
--keep class in.techware.ladriver.net.invokers.** { *; }
+# Keep net package
+-keep class in.techware.lapassenger.net.** { *; }
+-keepclassmembers class in.techware.lapassenger.net.** { *; }
 
 # OkHttp3
 -dontwarn okhttp3.**
@@ -40,10 +36,6 @@
 -keepattributes *Annotation*
 -keep class sun.misc.Unsafe { *; }
 -keep class com.google.gson.stream.** { *; }
--keep class * implements com.google.gson.TypeAdapter
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
 
 # Google Play Services & Firebase
 -keep class com.google.android.gms.** { *; }
@@ -60,13 +52,8 @@
 }
 -dontwarn com.bumptech.glide.load.resource.bitmap.VideoDecoder
 
-# MPAndroidChart
--keep class com.github.mikephil.charting.** { *; }
--dontwarn com.github.mikephil.charting.**
-
-# Firebase Crashlytics
--keepattributes SourceFile,LineNumberTable
--keep public class * extends java.lang.Exception
+# Stripe
+-keep class com.stripe.android.** { *; }
 
 # Remove logging in release builds
 -assumenosideeffects class android.util.Log {
