@@ -29,6 +29,17 @@ echo ""
 # Crear/cambiar a rama de suite completa
 git checkout -b $BRANCH_NAME 2>/dev/null || git checkout $BRANCH_NAME
 
+# Primero agregar archivos específicos de PayStatements si existen
+if [ -f "app/src/main/java/in/techware/ladriver/model/PayStatementBean.java" ]; then
+    git add app/src/main/java/in/techware/ladriver/model/PayStatementBean.java
+fi
+if [ -f "app/src/main/java/in/techware/ladriver/adapter/PayStatementsAdapter.java" ]; then
+    git add app/src/main/java/in/techware/ladriver/adapter/PayStatementsAdapter.java
+fi
+if [ -f "app/src/main/java/in/techware/ladriver/net/invokers/PayStatementsInvoker.java" ]; then
+    git add app/src/main/java/in/techware/ladriver/net/invokers/PayStatementsInvoker.java
+fi
+
 # Agregar todos los archivos
 git add -A
 
