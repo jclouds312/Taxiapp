@@ -40,6 +40,7 @@ import java.util.HashMap;
 
 import in.techware.ladriver.R;
 import in.techware.ladriver.activity.TripHistoryActivity;
+import in.techware.ladriver.activity.PayStatementsActivity;
 import in.techware.ladriver.app.App;
 import in.techware.ladriver.listeners.WeeklyEarningsListener;
 import in.techware.ladriver.model.DailyEarningBean;
