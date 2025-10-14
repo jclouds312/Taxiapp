@@ -10,20 +10,17 @@ workflows:
     scripts:
       - name: Set up local.properties
         script: | 
-          cd "Source Codes/LaTaxi"
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
       - name: Get Gradle version
         script: | 
-          cd "Source Codes/LaTaxi"
           ./gradlew --version
       - name: Build Android APK
         script: | 
-          cd "Source Codes/LaTaxi"
           UPDATED_BUILD_NUMBER=$BUILD_NUMBER
           ./gradlew assembleRelease -PversionCode=$UPDATED_BUILD_NUMBER -PversionName=1.0.$UPDATED_BUILD_NUMBER
     artifacts:
-      - Source Codes/LaTaxi/app/build/outputs/**/*.apk
-      - Source Codes/LaTaxi/app/build/outputs/**/mapping.txt
+      - app/build/outputs/**/*.apk
+      - app/build/outputs/**/mapping.txt
     publishing:
       email:
         recipients:
@@ -43,20 +40,17 @@ workflows:
     scripts:
       - name: Set up local.properties
         script: | 
-          cd "Source Codes/LaTaxi"
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
       - name: Get Gradle version
         script: | 
-          cd "Source Codes/LaTaxi"
           ./gradlew --version
       - name: Build Android APK
         script: | 
-          cd "Source Codes/LaTaxi"
           UPDATED_BUILD_NUMBER=$BUILD_NUMBER
           ./gradlew assembleRelease -PversionCode=$UPDATED_BUILD_NUMBER -PversionName=1.0.$UPDATED_BUILD_NUMBER
     artifacts:
-      - Source Codes/LaTaxi/app/build/outputs/**/*.apk
-      - Source Codes/LaTaxi/app/build/outputs/**/mapping.txt
+      - app/build/outputs/**/*.apk
+      - app/build/outputs/**/mapping.txt
     publishing:
       email:
         recipients:
@@ -65,8 +59,8 @@ workflows:
           success: true
           failure: true
 
-  android-passenger-debug:
-    name: Android Passenger Debug Build (Fast)
+  android-debug:
+    name: Android Debug Build (Fast)
     max_build_duration: 30
     instance_type: mac_mini_m1
     environment:
@@ -74,14 +68,12 @@ workflows:
     scripts:
       - name: Set up local.properties
         script: | 
-          cd "Source Codes/LaTaxi"
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
       - name: Build debug APK
         script: | 
-          cd "Source Codes/LaTaxi"
           ./gradlew assembleDebug
     artifacts:
-      - Source Codes/LaTaxi/app/build/outputs/**/*.apk
+      - app/build/outputs/**/*.apk
     publishing:
       email:
         recipients:
